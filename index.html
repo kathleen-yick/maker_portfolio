@@ -1,0 +1,1244 @@
+<title>Kathleen Yick Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@85..118,400..700&family=DM+Mono:wght@400;500&family=Karla:wght@300..600&display=swap">
+
+<div id="shell">
+<style>
+/* ---------- reset ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%;display:block}
+button,input,textarea,select{font:inherit;color:inherit}
+[hidden]{display:none!important}
+:where(h1,h2,h3,h4,p,ul,ol,figure,dl){margin:0}
+ul,ol{padding:0;list-style:none}
+
+/* ---------- tokens: light (default, matches the board) ---------- */
+:root{
+  color-scheme:light;
+  --ground:#6E6461;
+  --ground-2:#7A706C;
+  --panel:#F4F2F1;
+  --panel-2:#E9E5E3;
+  --ink:#3C3330;
+  --ink-2:#6E625E;
+  --ink-3:#948783;
+  --rule:#D9D2CF;
+  --blush:#CFBFBC;
+  --blush-2:#DFD3D1;
+  --rose:#9E585B;
+  --rose-soft:#B87578;
+  --header:#564C49;
+  --header-ink:#F6F3F2;
+  --shadow:0 18px 40px -28px rgba(30,22,20,.55);
+  --focus:#9E585B;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#211C1A;
+    --ground-2:#2A2320;
+    --panel:#332B29;
+    --panel-2:#3D3431;
+    --ink:#EFE8E5;
+    --ink-2:#BDAFAA;
+    --ink-3:#8D7F7A;
+    --rule:#4A403C;
+    --blush:#584743;
+    --blush-2:#4A3B38;
+    --rose:#D9979A;
+    --rose-soft:#C08386;
+    --header:#171311;
+    --header-ink:#F1EAE7;
+    --shadow:0 18px 40px -28px rgba(0,0,0,.8);
+    --focus:#D9979A;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#211C1A;
+  --ground-2:#2A2320;
+  --panel:#332B29;
+  --panel-2:#3D3431;
+  --ink:#EFE8E5;
+  --ink-2:#BDAFAA;
+  --ink-3:#8D7F7A;
+  --rule:#4A403C;
+  --blush:#584743;
+  --blush-2:#4A3B38;
+  --rose:#D9979A;
+  --rose-soft:#C08386;
+  --header:#171311;
+  --header-ink:#F1EAE7;
+  --shadow:0 18px 40px -28px rgba(0,0,0,.8);
+  --focus:#D9979A;
+}
+
+/* ---------- base ---------- */
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:Karla,"Helvetica Neue",Arial,sans-serif;
+  font-weight:400;
+  font-size:15px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.disp{font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-variation-settings:"wdth" 100;text-wrap:balance}
+.mono{font-family:"DM Mono",ui-monospace,Menlo,Consolas,monospace}
+a{color:var(--rose);text-decoration-thickness:1px;text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+@media (max-width:640px){.wrap{padding:0 16px}}
+
+/* ---------- masthead ---------- */
+.masthead{position:relative;padding-top:34px}
+.arc{position:absolute;left:8px;top:0;width:180px;height:120px;pointer-events:none;opacity:.75}
+.arc path{fill:none;stroke:var(--panel);stroke-width:1.6}
+.titleblock{
+  position:relative;display:inline-block;background:var(--header);color:var(--header-ink);
+  padding:20px 34px 20px 26px;margin-left:8px;
+}
+.titleblock h1{font-size:20px;font-weight:700;line-height:1.3;letter-spacing:.005em;font-variation-settings:"wdth" 96}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:0;padding:16px 8px 22px;color:var(--panel)}
+.nav a{
+  font-family:Archivo,sans-serif;font-size:16px;font-weight:400;letter-spacing:.06em;
+  color:var(--panel);text-decoration:none;padding:4px 14px;opacity:.82;
+  border-bottom:1.5px solid transparent;transition:opacity .18s,border-color .18s;
+}
+.nav a:hover{opacity:1}
+.nav a[aria-current="true"]{opacity:1;border-bottom-color:var(--rose-soft)}
+.nav .bar{color:var(--panel);opacity:.5}
+.navwrap{position:sticky;top:0;z-index:30;background:linear-gradient(var(--ground) 72%,transparent);backdrop-filter:blur(2px)}
+
+/* ---------- panels ---------- */
+main{padding-bottom:70px}
+.panel{
+  background:var(--panel);box-shadow:var(--shadow);
+  padding:44px 46px 50px;margin:0 0 34px;scroll-margin-top:74px;
+}
+@media (max-width:640px){.panel{padding:30px 20px 34px}}
+.sec-h{font-size:27px;font-weight:600;letter-spacing:-.01em;font-variation-settings:"wdth" 92;display:flex;align-items:baseline;gap:12px}
+.sec-h::before{content:"";flex:0 0 2px;height:.86em;background:var(--rose);border-radius:1px;transform:translateY(.06em)}
+.sub-h{font-size:19px;font-weight:600;letter-spacing:-.005em;display:flex;align-items:baseline;gap:10px;font-variation-settings:"wdth" 92}
+.sub-h::before{content:"";flex:0 0 2px;height:.82em;background:var(--rose);border-radius:1px;transform:translateY(.06em)}
+.eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.prose{max-width:62ch;color:var(--ink-2)}
+.prose p+p{margin-top:.85em}
+
+/* ---------- about ---------- */
+.about-top{display:grid;grid-template-columns:132px 1fr;gap:30px;align-items:start;margin-top:20px}
+.portrait{background:var(--blush-2);aspect-ratio:3/4;overflow:hidden}
+.portrait img,.portrait svg,.side-img svg{width:100%;height:100%;display:block;object-fit:cover}
+.about-info{display:grid;grid-template-columns:1fr 190px;gap:34px;align-items:start;margin-top:44px}
+.info-list{display:grid;gap:2px;margin-top:14px}
+.info-row{display:grid;grid-template-columns:132px 1fr;gap:10px;padding:5px 0;border-bottom:1px solid var(--rule);font-size:14px}
+.info-row dt{color:var(--ink);font-weight:600}
+.info-row dd{margin:0;color:var(--ink-2);overflow-wrap:anywhere}
+.side-img{background:var(--blush-2);aspect-ratio:1/1;overflow:hidden}
+.side-img img{width:100%;height:100%;object-fit:cover}
+@media (max-width:760px){
+  .about-top{grid-template-columns:104px 1fr;gap:20px}
+  .about-info{grid-template-columns:1fr;gap:24px}
+  .side-img{max-width:190px}
+  .info-row{grid-template-columns:104px 1fr}
+}
+
+/* ---------- featured ---------- */
+.featured{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:22px;align-items:start}
+.feat{display:grid;gap:12px;text-align:left;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit}
+.feat .thumb{width:100%;background:var(--blush)}
+.feat:nth-child(1) .thumb{aspect-ratio:3/4}
+.feat:nth-child(2) .thumb{aspect-ratio:4/3}
+.feat:nth-child(3) .thumb{aspect-ratio:1/1}
+.feat h4{font-size:15px;font-weight:700}
+.feat p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.feat:hover h4{color:var(--rose)}
+@media (max-width:760px){.featured{grid-template-columns:1fr 1fr;gap:18px}}
+@media (max-width:460px){.featured{grid-template-columns:1fr}}
+
+/* thumb art */
+.thumb{position:relative;overflow:hidden;background:var(--blush)}
+.thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.thumb svg{width:100%;height:100%;display:block}
+
+/* ---------- resume ---------- */
+.paperframe{background:var(--blush);padding:16px;margin-top:24px;max-width:760px}
+.paper{background:#fff;aspect-ratio:8.5/11;width:100%;border:0;display:block}
+.paper-empty{
+  background:var(--panel);aspect-ratio:8.5/11;display:grid;place-content:center;gap:8px;
+  text-align:center;padding:30px;color:var(--ink-3)
+}
+.resume-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;align-items:center}
+
+/* ---------- projects ---------- */
+.cats{display:flex;flex-wrap:wrap;align-items:center;gap:0;margin-top:10px}
+.cats button{
+  font-family:Archivo,sans-serif;font-size:16px;background:none;border:0;cursor:pointer;
+  padding:4px 14px;color:var(--ink-2);border-bottom:1.5px solid transparent;letter-spacing:.03em;
+}
+.cats button[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--rose)}
+.cats .bar{color:var(--ink-3)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:28px}
+@media (max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.grid{grid-template-columns:1fr}}
+.card{
+  display:grid;gap:12px;text-align:left;background:none;border:0;padding:0;cursor:pointer;
+  font:inherit;color:inherit;position:relative
+}
+.card .thumb{aspect-ratio:4/3}
+.card .thumb::after{
+  content:"";position:absolute;inset:0;background:var(--ink);opacity:0;transition:opacity .2s
+}
+.card:hover .thumb::after{opacity:.06}
+.card h4{font-size:15.5px;font-weight:700;line-height:1.3}
+.card p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.metaline{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:flex;gap:8px;flex-wrap:wrap}
+.metaline span::after{content:" ·";color:var(--rule)}
+.metaline span:last-child::after{content:""}
+.tag{
+  font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--rose);border:1px solid var(--rose);padding:1px 6px;align-self:start
+}
+.empty{color:var(--ink-3);padding:26px 0;font-size:14px}
+
+/* ---------- life ---------- */
+.life-grid{display:grid;grid-template-columns:1fr 300px;gap:38px;align-items:start;margin-top:20px}
+.life-photos{display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap}
+.life-photos .thumb{background:var(--blush-2)}
+.life-photos .thumb:nth-child(odd){width:150px;aspect-ratio:3/4}
+.life-photos .thumb:nth-child(even){width:104px;aspect-ratio:3/4}
+.links{display:grid;gap:6px;margin-top:20px}
+.links a{
+  display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--rule);
+  text-decoration:none;color:var(--ink);font-size:14px
+}
+.links a:hover{color:var(--rose)}
+.links a .arrow{color:var(--ink-3)}
+@media (max-width:760px){.life-grid{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+footer.site{padding:8px 8px 40px;color:var(--panel);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer.site .fnote{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;opacity:.6}
+.editlink{
+  font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  background:none;border:1px solid rgba(244,242,241,.28);color:var(--panel);opacity:.55;
+  padding:5px 11px;cursor:pointer;transition:opacity .18s,border-color .18s
+}
+.editlink:hover{opacity:1;border-color:rgba(244,242,241,.6)}
+
+/* ---------- buttons ---------- */
+.btn{
+  font-family:Archivo,sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;
+  background:var(--ink);color:var(--panel);border:1px solid var(--ink);padding:8px 16px;cursor:pointer;
+  transition:background .18s,color .18s
+}
+.btn:hover{background:var(--rose);border-color:var(--rose);color:#fff}
+.btn.ghost{background:none;color:var(--ink);border-color:var(--rule)}
+.btn.ghost:hover{background:none;color:var(--rose);border-color:var(--rose)}
+.btn.sm{font-size:11.5px;padding:5px 10px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* ---------- project dialog ---------- */
+dialog#proj{
+  border:0;padding:0;max-width:900px;width:calc(100% - 32px);background:var(--panel);color:var(--ink);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.7)
+}
+dialog#proj::backdrop{background:rgba(24,18,16,.62)}
+.pd{padding:34px 38px 40px;position:relative}
+@media (max-width:640px){.pd{padding:22px 18px 28px}}
+.pd-close{position:absolute;top:14px;right:16px}
+.pd-media{display:grid;gap:12px;margin:20px 0 24px}
+.pd-media .thumb{aspect-ratio:16/10}
+.pd h3{font-size:25px;font-weight:600;letter-spacing:-.01em;font-variation-settings:"wdth" 94}
+.pd .prose{margin-top:16px}
+.pd-meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px}
+.pd-meta div{display:grid;gap:2px}
+.pd-meta dt{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.pd-meta dd{margin:0;font-size:14px}
+
+/* ---------- editor ---------- */
+body[data-mode="edit"] .app{padding-right:0}
+@media (min-width:1100px){
+  body[data-mode="edit"] .app{padding-right:440px}
+}
+#editor{
+  position:fixed;top:0;right:0;bottom:0;width:440px;max-width:100%;z-index:60;
+  background:var(--panel);border-left:1px solid var(--rule);display:flex;flex-direction:column;
+  box-shadow:-20px 0 50px -30px rgba(0,0,0,.6)
+}
+#editor header{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:14px 18px;border-bottom:1px solid var(--rule);background:var(--header);color:var(--header-ink)
+}
+#editor header h2{font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:Archivo,sans-serif}
+#editor header .btn{background:none;border-color:rgba(246,243,242,.35);color:var(--header-ink)}
+#editor header .btn:hover{background:var(--rose);border-color:var(--rose)}
+.ed-body{overflow-y:auto;flex:1;padding:0 0 20px}
+.ed-note{
+  margin:14px 18px;padding:10px 12px;border-left:2px solid var(--rose);background:var(--panel-2);
+  font-size:12.5px;color:var(--ink-2);line-height:1.5
+}
+.ed-note strong{color:var(--ink)}
+details.ed{border-bottom:1px solid var(--rule)}
+details.ed>summary{
+  cursor:pointer;padding:13px 18px;font-family:Archivo,sans-serif;font-size:13px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between
+}
+details.ed>summary::-webkit-details-marker{display:none}
+details.ed>summary::after{content:"+";color:var(--ink-3)}
+details.ed[open]>summary::after{content:"–"}
+.ed-sec{padding:2px 18px 20px;display:grid;gap:14px}
+.f{display:grid;gap:5px}
+.f label{font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.f input[type=text],.f input[type=url],.f textarea,.f select{
+  background:var(--panel-2);border:1px solid var(--rule);padding:7px 9px;font-size:13.5px;
+  font-family:Karla,sans-serif;width:100%;border-radius:0
+}
+.f textarea{min-height:82px;resize:vertical;line-height:1.5}
+.f .hint{font-size:11.5px;color:var(--ink-3)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ed-item{border:1px solid var(--rule);padding:12px;display:grid;gap:10px;background:var(--panel)}
+details.ed-item{display:block}
+details.ed-item>summary{list-style:none}
+details.ed-item>summary::-webkit-details-marker{display:none}
+.ed-item-head{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.ed-item-head strong{font-size:13px}
+.ed-tools{display:flex;gap:4px}
+.icb{
+  background:none;border:1px solid var(--rule);color:var(--ink-2);cursor:pointer;width:26px;height:26px;
+  display:grid;place-content:center;font-size:12px;line-height:1
+}
+.icb:hover{border-color:var(--rose);color:var(--rose)}
+.icb.danger:hover{border-color:#b4413f;color:#b4413f}
+.thumbstrip{display:flex;gap:8px;flex-wrap:wrap}
+.thumbstrip figure{position:relative;width:64px;height:48px;background:var(--blush);margin:0}
+.thumbstrip img{width:100%;height:100%;object-fit:cover}
+.thumbstrip button{position:absolute;top:-7px;right:-7px;width:18px;height:18px;border-radius:50%;
+  border:1px solid var(--rule);background:var(--panel);cursor:pointer;font-size:10px;line-height:1;padding:0}
+.filebtn{position:relative;overflow:hidden;display:inline-block}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+#editor footer{
+  border-top:1px solid var(--rule);padding:12px 18px;display:grid;gap:9px;background:var(--panel-2)
+}
+.pubrow{display:flex;gap:8px;align-items:center}
+.pubrow .btn{flex:1}
+.status{font-family:"DM Mono",monospace;font-size:11px;color:var(--ink-3);line-height:1.45}
+.status.warn{color:#b4413f}
+.status.ok{color:var(--rose)}
+.samplechip{
+  font-family:"DM Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);border:1px dashed var(--ink-3);padding:0 5px
+}
+body:not([data-mode="edit"]) .samplechip{display:none}
+dialog#ask{border:0;padding:0;background:var(--panel);color:var(--ink);max-width:420px;width:calc(100% - 32px);box-shadow:0 30px 70px -30px rgba(0,0,0,.7)}
+dialog#ask::backdrop{background:rgba(24,18,16,.55)}
+dialog#ask form{padding:22px 24px;display:grid;gap:12px}
+dialog#ask h3{font-size:17px;font-weight:600}
+dialog#ask p{font-size:13.5px;color:var(--ink-2)}
+dialog#ask input{background:var(--panel-2);border:1px solid var(--rule);padding:8px 10px;font-size:14px;width:100%}
+dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:80;
+  background:var(--header);color:var(--header-ink);padding:10px 18px;font-size:13px;
+  box-shadow:0 14px 30px -18px rgba(0,0,0,.7);max-width:min(520px,92vw)
+}
+</style>
+
+<div class="app">
+  <div class="wrap">
+    <div class="masthead">
+      <svg class="arc" viewBox="0 0 180 120" aria-hidden="true"><path d="M176 3 C 92 3, 10 22, 10 118"/></svg>
+      <div class="titleblock"><h1 id="mh-title">Kathleen&rsquo;s Website +<br>About Me Portfolio</h1></div>
+    </div>
+  </div>
+  <div class="navwrap">
+    <div class="wrap">
+      <nav class="nav" id="nav" aria-label="Sections"></nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="panel" id="about" aria-labelledby="about-h">
+      <h2 class="sec-h" id="about-h">About Me</h2>
+      <div class="about-top">
+        <div class="portrait" id="portrait"></div>
+        <div class="prose" id="bio"></div>
+      </div>
+      <div class="about-info">
+        <div>
+          <h3 class="sub-h">Additional Info</h3>
+          <dl class="info-list" id="info"></dl>
+        </div>
+        <div class="side-img" id="sideimg"></div>
+      </div>
+      <div style="margin-top:46px">
+        <h3 class="sub-h">Featured Projects</h3>
+        <div class="featured" id="featured"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="resume" aria-labelledby="resume-h">
+      <h2 class="sec-h" id="resume-h">Resume</h2>
+      <div id="resume-body"></div>
+    </section>
+
+    <section class="panel" id="projects" aria-labelledby="projects-h">
+      <h2 class="sec-h" id="projects-h">Projects</h2>
+      <div class="cats" id="cats"></div>
+      <div class="grid" id="projgrid"></div>
+    </section>
+
+    <section class="panel" id="life" aria-labelledby="life-h">
+      <h2 class="sec-h" id="life-h">Life</h2>
+      <div class="life-grid">
+        <div>
+          <div class="prose" id="life-intro"></div>
+          <div class="life-photos" id="life-photos" style="margin:26px 0"></div>
+          <div class="prose" id="life-outro"></div>
+        </div>
+        <div>
+          <h3 class="sub-h">Elsewhere</h3>
+          <div class="links" id="life-links"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="wrap">
+    <footer class="site">
+      <span class="fnote" id="foot-note"></span>
+      <button class="editlink" id="open-editor" type="button">Editor</button>
+    </footer>
+  </div>
+</div>
+
+<dialog id="proj" aria-label="Project detail"><div class="pd" id="pd"></div></dialog>
+<dialog id="ask" aria-label="Confirm"><form method="dialog" id="askform"></form></dialog>
+
+<script type="application/json" id="portfolio-data">
+{"version":1,"sample":true,"site":{"titleLine1":"Kathleen's Website +","titleLine2":"About Me Portfolio","navName":"kathleen yick","footer":"Kathleen Yick — portfolio"},"about":{"bio":"I like problems that sit where hardware meets the people using it: a mechanism that has to survive a drop test, an interface that has to be read in one glance, a process that has to be repeatable by someone who wasn't in the room when it was designed.\n\nThis site collects the engineering, design, and personal work I keep coming back to. Each project has the same three parts — what it had to do, what I actually built, and what I'd do differently.","portrait":"","sideImage":"","info":[{"label":"Contact","value":"kathleen@example.com"},{"label":"Resume","value":"See the Resume section"},{"label":"School and Year","value":"Example University, Class of 2027"},{"label":"Major","value":"Mechanical Engineering, Design minor"},{"label":"CV","value":"Available on request"},{"label":"Awards","value":"Dean's List, 2024–2025"}]},"resume":{"file":null,"link":"","note":"tbd"},"projects":[{"id":"p1","category":"engineering","title":"Compliant gripper for fragile parts","blurb":"A single-piece flexure gripper that holds thin glass slides without a servo per finger.","description":"The lab needed to move 0.7 mm glass slides between a wash bath and an imaging stage. Off-the-shelf grippers either crushed the slides or dropped them when wet.\n\nI designed a monolithic flexure that trades joints for bending: one linear actuator drives both fingers, and the flexure geometry sets the contact force instead of a control loop. Printed in nylon, tuned across four spring-rate variants, and tested to 2,000 cycles.\n\nWhat I'd change: the first version was tuned for dry slides. Wet ones slipped until I added a shallow silicone pad, which should have been in the design from the start.","year":"2025","role":"Design, FEA, testing","tools":"SolidWorks, Ansys, SLS nylon","link":"","images":[],"featured":true,"sample":true},{"id":"p2","category":"engineering","title":"Solar tracker control loop","blurb":"A two-axis tracker that gains 22% over a fixed panel without chasing clouds.","description":"A naive light-seeking tracker burns more energy hunting than it gains on an overcast day. This one runs an astronomical position model as the primary reference and only uses the photodiode array to correct drift, with a dead band wide enough to ignore passing clouds.\n\nMeasured against a fixed panel on the same roof over six weeks: +22% average daily yield, and no measurable motor duty penalty on overcast days.","year":"2024","role":"Firmware, mechanical","tools":"STM32, C, aluminium extrusion","link":"","images":[],"featured":true,"sample":true},{"id":"p3","category":"engineering","title":"Heat exchanger test rig","blurb":"A benchtop rig that characterises small plate exchangers in under an hour.","description":"Built for a thermofluids course and then kept in use by the lab. Two instrumented loops, a variable-speed pump on each side, and a logging script that produces the effectiveness–NTU curve directly rather than leaving students to plot it by hand.\n\nThe useful part turned out to be the fixture, not the electronics: a quick-release manifold means a new exchanger goes in and is producing data in about ten minutes.","year":"2024","role":"Rig design, instrumentation","tools":"Python, thermocouples, LabJack","link":"","images":[],"featured":false,"sample":true},{"id":"p4","category":"design","title":"Ceramics studio identity","blurb":"A visual system for a community studio, built to be run by volunteers.","description":"The studio changes hands every term, so the identity had to survive being used by people who have never opened a design file. The system is four rules on one page: one typeface at three sizes, one clay-slip colour, photographs on a neutral ground, and everything else left alone.\n\nDelivered as a two-page guide, a set of pre-sized templates, and a folder of shot photographs the studio can reuse.","year":"2025","role":"Identity, templates","tools":"Figma, Risograph","link":"","images":[],"featured":true,"sample":true},{"id":"p5","category":"design","title":"Transit wayfinding kit","blurb":"Platform signage redrawn for a station where three lines share one concourse.","description":"A self-directed study of a station I use daily, where the interchange signage predates two of the three lines and has been patched rather than redesigned.\n\nI mapped every decision point a passenger passes through, counted how many carried contradictory information (eleven of thirty-four), and redrew the set around a single rule: at any decision point, name only the next decision, never the whole network.","year":"2024","role":"Research, signage design","tools":"Illustrator, field survey","link":"","images":[],"featured":false,"sample":true},{"id":"p6","category":"personal","title":"Sourdough log","blurb":"Two years of bakes, logged well enough to actually learn something.","description":"Every bake gets four numbers — starter age, hydration, bulk temperature, and crumb rating — recorded in a spreadsheet that now has 180 rows.\n\nThe scatter plot answered a question I'd been arguing about for a year: bulk temperature explains far more of the crumb variation than hydration does, at least in my kitchen.","year":"2023–2025","role":"Baker, statistician of one","tools":"A notebook, then a spreadsheet","link":"","images":[],"featured":false,"sample":true}],"life":{"intro":"Outside of coursework I'm usually in the ceramics studio, on a trail somewhere with a film camera, or feeding a sourdough starter that has outlasted three apartments.","outro":"I'm always up for a conversation about manufacturing constraints, well-designed signage, or where to find good bread. The fastest way to reach me is email.","photos":[],"links":[{"label":"Email","url":"mailto:kathleen@example.com"},{"label":"LinkedIn","url":""},{"label":"GitHub","url":""},{"label":"Instagram","url":""}]}}
+</script>
+
+<script>
+(function () {
+  "use strict";
+
+  /* Capture the authored page source before anything renders. Publishing
+     splices new data into this snapshot, so the served page is always the
+     page as written, never the live DOM. */
+  var AUTHORED = document.getElementById("shell").outerHTML;
+  var DATA_OPEN = '<script type="application/json" id="portfolio-data">';
+
+  var CATS = [
+    { key: "engineering", label: "Engineering" },
+    { key: "design", label: "Design" },
+    { key: "personal", label: "Personal" }
+  ];
+  var DRAFT_KEY = "ky-portfolio-draft-v1";
+  /* True only inside the Claude viewer, which is the one place this page can
+     save a new version of itself. Everywhere else it exports a file instead. */
+  var ON_CLAUDE = !!(window.claude && typeof window.claude.use === "function");
+
+  var published = JSON.parse(document.getElementById("portfolio-data").textContent);
+  var data = clone(published);
+  var editMode = false;
+  var dirty = false;
+  var readOnly = false;
+  var activeCat = "all";
+  var toastTimer = null;
+
+  /* ---------- small helpers ---------- */
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+  function $(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function safeUrl(u) {
+    var s = String(u || "").trim();
+    if (!s) return "";
+    if (/^(https?:|mailto:|tel:)/i.test(s)) return s;
+    if (/^[\w.-]+@[\w.-]+\.\w+$/.test(s)) return "mailto:" + s;
+    if (/^[\w.-]+\.\w{2,}(\/|$)/.test(s)) return "https://" + s;
+    return "";
+  }
+  function paras(text) {
+    var parts = String(text || "").split(/\n{2,}/).filter(function (p) { return p.trim(); });
+    if (!parts.length) return "";
+    return parts.map(function (p) { return "<p>" + esc(p.trim()).replace(/\n/g, "<br>") + "</p>"; }).join("");
+  }
+  function getPath(obj, path) {
+    return path.split(".").reduce(function (o, k) { return o == null ? o : o[k]; }, obj);
+  }
+  function setPath(obj, path, val) {
+    var keys = path.split("."), last = keys.pop();
+    var target = keys.reduce(function (o, k) { return o[k]; }, obj);
+    target[last] = val;
+  }
+  function uid() { return "p" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+  function catLabel(key) {
+    for (var i = 0; i < CATS.length; i++) if (CATS[i].key === key) return CATS[i].label;
+    return "Project";
+  }
+  /* window.confirm / window.prompt are unreliable inside the sandboxed
+     viewer frame, so the page asks with its own dialog. Resolves to null
+     when the person cancels, a string (or true) when they go ahead. */
+  function ask(opts) {
+    return new Promise(function (resolve) {
+      var dlg = $("ask"), form = $("askform");
+      form.innerHTML = "<h3>" + esc(opts.title) + "</h3>" +
+        (opts.message ? "<p>" + esc(opts.message) + "</p>" : "") +
+        (opts.input ? '<input type="text" id="askinput" value="' + esc(opts.value || "") +
+          '" placeholder="' + esc(opts.placeholder || "") + '" aria-label="' + esc(opts.title) + '">' : "") +
+        '<div class="askrow"><button class="btn ghost sm" type="button" value="cancel">Cancel</button>' +
+        '<button class="btn sm" type="button" value="ok">' + esc(opts.ok || "OK") + "</button></div>";
+      var done = false;
+      function finish(v) {
+        if (done) return;
+        done = true;
+        dlg.removeEventListener("close", onClose);
+        dlg.close();
+        resolve(v);
+      }
+      function onClose() { finish(null); }
+      form.querySelector('[value="cancel"]').onclick = function () { finish(null); };
+      form.querySelector('[value="ok"]').onclick = function () {
+        var inp = $("askinput");
+        finish(opts.input ? (inp.value.trim() || null) : true);
+      };
+      dlg.addEventListener("close", onClose);
+      dlg.showModal();
+      var first = $("askinput") || form.querySelector('[value="ok"]');
+      if (first) first.focus();
+    });
+  }
+
+  function toast(msg) {
+    var t = document.querySelector(".toast");
+    if (!t) { t = document.createElement("div"); t.className = "toast"; t.setAttribute("role", "status"); document.body.appendChild(t); }
+    t.textContent = msg;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.remove(); }, 4200);
+  }
+
+  /* Wireframe-style placeholder art, so a project with no photo still reads
+     as a project rather than a hole in the grid. */
+  function placeholder(kind) {
+    if (kind === "person") {
+      return '<svg viewBox="0 0 60 80" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+        '<rect width="60" height="80" fill="var(--blush-2)"/>' +
+        '<circle cx="30" cy="30" r="8.5" fill="var(--rose-soft)"/>' +
+        '<path d="M30 36 L44 66 Q30 72 16 66 Z" fill="var(--rose-soft)"/></svg>';
+    }
+    return '<svg viewBox="0 0 120 90" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+      '<rect width="120" height="90" fill="var(--blush)"/>' +
+      '<ellipse cx="60" cy="45" rx="25" ry="17" fill="var(--ink)" opacity="0.8"/></svg>';
+  }
+  function art(src, alt, kind) {
+    return src ? '<img src="' + esc(src) + '" alt="' + esc(alt || "") + '" loading="lazy">' : placeholder(kind);
+  }
+
+  /* ---------- render: site ---------- */
+  function renderNav() {
+    var items = [
+      { href: "#about", label: data.site.navName || "about" },
+      { href: "#resume", label: "resume" },
+      { href: "#projects", label: "projects" },
+      { href: "#life", label: "life" }
+    ];
+    $("nav").innerHTML = '<span class="bar">|</span>' + items.map(function (it) {
+      return '<a href="' + it.href + '">' + esc(it.label) + '</a><span class="bar">|</span>';
+    }).join("");
+    $("mh-title").innerHTML = esc(data.site.titleLine1) + "<br>" + esc(data.site.titleLine2);
+    $("foot-note").textContent = data.site.footer || "";
+    document.title = (data.site.navName ? titleCase(data.site.navName) : "Kathleen Yick") + " Portfolio";
+  }
+  function titleCase(s) {
+    return String(s).replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+
+  function renderAbout() {
+    $("portrait").innerHTML = art(data.about.portrait, "Portrait", "person");
+    $("sideimg").innerHTML = art(data.about.sideImage, "", "person");
+    $("bio").innerHTML = paras(data.about.bio) ||
+      '<p class="empty">Add a short introduction from the editor.</p>';
+
+    var rows = (data.about.info || []).filter(function (r) { return editMode || (r.value || "").trim(); });
+    $("info").innerHTML = rows.length ? rows.map(function (r) {
+      return '<div class="info-row"><dt>' + esc(r.label) + ':</dt><dd>' +
+        (r.value ? esc(r.value) : '<span class="empty">—</span>') + "</dd></div>";
+    }).join("") : '<p class="empty">No details yet.</p>';
+
+    var feat = data.projects.filter(function (p) { return p.featured; }).slice(0, 3);
+    $("featured").innerHTML = feat.length ? feat.map(function (p) {
+      return '<button class="feat" data-open="' + esc(p.id) + '" type="button">' +
+        '<span class="thumb">' + art((p.images || [])[0], p.title) + "</span>" +
+        "<h4>" + esc(p.title) + (p.sample ? ' <span class="samplechip">sample</span>' : "") + "</h4>" +
+        "<p>" + esc(p.blurb) + "</p></button>";
+    }).join("") : '<p class="empty">Mark a project as featured in the editor to show it here.</p>';
+  }
+
+  var lastResumeSig = null, lastBlobUrl = null;
+  function renderResume() {
+    var r = data.resume || {};
+    var body = $("resume-body");
+    var sig = JSON.stringify([!!(r.file && r.file.dataUrl), r.file && r.file.name, r.link, r.note]);
+    if (sig === lastResumeSig && body.firstChild) return;
+    lastResumeSig = sig;
+    if (lastBlobUrl) { URL.revokeObjectURL(lastBlobUrl); lastBlobUrl = null; }
+    var html = "";
+    if (r.file && r.file.dataUrl) {
+      html += '<div class="paperframe"><iframe class="paper" id="pdfframe" title="Résumé PDF"></iframe></div>';
+      html += '<div class="resume-actions">' +
+        '<button class="btn" type="button" data-act="download-resume">Download PDF</button>' +
+        '<span class="metaline"><span>' + esc(r.file.name) + "</span><span>" + fmtBytes(r.file.size) + "</span></span></div>";
+    } else if (safeUrl(r.link)) {
+      html += '<div class="paperframe"><div class="paper-empty"><span class="eyebrow">Résumé</span>' +
+        '<p class="prose">Hosted as a linked document.</p></div></div>' +
+        '<div class="resume-actions"><a class="btn" href="' + esc(safeUrl(r.link)) + '" target="_blank" rel="noopener">Open résumé</a></div>';
+    } else {
+      html += '<div class="paperframe"><div class="paper-empty"><span class="eyebrow">No résumé yet</span>' +
+        '<p class="prose">' + esc(r.note || "A PDF can be added from the editor.") + "</p></div></div>";
+    }
+    body.innerHTML = html;
+
+    if (r.file && r.file.dataUrl) {
+      var frame = $("pdfframe");
+      try {
+        lastBlobUrl = URL.createObjectURL(dataUrlToBlob(r.file.dataUrl));
+        frame.src = lastBlobUrl;
+      } catch (e) {
+        frame.src = r.file.dataUrl;
+      }
+    }
+  }
+
+  function renderProjects() {
+    $("cats").innerHTML = '<span class="bar">|</span>' +
+      [{ key: "all", label: "All" }].concat(CATS).map(function (c) {
+        return '<button type="button" data-cat="' + c.key + '" aria-pressed="' + (activeCat === c.key) + '">' +
+          esc(c.label) + '</button><span class="bar">|</span>';
+      }).join("");
+
+    var list = data.projects.filter(function (p) { return activeCat === "all" || p.category === activeCat; });
+    $("projgrid").innerHTML = list.length ? list.map(function (p) {
+      var meta = [p.year, catLabel(p.category)].filter(Boolean)
+        .map(function (m) { return "<span>" + esc(m) + "</span>"; }).join("");
+      return '<button class="card" data-open="' + esc(p.id) + '" type="button">' +
+        '<span class="thumb">' + art((p.images || [])[0], p.title) + "</span>" +
+        '<span class="metaline">' + meta + "</span>" +
+        "<h4>" + esc(p.title) + (p.sample ? ' <span class="samplechip">sample</span>' : "") + "</h4>" +
+        "<p>" + esc(p.blurb) + "</p></button>";
+    }).join("") : '<p class="empty">No projects in this category yet.</p>';
+  }
+
+  function renderLife() {
+    $("life-intro").innerHTML = paras(data.life.intro);
+    $("life-outro").innerHTML = paras(data.life.outro);
+    var photos = data.life.photos || [];
+    $("life-photos").innerHTML = (photos.length ? photos : ["", ""]).slice(0, 6).map(function (src) {
+      return '<span class="thumb">' + art(src, "", "person") + "</span>";
+    }).join("");
+    var links = (data.life.links || []).filter(function (l) { return safeUrl(l.url); });
+    $("life-links").innerHTML = links.length ? links.map(function (l) {
+      var u = safeUrl(l.url);
+      var ext = /^https?:/i.test(u);
+      return '<a href="' + esc(u) + '"' + (ext ? ' target="_blank" rel="noopener"' : "") + ">" +
+        esc(l.label) + '<span class="arrow">' + (ext ? "↗" : "→") + "</span></a>";
+    }).join("") : '<p class="empty">Add links from the editor.</p>';
+  }
+
+  function renderSite() {
+    renderNav(); renderAbout(); renderResume(); renderProjects(); renderLife();
+  }
+
+  /* ---------- project dialog ---------- */
+  function openProject(id) {
+    var p = data.projects.filter(function (x) { return x.id === id; })[0];
+    if (!p) return;
+    var meta = [
+      ["Category", catLabel(p.category)],
+      ["Year", p.year],
+      ["Role", p.role],
+      ["Tools", p.tools]
+    ].filter(function (m) { return m[1]; });
+
+    var media = (p.images && p.images.length ? p.images : [""]).map(function (src) {
+      return '<span class="thumb">' + art(src, p.title) + "</span>";
+    }).join("");
+
+    var link = safeUrl(p.link);
+    $("pd").innerHTML =
+      '<button class="btn ghost sm pd-close" type="button" data-act="close-proj">Close</button>' +
+      '<span class="eyebrow">' + esc(catLabel(p.category)) + "</span>" +
+      "<h3>" + esc(p.title) + "</h3>" +
+      '<dl class="pd-meta">' + meta.map(function (m) {
+        return "<div><dt>" + esc(m[0]) + "</dt><dd>" + esc(m[1]) + "</dd></div>";
+      }).join("") + "</dl>" +
+      '<div class="pd-media">' + media + "</div>" +
+      '<div class="prose">' + (paras(p.description) || "<p>" + esc(p.blurb) + "</p>") + "</div>" +
+      (link ? '<p style="margin-top:18px"><a class="btn" href="' + esc(link) + '" target="_blank" rel="noopener">Open project ↗</a></p>' : "");
+    $("proj").showModal();
+  }
+
+  /* ---------- files ---------- */
+  function fmtBytes(n) {
+    if (!n && n !== 0) return "";
+    if (n < 1024) return n + " B";
+    if (n < 1048576) return (n / 1024).toFixed(0) + " KB";
+    return (n / 1048576).toFixed(1) + " MB";
+  }
+  function dataUrlToBlob(dataUrl) {
+    var parts = dataUrl.split(",");
+    var mime = (parts[0].match(/:(.*?);/) || [, "application/octet-stream"])[1];
+    var bin = atob(parts[1]);
+    var buf = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+    return new Blob([buf], { type: mime });
+  }
+  function readAsDataUrl(file) {
+    return new Promise(function (res, rej) {
+      var fr = new FileReader();
+      fr.onload = function () { res(fr.result); };
+      fr.onerror = function () { rej(fr.error); };
+      fr.readAsDataURL(file);
+    });
+  }
+  /* Photos are resized before they go into the page — a page that carries its
+     own images has a real size budget. */
+  function compressImage(file, maxDim, quality) {
+    return new Promise(function (res, rej) {
+      var url = URL.createObjectURL(file);
+      var img = new Image();
+      img.onload = function () {
+        var scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+        var w = Math.round(img.width * scale), h = Math.round(img.height * scale);
+        var c = document.createElement("canvas");
+        c.width = w; c.height = h;
+        c.getContext("2d").drawImage(img, 0, 0, w, h);
+        URL.revokeObjectURL(url);
+        res(c.toDataURL("image/jpeg", quality));
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); rej(new Error("Could not read that image.")); };
+      img.src = url;
+    });
+  }
+
+  /* ---------- publishing ---------- */
+  function buildDocument(d) {
+    var json = JSON.stringify(d).replace(/</g, "\\u003c");
+    var i = AUTHORED.indexOf(DATA_OPEN);
+    var j = AUTHORED.indexOf("</" + "script>", i);
+    var shell = AUTHORED.slice(0, i + DATA_OPEN.length) + "\n" + json + "\n" + AUTHORED.slice(j);
+    return '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1">\n</head>\n<body>\n' +
+      shell + "\n</body>\n</html>";
+  }
+  function docSize() { return new Blob([buildDocument(data)]).size; }
+
+  function saveDraft() {
+    try { localStorage.setItem(DRAFT_KEY, JSON.stringify(data)); } catch (e) { /* private mode */ }
+  }
+  function clearDraft() {
+    try { localStorage.removeItem(DRAFT_KEY); } catch (e) { }
+  }
+  function loadDraft() {
+    try {
+      var raw = localStorage.getItem(DRAFT_KEY);
+      if (!raw) return null;
+      if (raw === JSON.stringify(published)) { clearDraft(); return null; }
+      return JSON.parse(raw);
+    } catch (e) { return null; }
+  }
+
+  /* Typing shouldn't rebuild the whole document on every keystroke — flag the
+     change immediately, then measure and save once the person pauses. */
+  var saveTimer = null;
+  function markDirty() {
+    dirty = true;
+    var btn = $("btn-publish");
+    if (btn && !readOnly) btn.disabled = false;
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function () {
+      dirty = JSON.stringify(data) !== JSON.stringify(published);
+      saveDraft();
+      updateStatus();
+    }, 600);
+  }
+
+  function updateStatus() {
+    var s = $("ed-status");
+    if (!s) return;
+    var size = docSize();
+    var pieces = [];
+    if (!ON_CLAUDE) pieces.push(dirty ? "Unsaved changes, kept on this device." : "No changes since this file was loaded.");
+    else pieces.push(dirty ? "Unpublished changes, saved on this device." : "Everything here is published.");
+    pieces.push("Page size " + fmtBytes(size) + " of 16 MB.");
+    s.className = "status" + (size > 14e6 ? " warn" : dirty ? " ok" : "");
+    s.textContent = pieces.join(" ");
+    var btn = $("btn-publish");
+    if (btn) btn.disabled = !dirty || readOnly;
+  }
+
+  function setReadOnly(message) {
+    readOnly = true;
+    var f = $("editor");
+    if (f) {
+      var footer = f.querySelector("footer");
+      footer.innerHTML = '<p class="status warn">' + esc(message) + "</p>" +
+        '<div class="pubrow"><button class="btn" type="button" data-act="export">Export index.html</button></div>';
+    }
+    toast(message);
+  }
+
+  async function publish() {
+    var size = docSize();
+    if (size > 15.5e6) {
+      toast("This page is " + fmtBytes(size) + " — too large to publish. Remove or shrink some images.");
+      return;
+    }
+    var btn = $("btn-publish");
+    btn.disabled = true;
+    var status = $("ed-status");
+    status.className = "status";
+    status.textContent = "Publishing…";
+    var api = null;
+    try { api = ON_CLAUDE ? await window.claude.use("artifact") : null; } catch (e) { api = null; }
+    if (!api) {
+      setReadOnly("Publishing isn't available in this view. Export the file instead, or open the page from your own Claude account.");
+      return;
+    }
+    try {
+      await api.publish(buildDocument(data));
+      clearDraft();
+      dirty = false; /* so the reload isn't blocked by the unsaved-changes guard */
+      status.textContent = "Published. Reloading…";
+    } catch (err) {
+      var code = (err && err.code) || "upstream_error";
+      if (code === "not_writer" || code === "not_granted" || code === "consent_required" || code === "not_declared" || code === "capability_disabled") {
+        setReadOnly("This is a read-only view — only the owner of this page can publish changes.");
+      } else if (code === "conflict") {
+        status.className = "status warn";
+        status.textContent = "A newer version was published elsewhere. This view is reloading to it.";
+      } else if (code === "too_large") {
+        status.className = "status warn";
+        status.textContent = "Too large to publish. Remove an image or two and try again.";
+        btn.disabled = false;
+      } else if (code === "rate_limited") {
+        status.className = "status warn";
+        status.textContent = "Publishing too often — wait a moment, then publish again.";
+        btn.disabled = false;
+      } else {
+        status.className = "status warn";
+        status.textContent = "Publish failed (" + code + "). Your changes are still saved on this device.";
+        btn.disabled = false;
+      }
+    }
+  }
+
+  /* ---------- editor ---------- */
+  function field(label, path, opts) {
+    opts = opts || {};
+    var val = esc(getPath(data, path) || "");
+    var input = opts.multiline
+      ? '<textarea data-bind="' + path + '"' + (opts.rows ? ' rows="' + opts.rows + '"' : "") + ">" + val + "</textarea>"
+      : '<input type="text" data-bind="' + path + '" value="' + val + '"' +
+        (opts.placeholder ? ' placeholder="' + esc(opts.placeholder) + '"' : "") + ">";
+    return '<div class="f"><label>' + esc(label) + "</label>" + input +
+      (opts.hint ? '<span class="hint">' + esc(opts.hint) + "</span>" : "") + "</div>";
+  }
+
+  function imageStrip(path, addLabel) {
+    var list = getPath(data, path) || [];
+    return '<div class="f"><label>' + esc(addLabel || "Images") + "</label>" +
+      '<div class="thumbstrip">' + list.map(function (src, i) {
+        return "<figure>" + (src ? '<img src="' + esc(src) + '" alt="">' : "") +
+          '<button type="button" class="icb" data-act="img-del" data-path="' + path + '" data-i="' + i + '" aria-label="Remove image">×</button></figure>';
+      }).join("") + "</div>" +
+      '<div class="ed-tools" style="margin-top:8px">' +
+      '<span class="filebtn btn ghost sm">Add photo<input type="file" accept="image/*" multiple data-img="' + path + '"></span>' +
+      '<button type="button" class="btn ghost sm" data-act="img-url" data-path="' + path + '">Add by URL</button>' +
+      "</div></div>";
+  }
+
+  function renderEditor() {
+    var ed = $("editor");
+    var body = ed.querySelector(".ed-body");
+    var openSections = {};
+    body.querySelectorAll("details.ed").forEach(function (d) { openSections[d.dataset.k] = d.open; });
+    var isOpen = function (k, dflt) { return openSections[k] === undefined ? dflt : openSections[k]; };
+    var openProjects = {};
+    body.querySelectorAll("details[data-pk]").forEach(function (d) { if (d.open) openProjects[d.dataset.pk] = true; });
+
+    var html = "";
+
+    if (data.sample) {
+      html += '<div class="ed-note"><strong>This page ships with example content.</strong> ' +
+        "Replace it section by section, or clear all of it at once and start from empty." +
+        '<div style="margin-top:8px"><button type="button" class="btn ghost sm" data-act="clear-samples">Clear sample content</button></div></div>';
+    }
+
+    /* Header */
+    html += '<details class="ed" data-k="site"' + (isOpen("site", true) ? " open" : "") + "><summary>Header &amp; nav</summary><div class=\"ed-sec\">" +
+      field("Title line 1", "site.titleLine1") +
+      field("Title line 2", "site.titleLine2") +
+      field("Nav name", "site.navName", { hint: "The first item in the nav bar." }) +
+      field("Footer note", "site.footer") +
+      "</div></details>";
+
+    /* About */
+    html += '<details class="ed" data-k="about"' + (isOpen("about", false) ? " open" : "") + "><summary>About</summary><div class=\"ed-sec\">" +
+      field("Bio", "about.bio", { multiline: true, rows: 7, hint: "Blank line between paragraphs." }) +
+      imageStrip2("about.portrait", "Portrait photo") +
+      imageStrip2("about.sideImage", "Second photo") +
+      '<div class="f"><label>Additional info</label>' +
+      (data.about.info || []).map(function (r, i) {
+        return '<div class="ed-item" style="margin-bottom:8px"><div class="row2">' +
+          '<input type="text" data-bind="about.info.' + i + '.label" value="' + esc(r.label) + '" aria-label="Label">' +
+          '<input type="text" data-bind="about.info.' + i + '.value" value="' + esc(r.value) + '" aria-label="Value">' +
+          '</div><div class="ed-tools" style="justify-content:flex-end">' +
+          '<button type="button" class="icb" data-act="row-up" data-i="' + i + '" aria-label="Move up">↑</button>' +
+          '<button type="button" class="icb" data-act="row-down" data-i="' + i + '" aria-label="Move down">↓</button>' +
+          '<button type="button" class="icb danger" data-act="row-del" data-i="' + i + '" aria-label="Delete row">×</button>' +
+          "</div></div>";
+      }).join("") +
+      '<button type="button" class="btn ghost sm" data-act="row-add">Add a row</button></div>' +
+      "</div></details>";
+
+    /* Resume */
+    var rf = data.resume.file;
+    html += '<details class="ed" data-k="resume"' + (isOpen("resume", false) ? " open" : "") + "><summary>Résumé</summary><div class=\"ed-sec\">" +
+      '<div class="f"><label>PDF file</label>' +
+      (rf ? '<div class="ed-item"><div class="ed-item-head"><strong>' + esc(rf.name) + "</strong>" +
+        '<button type="button" class="icb danger" data-act="resume-del" aria-label="Remove PDF">×</button></div>' +
+        '<span class="hint">' + fmtBytes(rf.size) + "</span></div>"
+        : '<span class="hint">No PDF added yet.</span>') +
+      '<div class="ed-tools" style="margin-top:8px"><span class="filebtn btn ghost sm">' +
+      (rf ? "Replace PDF" : "Upload PDF") + '<input type="file" accept="application/pdf" data-pdf="1"></span></div></div>' +
+      field("Or link to a hosted résumé", "resume.link", { placeholder: "https://…", hint: "Used only when no PDF is uploaded." }) +
+      field("Empty-state note", "resume.note") +
+      "</div></details>";
+
+    /* Projects */
+    html += '<details class="ed" data-k="projects"' + (isOpen("projects", false) ? " open" : "") + "><summary>Projects (" + data.projects.length + ")</summary><div class=\"ed-sec\">" +
+      '<button type="button" class="btn sm" data-act="proj-add">Add a project</button>' +
+      data.projects.map(function (p, i) {
+        return '<details class="ed-item" data-pk="' + esc(p.id) + '"' + (openProjects[p.id] ? " open" : "") +
+          '><summary style="cursor:pointer;display:flex;justify-content:space-between;gap:8px;align-items:center">' +
+          "<strong>" + esc(p.title || "Untitled") + "</strong>" +
+          '<span class="metaline"><span>' + esc(catLabel(p.category)) + "</span></span></summary>" +
+          '<div style="display:grid;gap:12px;margin-top:12px">' +
+          field("Title", "projects." + i + ".title") +
+          '<div class="row2"><div class="f"><label>Category</label><select data-bind="projects.' + i + '.category">' +
+          CATS.map(function (c) {
+            return '<option value="' + c.key + '"' + (p.category === c.key ? " selected" : "") + ">" + c.label + "</option>";
+          }).join("") + "</select></div>" +
+          field("Year", "projects." + i + ".year") + "</div>" +
+          field("One-line blurb", "projects." + i + ".blurb", { multiline: true, rows: 2 }) +
+          field("Description", "projects." + i + ".description", { multiline: true, rows: 6, hint: "Blank line between paragraphs." }) +
+          '<div class="row2">' + field("Role", "projects." + i + ".role") + field("Tools", "projects." + i + ".tools") + "</div>" +
+          field("Link", "projects." + i + ".link", { placeholder: "https://…" }) +
+          imageStrip("projects." + i + ".images") +
+          '<label class="f" style="flex-direction:row;display:flex;gap:8px;align-items:center">' +
+          '<input type="checkbox" data-bind="projects.' + i + '.featured"' + (p.featured ? " checked" : "") + ">" +
+          '<span style="font-size:13px">Show in Featured Projects</span></label>' +
+          '<div class="ed-tools" style="justify-content:flex-end">' +
+          '<button type="button" class="icb" data-act="proj-up" data-i="' + i + '" aria-label="Move up">↑</button>' +
+          '<button type="button" class="icb" data-act="proj-down" data-i="' + i + '" aria-label="Move down">↓</button>' +
+          '<button type="button" class="icb danger" data-act="proj-del" data-i="' + i + '" aria-label="Delete project">×</button>' +
+          "</div></div></details>";
+      }).join("") +
+      "</div></details>";
+
+    /* Life */
+    html += '<details class="ed" data-k="life"' + (isOpen("life", false) ? " open" : "") + "><summary>Life</summary><div class=\"ed-sec\">" +
+      field("Opening text", "life.intro", { multiline: true, rows: 4 }) +
+      field("Closing text", "life.outro", { multiline: true, rows: 4 }) +
+      imageStrip("life.photos", "Photos") +
+      '<div class="f"><label>Links</label>' +
+      (data.life.links || []).map(function (l, i) {
+        return '<div class="ed-item" style="margin-bottom:8px"><div class="row2">' +
+          '<input type="text" data-bind="life.links.' + i + '.label" value="' + esc(l.label) + '" aria-label="Link label">' +
+          '<input type="text" data-bind="life.links.' + i + '.url" value="' + esc(l.url) + '" placeholder="https://…" aria-label="Link URL">' +
+          '</div><div class="ed-tools" style="justify-content:flex-end">' +
+          '<button type="button" class="icb danger" data-act="link-del" data-i="' + i + '" aria-label="Delete link">×</button>' +
+          "</div></div>";
+      }).join("") +
+      '<button type="button" class="btn ghost sm" data-act="link-add">Add a link</button></div>' +
+      "</div></details>";
+
+    body.innerHTML = html;
+    updateStatus();
+  }
+
+  /* single-image variant of the strip (portrait / side image) */
+  function imageStrip2(path, label) {
+    var src = getPath(data, path);
+    return '<div class="f"><label>' + esc(label) + "</label>" +
+      '<div class="thumbstrip">' + (src ? '<figure><img src="' + esc(src) + '" alt="">' +
+        '<button type="button" class="icb" data-act="img1-del" data-path="' + path + '" aria-label="Remove photo">×</button></figure>' : "") + "</div>" +
+      '<div class="ed-tools" style="margin-top:8px">' +
+      '<span class="filebtn btn ghost sm">' + (src ? "Replace" : "Add photo") +
+      '<input type="file" accept="image/*" data-img1="' + path + '"></span>' +
+      '<button type="button" class="btn ghost sm" data-act="img1-url" data-path="' + path + '">Use a URL</button>' +
+      "</div></div>";
+  }
+
+  function buildEditorFrame() {
+    if ($("editor")) return;
+    var aside = document.createElement("aside");
+    aside.id = "editor";
+    aside.setAttribute("aria-label", "Portfolio editor");
+    aside.innerHTML =
+      '<header><h2>Editor</h2><div class="ed-tools">' +
+      '<button class="btn sm" type="button" data-act="close-editor">Done</button></div></header>' +
+      '<div class="ed-body"></div>' +
+      '<footer><p class="status" id="ed-status"></p><div class="pubrow">' +
+      (ON_CLAUDE ? '<button class="btn" id="btn-publish" type="button" data-act="publish">Publish changes</button>' : "") +
+      '<button class="btn' + (ON_CLAUDE ? " ghost sm" : "") + '" type="button" data-act="export">Export index.html</button>' +
+      '<button class="btn ghost sm" type="button" data-act="revert">Revert</button></div>' +
+      (ON_CLAUDE ? "" : '<p class="status">This copy is hosted outside Claude, so it can\'t save itself. Export the file and upload it to your host.</p>') +
+      "</footer>";
+    document.body.appendChild(aside);
+  }
+
+  function openEditor() {
+    buildEditorFrame();
+    editMode = true;
+    document.body.dataset.mode = "edit";
+    var draft = loadDraft();
+    if (draft) {
+      data = draft;
+      toast("Restored your unpublished changes from this device.");
+    }
+    dirty = JSON.stringify(data) !== JSON.stringify(published);
+    renderEditor();
+    renderSite();
+    if (location.hash !== "#edit") history.replaceState(null, "", "#edit");
+  }
+  function closeEditor() {
+    editMode = false;
+    document.body.dataset.mode = "view";
+    var ed = $("editor");
+    if (ed) ed.remove();
+    renderSite();
+    if (location.hash === "#edit") history.replaceState(null, "", location.pathname + location.search);
+  }
+
+  /* ---------- events ---------- */
+  document.addEventListener("click", function (e) {
+    var open = e.target.closest("[data-open]");
+    if (open) { openProject(open.dataset.open); return; }
+
+    var cat = e.target.closest("[data-cat]");
+    if (cat) { activeCat = cat.dataset.cat; renderProjects(); return; }
+
+    var btn = e.target.closest("[data-act]");
+    if (!btn) return;
+    var act = btn.dataset.act;
+    var i = btn.dataset.i !== undefined ? parseInt(btn.dataset.i, 10) : -1;
+    var path = btn.dataset.path;
+
+    if (act === "close-proj") { $("proj").close(); return; }
+    if (act === "close-editor") { closeEditor(); return; }
+    if (act === "publish") { publish(); return; }
+    if (act === "export") { exportSite(); return; }
+    if (act === "download-resume") { downloadResume(); return; }
+
+    if (act === "revert") {
+      ask({
+        title: "Discard unpublished changes?",
+        message: "The page goes back to the version everyone else sees.",
+        ok: "Discard"
+      }).then(function (go) {
+        if (!go) return;
+        data = clone(published); clearDraft(); dirty = false;
+        renderEditor(); renderSite();
+      });
+      return;
+    }
+    if (act === "clear-samples") {
+      ask({
+        title: "Clear the example content?",
+        message: "Removes the six example projects and the placeholder text, leaving the structure in place.",
+        ok: "Clear it"
+      }).then(function (go) {
+        if (!go) return;
+        data.sample = false;
+        data.projects = [];
+        data.about.bio = "";
+        data.about.info = [{ label: "Contact", value: "" }, { label: "School and Year", value: "" }, { label: "Major", value: "" }];
+        data.life.intro = ""; data.life.outro = "";
+        data.life.links = data.life.links.map(function (l) { return { label: l.label, url: "" }; });
+        after();
+      });
+      return;
+    }
+
+    if (act === "row-add") { data.about.info.push({ label: "New row", value: "" }); after(); return; }
+    if (act === "row-del") { data.about.info.splice(i, 1); after(); return; }
+    if (act === "row-up") { move(data.about.info, i, -1); after(); return; }
+    if (act === "row-down") { move(data.about.info, i, 1); after(); return; }
+
+    if (act === "link-add") { data.life.links.push({ label: "New link", url: "" }); after(); return; }
+    if (act === "link-del") { data.life.links.splice(i, 1); after(); return; }
+
+    if (act === "proj-add") {
+      data.projects.unshift({
+        id: uid(), category: "engineering", title: "New project", blurb: "",
+        description: "", year: String(new Date().getFullYear()), role: "", tools: "",
+        link: "", images: [], featured: false
+      });
+      after(); return;
+    }
+    if (act === "proj-del") {
+      ask({
+        title: "Delete this project?",
+        message: "“" + (data.projects[i].title || "Untitled") + "” will be removed from the page.",
+        ok: "Delete"
+      }).then(function (go) {
+        if (!go) return;
+        data.projects.splice(i, 1); after();
+      });
+      return;
+    }
+    if (act === "proj-up") { move(data.projects, i, -1); after(); return; }
+    if (act === "proj-down") { move(data.projects, i, 1); after(); return; }
+
+    if (act === "img-del") { getPath(data, path).splice(parseInt(btn.dataset.i, 10), 1); after(); return; }
+    if (act === "img1-del") { setPath(data, path, ""); after(); return; }
+    if (act === "img-url" || act === "img1-url") {
+      ask({
+        title: "Add an image by URL",
+        message: "The image has to be reachable over https, and it loads from that address every time the page opens.",
+        input: true, placeholder: "https://…", ok: "Add"
+      }).then(function (u) {
+        if (!u) return;
+        if (act === "img-url") getPath(data, path).push(u); else setPath(data, path, u);
+        after();
+      });
+      return;
+    }
+    if (act === "resume-del") { data.resume.file = null; after(); return; }
+  });
+
+  function after() { markDirty(); renderEditor(); renderSite(); }
+  function move(arr, i, d) {
+    var j = i + d;
+    if (j < 0 || j >= arr.length) return;
+    var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+  }
+
+  document.addEventListener("input", function (e) {
+    var p = e.target.dataset && e.target.dataset.bind;
+    if (!p) return;
+    setPath(data, p, e.target.type === "checkbox" ? e.target.checked : e.target.value);
+    markDirty();
+    renderSite();
+  });
+  document.addEventListener("change", function (e) {
+    var p = e.target.dataset && e.target.dataset.bind;
+    if (p && e.target.tagName === "SELECT") {
+      setPath(data, p, e.target.value); markDirty(); renderSite(); renderEditor(); return;
+    }
+    if (p && e.target.type === "checkbox") { after(); return; }
+    if (e.target.dataset && e.target.dataset.img) handleImages(e.target, e.target.dataset.img, false);
+    if (e.target.dataset && e.target.dataset.img1) handleImages(e.target, e.target.dataset.img1, true);
+    if (e.target.dataset && e.target.dataset.pdf) handlePdf(e.target);
+  });
+
+  async function handleImages(input, path, single) {
+    var files = Array.prototype.slice.call(input.files || []);
+    if (!files.length) return;
+    try {
+      for (var k = 0; k < files.length; k++) {
+        var url = await compressImage(files[k], 1500, 0.82);
+        if (single) { setPath(data, path, url); break; }
+        getPath(data, path).push(url);
+      }
+      after();
+    } catch (err) {
+      toast(err.message || "That image couldn't be read.");
+    }
+    input.value = "";
+  }
+
+  async function handlePdf(input) {
+    var file = (input.files || [])[0];
+    if (!file) return;
+    if (file.size > 8e6) { toast("That PDF is " + fmtBytes(file.size) + ". Keep it under 8 MB so the page stays publishable."); input.value = ""; return; }
+    var url = await readAsDataUrl(file);
+    data.resume.file = { name: file.name, size: file.size, dataUrl: url };
+    input.value = "";
+    after();
+  }
+
+  /* Saving works two ways so the same page runs anywhere: inside the Claude
+     viewer through the downloads capability, and on any ordinary web host
+     through a plain download link. */
+  async function saveFile(filename, blob) {
+    var dl = null;
+    try { dl = ON_CLAUDE ? await window.claude.use("downloads") : null; } catch (e) { dl = null; }
+    if (dl) {
+      try { await dl.save({ filename: filename, data: blob }); return; }
+      catch (err) {
+        var code = (err && err.code) || "unavailable";
+        if (code === "declined") return;
+        if (code !== "unavailable" && code !== "not_granted" && code !== "capability_disabled") {
+          toast("Couldn't save that file (" + code + ").");
+          return;
+        }
+      }
+    }
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = filename;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+  }
+
+  function downloadResume() {
+    var rf = data.resume.file;
+    if (!rf) return;
+    saveFile(rf.name.replace(/[^\w.\- ]+/g, "_") || "resume.pdf", dataUrlToBlob(rf.dataUrl));
+  }
+
+  /* The whole site as one portable file — drop it on any static host. */
+  function exportSite() {
+    saveFile("index.html", new Blob([buildDocument(data)], { type: "text/html" }));
+    toast("Exported index.html — upload it to any static host and the page works as-is.");
+  }
+
+  $("open-editor").addEventListener("click", openEditor);
+  $("proj").addEventListener("click", function (e) { if (e.target === e.currentTarget) e.currentTarget.close(); });
+
+  window.addEventListener("beforeunload", function (e) {
+    if (editMode && dirty) { e.preventDefault(); e.returnValue = ""; }
+  });
+
+  /* nav highlight */
+  var sections = ["about", "resume", "projects", "life"];
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        document.querySelectorAll("#nav a").forEach(function (a) {
+          a.setAttribute("aria-current", a.getAttribute("href") === "#" + en.target.id ? "true" : "false");
+        });
+      });
+    }, { rootMargin: "-30% 0px -60% 0px" });
+    sections.forEach(function (id) { io.observe($(id)); });
+  }
+
+  renderSite();
+  if (location.hash === "#edit") openEditor();
+})();
+</script>
+</div>
