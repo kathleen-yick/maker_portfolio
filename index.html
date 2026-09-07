@@ -112,7 +112,7 @@ html{scroll-behavior:smooth}
   border-bottom:1.5px solid transparent;transition:opacity .18s,border-color .18s;
 }
 .nav a:hover{opacity:1}
-.nav a[aria-current="true"]{opacity:1;border-bottom-color:var(--rose-soft)}
+.nav a[aria-current="page"]{opacity:1;border-bottom-color:var(--rose-soft)}
 .nav .bar{color:var(--panel);opacity:.5}
 .navwrap{position:sticky;top:0;z-index:30;background:linear-gradient(var(--ground) 72%,transparent);backdrop-filter:blur(2px)}
 
@@ -120,9 +120,17 @@ html{scroll-behavior:smooth}
 main{padding-bottom:70px}
 .panel{
   background:var(--panel);box-shadow:var(--shadow);
-  padding:44px 46px 50px;margin:0 0 34px;scroll-margin-top:74px;
+  padding:44px 46px 50px;margin:0 0 34px;
 }
+.panel:focus{outline:none}
+.panel.enter{animation:panelIn .24s ease both}
+@keyframes panelIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
 @media (max-width:640px){.panel{padding:30px 20px 34px}}
+.seeall{
+  display:inline-block;margin-top:24px;font-family:"DM Mono",monospace;font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--rose);
+  border-bottom:1px solid var(--rose);padding-bottom:2px
+}
 .sec-h{font-size:27px;font-weight:600;letter-spacing:-.01em;font-variation-settings:"wdth" 92;display:flex;align-items:baseline;gap:12px}
 .sec-h::before{content:"";flex:0 0 2px;height:.86em;background:var(--rose);border-radius:1px;transform:translateY(.06em)}
 .sub-h{font-size:19px;font-weight:600;letter-spacing:-.005em;display:flex;align-items:baseline;gap:10px;font-variation-settings:"wdth" 92}
@@ -380,21 +388,22 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
       <div style="margin-top:46px">
         <h3 class="sub-h">Featured Projects</h3>
         <div class="featured" id="featured"></div>
+        <a class="seeall" href="#projects">All projects &rarr;</a>
       </div>
     </section>
 
-    <section class="panel" id="resume" aria-labelledby="resume-h">
+    <section class="panel" id="resume" aria-labelledby="resume-h" hidden>
       <h2 class="sec-h" id="resume-h">Resume</h2>
       <div id="resume-body"></div>
     </section>
 
-    <section class="panel" id="projects" aria-labelledby="projects-h">
+    <section class="panel" id="projects" aria-labelledby="projects-h" hidden>
       <h2 class="sec-h" id="projects-h">Projects</h2>
       <div class="cats" id="cats"></div>
       <div class="grid" id="projgrid"></div>
     </section>
 
-    <section class="panel" id="life" aria-labelledby="life-h">
+    <section class="panel" id="life" aria-labelledby="life-h" hidden>
       <h2 class="sec-h" id="life-h">Life</h2>
       <div class="life-grid">
         <div>
@@ -440,6 +449,10 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
     { key: "design", label: "Design" },
     { key: "personal", label: "Personal" }
   ];
+  /* The four pages. The hash carries the open tab, plus "/edit" when the
+     editor is up, so both are bookmarkable: #projects, #projects/edit. */
+  var TABS = ["about", "resume", "projects", "life"];
+  var currentTab = "about";
   var DRAFT_KEY = "ky-portfolio-draft-v1";
   /* True only inside the Claude viewer, which is the one place this page can
      save a new version of itself. Everywhere else it exports a file instead. */
@@ -547,15 +560,17 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
 
   /* ---------- render: site ---------- */
   function renderNav() {
-    var items = [
-      { href: "#about", label: data.site.navName || "about" },
-      { href: "#resume", label: "resume" },
-      { href: "#projects", label: "projects" },
-      { href: "#life", label: "life" }
-    ];
-    $("nav").innerHTML = '<span class="bar">|</span>' + items.map(function (it) {
-      return '<a href="' + it.href + '">' + esc(it.label) + '</a><span class="bar">|</span>';
+    var labels = {
+      about: data.site.navName || "about", resume: "resume",
+      projects: "projects", life: "life"
+    };
+    var suffix = editMode ? "/edit" : "";
+    $("nav").innerHTML = '<span class="bar">|</span>' + TABS.map(function (t) {
+      return '<a href="#' + t + suffix + '"' + (t === currentTab ? ' aria-current="page"' : "") + ">" +
+        esc(labels[t]) + '</a><span class="bar">|</span>';
     }).join("");
+    var seeall = document.querySelector(".seeall");
+    if (seeall) seeall.setAttribute("href", "#projects" + suffix);
     $("mh-title").innerHTML = esc(data.site.titleLine1) + "<br>" + esc(data.site.titleLine2);
     $("foot-note").textContent = data.site.footer || "";
     document.title = (data.site.navName ? titleCase(data.site.navName) : "Kathleen Yick") + " Portfolio";
@@ -657,6 +672,58 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
 
   function renderSite() {
     renderNav(); renderAbout(); renderResume(); renderProjects(); renderLife();
+  }
+
+  /* ---------- tabs ---------- */
+  function setTab(tab, focusPanel) {
+    if (TABS.indexOf(tab) < 0) tab = "about";
+    currentTab = tab;
+    TABS.forEach(function (t) {
+      var el = $(t);
+      var on = t === tab;
+      el.hidden = !on;
+      if (on) {
+        el.classList.remove("enter");
+        void el.offsetWidth; /* restart the entrance animation */
+        el.classList.add("enter");
+      }
+    });
+    renderNav();
+    window.scrollTo(0, 0);
+    if (focusPanel) {
+      var panel = $(tab);
+      panel.setAttribute("tabindex", "-1");
+      panel.focus({ preventScroll: true });
+    }
+  }
+
+  function parseHash() {
+    var parts = (location.hash || "").replace(/^#/, "").split("/").filter(Boolean);
+    var route = { tab: currentTab, edit: false };
+    parts.forEach(function (p) {
+      if (p === "edit") route.edit = true;
+      else if (TABS.indexOf(p) > -1) route.tab = p;
+    });
+    return route;
+  }
+
+  /* Keep the address bar in step without adding history entries. */
+  function syncHash() {
+    var h = "#" + currentTab + (editMode ? "/edit" : "");
+    if (location.hash !== h) history.replaceState(null, "", h);
+  }
+
+  function applyRoute(userNavigated) {
+    var r = parseHash();
+    setTab(r.tab, userNavigated);
+    if (r.edit && !editMode) openEditor();
+    else if (!r.edit && editMode) closeEditor();
+  }
+
+  function goTab(tab) {
+    if (tab === currentTab) return;
+    setTab(tab, false);
+    syncHash();
   }
 
   /* ---------- project dialog ---------- */
@@ -1021,7 +1088,7 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
     dirty = JSON.stringify(data) !== JSON.stringify(published);
     renderEditor();
     renderSite();
-    if (location.hash !== "#edit") history.replaceState(null, "", "#edit");
+    syncHash();
   }
   function closeEditor() {
     editMode = false;
@@ -1029,7 +1096,7 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
     var ed = $("editor");
     if (ed) ed.remove();
     renderSite();
-    if (location.hash === "#edit") history.replaceState(null, "", location.pathname + location.search);
+    syncHash();
   }
 
   /* ---------- events ---------- */
@@ -1223,22 +1290,18 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
     if (editMode && dirty) { e.preventDefault(); e.returnValue = ""; }
   });
 
-  /* nav highlight */
-  var sections = ["about", "resume", "projects", "life"];
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        document.querySelectorAll("#nav a").forEach(function (a) {
-          a.setAttribute("aria-current", a.getAttribute("href") === "#" + en.target.id ? "true" : "false");
-        });
-      });
-    }, { rootMargin: "-30% 0px -60% 0px" });
-    sections.forEach(function (id) { io.observe($(id)); });
-  }
+  window.addEventListener("hashchange", function () { applyRoute(true); });
+
+  /* Opening a section in the editor brings that page up beside it, so you can
+     see what you're changing. `toggle` doesn't bubble — listen on capture. */
+  document.addEventListener("toggle", function (e) {
+    var d = e.target;
+    if (!d.classList || !d.classList.contains("ed") || !d.open) return;
+    goTab(d.dataset.k === "site" ? "about" : d.dataset.k);
+  }, true);
 
   renderSite();
-  if (location.hash === "#edit") openEditor();
+  applyRoute(false);
 })();
 </script>
 </div>

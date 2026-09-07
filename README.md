@@ -4,6 +4,13 @@ A one-file portfolio site: About, Résumé, Projects, Life. `index.html` is the
 entire thing — markup, styles, content and photos all live in that single file,
 so there is nothing to build and nothing to install.
 
+## Navigation
+
+The four sections are tabs, not one long scroll — the top bar switches between
+them. The open tab lives in the URL hash, so any page is linkable:
+`#about`, `#resume`, `#projects`, `#life`. Add `/edit` to open the editor on
+that page (`#projects/edit`); plain `#edit` works too.
+
 ## How the content is stored
 
 All of the content sits in one JSON block inside `index.html`:
