@@ -32,6 +32,8 @@ ul,ol{padding:0;list-style:none}
   --rose-soft:#B87578;
   --header:#564C49;
   --header-ink:#F6F3F2;
+  --on-ground:#FFFFFF;
+  --on-ground-dim:rgba(255,255,255,.74);
   --shadow:0 18px 40px -28px rgba(30,22,20,.55);
   --focus:#9E585B;
 }
@@ -52,6 +54,8 @@ ul,ol{padding:0;list-style:none}
     --rose-soft:#C08386;
     --header:#171311;
     --header-ink:#F1EAE7;
+    --on-ground:#FBF6F4;
+    --on-ground-dim:rgba(251,246,244,.72);
     --shadow:0 18px 40px -28px rgba(0,0,0,.8);
     --focus:#D9979A;
   }
@@ -72,6 +76,8 @@ ul,ol{padding:0;list-style:none}
   --rose-soft:#C08386;
   --header:#171311;
   --header-ink:#F1EAE7;
+  --on-ground:#FBF6F4;
+  --on-ground-dim:rgba(251,246,244,.72);
   --shadow:0 18px 40px -28px rgba(0,0,0,.8);
   --focus:#D9979A;
 }
@@ -97,23 +103,21 @@ html{scroll-behavior:smooth}
 @media (max-width:640px){.wrap{padding:0 16px}}
 
 /* ---------- masthead ---------- */
-.masthead{position:relative;padding-top:34px}
-.arc{position:absolute;left:8px;top:0;width:180px;height:120px;pointer-events:none;opacity:.75}
-.arc path{fill:none;stroke:var(--panel);stroke-width:1.6}
-.titleblock{
-  position:relative;display:inline-block;background:var(--header);color:var(--header-ink);
-  padding:20px 34px 20px 26px;margin-left:8px;
+.masthead{padding:44px 8px 4px}
+.titleblock{display:block;color:var(--on-ground)}
+.titleblock h1{
+  font-size:clamp(26px,5.4vw,40px);font-weight:700;line-height:1.14;
+  letter-spacing:-.015em;font-variation-settings:"wdth" 96
 }
-.titleblock h1{font-size:20px;font-weight:700;line-height:1.3;letter-spacing:.005em;font-variation-settings:"wdth" 96}
-.nav{display:flex;flex-wrap:wrap;align-items:center;gap:0;padding:16px 8px 22px;color:var(--panel)}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:0;padding:18px 8px 24px}
 .nav a{
-  font-family:Archivo,sans-serif;font-size:16px;font-weight:400;letter-spacing:.06em;
-  color:var(--panel);text-decoration:none;padding:4px 14px;opacity:.82;
-  border-bottom:1.5px solid transparent;transition:opacity .18s,border-color .18s;
+  font-family:Archivo,sans-serif;font-size:17px;font-weight:500;letter-spacing:.05em;
+  color:var(--on-ground-dim);text-decoration:none;padding:5px 14px;
+  border-bottom:2px solid transparent;transition:color .18s,border-color .18s;
 }
-.nav a:hover{opacity:1}
-.nav a[aria-current="page"]{opacity:1;border-bottom-color:var(--rose-soft)}
-.nav .bar{color:var(--panel);opacity:.5}
+.nav a:hover{color:var(--on-ground)}
+.nav a[aria-current="page"]{color:var(--on-ground);border-bottom-color:var(--rose-soft)}
+.nav .bar{color:var(--on-ground);opacity:.34}
 .navwrap{position:sticky;top:0;z-index:30;background:linear-gradient(var(--ground) 72%,transparent);backdrop-filter:blur(2px)}
 
 /* ---------- panels ---------- */
@@ -231,14 +235,14 @@ main{padding-bottom:70px}
 @media (max-width:760px){.life-grid{grid-template-columns:1fr}}
 
 /* ---------- footer ---------- */
-footer.site{padding:8px 8px 40px;color:var(--panel);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer.site{padding:8px 8px 40px;color:var(--on-ground-dim);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 footer.site .fnote{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;opacity:.6}
 .editlink{
   font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  background:none;border:1px solid rgba(244,242,241,.28);color:var(--panel);opacity:.55;
-  padding:5px 11px;cursor:pointer;transition:opacity .18s,border-color .18s
+  background:none;border:1px solid currentColor;color:var(--on-ground-dim);opacity:.6;
+  padding:5px 11px;cursor:pointer;transition:opacity .18s
 }
-.editlink:hover{opacity:1;border-color:rgba(244,242,241,.6)}
+.editlink:hover{opacity:1}
 
 /* ---------- buttons ---------- */
 .btn{
@@ -310,6 +314,7 @@ details.ed[open]>summary::after{content:"–"}
 }
 .f textarea{min-height:82px;resize:vertical;line-height:1.5}
 .f .hint{font-size:11.5px;color:var(--ink-3)}
+.edhint{font-size:11.5px;color:var(--ink-3);line-height:1.5}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .ed-item{border:1px solid var(--rule);padding:12px;display:grid;gap:10px;background:var(--panel)}
 details.ed-item{display:block}
@@ -361,7 +366,6 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
 <div class="app">
   <div class="wrap">
     <div class="masthead">
-      <svg class="arc" viewBox="0 0 180 120" aria-hidden="true"><path d="M176 3 C 92 3, 10 22, 10 118"/></svg>
       <div class="titleblock"><h1 id="mh-title">Kathleen&rsquo;s Website +<br>About Me Portfolio</h1></div>
     </div>
   </div>
@@ -635,6 +639,11 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
     }
   }
 
+  function projectYear(p) {
+    var years = String(p.year || "").match(/\d{4}/g);
+    return years ? Math.max.apply(null, years.map(Number)) : -1;
+  }
+
   function renderProjects() {
     $("cats").innerHTML = '<span class="bar">|</span>' +
       [{ key: "all", label: "All" }].concat(CATS).map(function (c) {
@@ -643,6 +652,9 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
       }).join("");
 
     var list = data.projects.filter(function (p) { return activeCat === "all" || p.category === activeCat; });
+    /* Newest first. A range like "2023–2025" sorts on its latest year, and
+       undated projects fall to the end; ties keep the order set in the editor. */
+    list.sort(function (a, b) { return projectYear(b) - projectYear(a); });
     $("projgrid").innerHTML = list.length ? list.map(function (p) {
       var meta = [p.year, catLabel(p.category)].filter(Boolean)
         .map(function (m) { return "<span>" + esc(m) + "</span>"; }).join("");
@@ -996,6 +1008,8 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
     /* Projects */
     html += '<details class="ed" data-k="projects"' + (isOpen("projects", false) ? " open" : "") + "><summary>Projects (" + data.projects.length + ")</summary><div class=\"ed-sec\">" +
       '<button type="button" class="btn sm" data-act="proj-add">Add a project</button>' +
+      '<p class="edhint">The Projects page sorts by year, newest first. The order here decides which ' +
+      'featured projects reach the About page, and breaks ties between the same year.</p>' +
       data.projects.map(function (p, i) {
         return '<details class="ed-item" data-pk="' + esc(p.id) + '"' + (openProjects[p.id] ? " open" : "") +
           '><summary style="cursor:pointer;display:flex;justify-content:space-between;gap:8px;align-items:center">' +
