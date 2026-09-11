@@ -34,6 +34,7 @@ ul,ol{padding:0;list-style:none}
   --header-ink:#F6F3F2;
   --on-ground:#FFFFFF;
   --on-ground-dim:rgba(255,255,255,.74);
+  --panel-edge:transparent;
   --shadow:0 18px 40px -28px rgba(30,22,20,.55);
   --focus:#9E585B;
 }
@@ -56,6 +57,7 @@ ul,ol{padding:0;list-style:none}
     --header-ink:#F1EAE7;
     --on-ground:#FBF6F4;
     --on-ground-dim:rgba(251,246,244,.72);
+    --panel-edge:rgba(255,255,255,.055);
     --shadow:0 18px 40px -28px rgba(0,0,0,.8);
     --focus:#D9979A;
   }
@@ -78,6 +80,7 @@ ul,ol{padding:0;list-style:none}
   --header-ink:#F1EAE7;
   --on-ground:#FBF6F4;
   --on-ground-dim:rgba(251,246,244,.72);
+  --panel-edge:rgba(255,255,255,.055);
   --shadow:0 18px 40px -28px rgba(0,0,0,.8);
   --focus:#D9979A;
 }
@@ -118,12 +121,17 @@ html{scroll-behavior:smooth}
 .nav a:hover{color:var(--on-ground)}
 .nav a[aria-current="page"]{color:var(--on-ground);border-bottom-color:var(--rose-soft)}
 .nav .bar{color:var(--on-ground);opacity:.34}
-.navwrap{position:sticky;top:0;z-index:30;background:linear-gradient(var(--ground) 72%,transparent);backdrop-filter:blur(2px)}
+@media (max-width:480px){
+  .nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:14px 4px 20px}
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{font-size:15px;padding:5px 10px;letter-spacing:.04em;white-space:nowrap}
+}
+.navwrap{position:sticky;top:0;z-index:30;background:var(--ground)}
 
 /* ---------- panels ---------- */
 main{padding-bottom:70px}
 .panel{
-  background:var(--panel);box-shadow:var(--shadow);
+  background:var(--panel);box-shadow:var(--shadow);border:1px solid var(--panel-edge);
   padding:44px 46px 50px;margin:0 0 34px;
 }
 .panel:focus{outline:none}
@@ -154,6 +162,7 @@ main{padding-bottom:70px}
 .info-row dd{margin:0;color:var(--ink-2);overflow-wrap:anywhere}
 .side-img{background:var(--blush-2);aspect-ratio:1/1;overflow:hidden}
 .side-img img{width:100%;height:100%;object-fit:cover}
+@media (max-width:480px){.about-top{grid-template-columns:1fr;gap:18px}.portrait{width:120px}}
 @media (max-width:760px){
   .about-top{grid-template-columns:104px 1fr;gap:20px}
   .about-info{grid-template-columns:1fr;gap:24px}
@@ -168,9 +177,11 @@ main{padding-bottom:70px}
 .feat:nth-child(1) .thumb{aspect-ratio:3/4}
 .feat:nth-child(2) .thumb{aspect-ratio:4/3}
 .feat:nth-child(3) .thumb{aspect-ratio:1/1}
-.feat h4{font-size:15px;font-weight:700}
-.feat p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
-.feat:hover h4{color:var(--rose)}
+.ttl{display:block;font-family:Archivo,"Helvetica Neue",Arial,sans-serif;font-variation-settings:"wdth" 100;text-wrap:balance}
+.blurb{display:block}
+.feat .ttl{font-size:15px;font-weight:700}
+.feat .blurb{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.feat:hover .ttl{color:var(--rose)}
 @media (max-width:760px){.featured{grid-template-columns:1fr 1fr;gap:18px}}
 @media (max-width:460px){.featured{grid-template-columns:1fr}}
 
@@ -194,6 +205,7 @@ main{padding-bottom:70px}
   font-family:Archivo,sans-serif;font-size:16px;background:none;border:0;cursor:pointer;
   padding:4px 14px;color:var(--ink-2);border-bottom:1.5px solid transparent;letter-spacing:.03em;
 }
+.cats button:hover{color:var(--ink)}
 .cats button[aria-pressed="true"]{color:var(--ink);border-bottom-color:var(--rose)}
 .cats .bar{color:var(--ink-3)}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:28px}
@@ -208,10 +220,11 @@ main{padding-bottom:70px}
   content:"";position:absolute;inset:0;background:var(--ink);opacity:0;transition:opacity .2s
 }
 .card:hover .thumb::after{opacity:.06}
-.card h4{font-size:15.5px;font-weight:700;line-height:1.3}
-.card p{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.card .ttl{font-size:15.5px;font-weight:700;line-height:1.3}
+.card .blurb{font-size:13.5px;color:var(--ink-2);line-height:1.55}
+.card:hover .ttl{color:var(--rose)}
 .metaline{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:flex;gap:8px;flex-wrap:wrap}
-.metaline span::after{content:" ·";color:var(--rule)}
+.metaline span::after{content:" ·";color:var(--ink-3)}
 .metaline span:last-child::after{content:""}
 .tag{
   font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
@@ -237,11 +250,14 @@ main{padding-bottom:70px}
 /* ---------- footer ---------- */
 footer.site{padding:8px 8px 40px;color:var(--on-ground-dim);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 footer.site .fnote{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.08em;opacity:.6}
+/* The owner's way in. Invisible on the public page until the footer is hovered
+   or the button is reached by keyboard; #edit in the address bar works too. */
 .editlink{
   font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  background:none;border:1px solid currentColor;color:var(--on-ground-dim);opacity:.6;
-  padding:5px 11px;cursor:pointer;transition:opacity .18s
+  background:none;border:1px solid currentColor;color:var(--on-ground-dim);opacity:0;
+  padding:5px 11px;cursor:pointer;transition:opacity .25s
 }
+footer.site:hover .editlink,.editlink:focus-visible{opacity:.55}
 .editlink:hover{opacity:1}
 
 /* ---------- buttons ---------- */
@@ -376,7 +392,7 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
   </div>
 
   <main class="wrap">
-    <section class="panel" id="about" aria-labelledby="about-h">
+    <section class="panel" id="page-about" aria-labelledby="about-h">
       <h2 class="sec-h" id="about-h">About Me</h2>
       <div class="about-top">
         <div class="portrait" id="portrait"></div>
@@ -389,25 +405,25 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
         </div>
         <div class="side-img" id="sideimg"></div>
       </div>
-      <div style="margin-top:46px">
+      <div style="margin-top:46px" id="featured-wrap">
         <h3 class="sub-h">Featured Projects</h3>
         <div class="featured" id="featured"></div>
         <a class="seeall" href="#projects">All projects &rarr;</a>
       </div>
     </section>
 
-    <section class="panel" id="resume" aria-labelledby="resume-h" hidden>
+    <section class="panel" id="page-resume" aria-labelledby="resume-h" hidden>
       <h2 class="sec-h" id="resume-h">Resume</h2>
       <div id="resume-body"></div>
     </section>
 
-    <section class="panel" id="projects" aria-labelledby="projects-h" hidden>
+    <section class="panel" id="page-projects" aria-labelledby="projects-h" hidden>
       <h2 class="sec-h" id="projects-h">Projects</h2>
       <div class="cats" id="cats"></div>
       <div class="grid" id="projgrid"></div>
     </section>
 
-    <section class="panel" id="life" aria-labelledby="life-h" hidden>
+    <section class="panel" id="page-life" aria-labelledby="life-h" hidden>
       <h2 class="sec-h" id="life-h">Life</h2>
       <div class="life-grid">
         <div>
@@ -415,7 +431,7 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
           <div class="life-photos" id="life-photos" style="margin:26px 0"></div>
           <div class="prose" id="life-outro"></div>
         </div>
-        <div>
+        <div id="life-aside">
           <h3 class="sub-h">Elsewhere</h3>
           <div class="links" id="life-links"></div>
         </div>
@@ -575,33 +591,36 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
     }).join("");
     var seeall = document.querySelector(".seeall");
     if (seeall) seeall.setAttribute("href", "#projects" + suffix);
-    $("mh-title").innerHTML = esc(data.site.titleLine1) + "<br>" + esc(data.site.titleLine2);
+    $("mh-title").innerHTML = esc(curly(data.site.titleLine1)) + "<br>" + esc(curly(data.site.titleLine2));
     $("foot-note").textContent = data.site.footer || "";
     document.title = (data.site.navName ? titleCase(data.site.navName) : "Kathleen Yick") + " Portfolio";
   }
   function titleCase(s) {
     return String(s).replace(/\b\w/g, function (c) { return c.toUpperCase(); });
   }
+  /* A typed straight apostrophe becomes a typographic one in the masthead. */
+  function curly(s) { return String(s || "").replace(/(\w)'/g, "$1\u2019"); }
 
   function renderAbout() {
     $("portrait").innerHTML = art(data.about.portrait, "Portrait", "person");
     $("sideimg").innerHTML = art(data.about.sideImage, "", "person");
     $("bio").innerHTML = paras(data.about.bio) ||
-      '<p class="empty">Add a short introduction from the editor.</p>';
+      (editMode ? '<p class="empty">Add a short introduction here.</p>' : "");
 
     var rows = (data.about.info || []).filter(function (r) { return editMode || (r.value || "").trim(); });
     $("info").innerHTML = rows.length ? rows.map(function (r) {
       return '<div class="info-row"><dt>' + esc(r.label) + ':</dt><dd>' +
         (r.value ? esc(r.value) : '<span class="empty">—</span>') + "</dd></div>";
-    }).join("") : '<p class="empty">No details yet.</p>';
+    }).join("") : (editMode ? '<p class="empty">No details yet — add a row below.</p>' : "");
 
     var feat = data.projects.filter(function (p) { return p.featured; }).slice(0, 3);
+    $("featured-wrap").hidden = !feat.length && !editMode;
     $("featured").innerHTML = feat.length ? feat.map(function (p) {
       return '<button class="feat" data-open="' + esc(p.id) + '" type="button">' +
         '<span class="thumb">' + art((p.images || [])[0], p.title) + "</span>" +
-        "<h4>" + esc(p.title) + (p.sample ? ' <span class="samplechip">sample</span>' : "") + "</h4>" +
-        "<p>" + esc(p.blurb) + "</p></button>";
-    }).join("") : '<p class="empty">Mark a project as featured in the editor to show it here.</p>';
+        '<span class="ttl">' + esc(p.title) + (p.sample ? ' <span class="samplechip">sample</span>' : "") + "</span>" +
+        '<span class="blurb">' + esc(p.blurb) + "</span></button>";
+    }).join("") : '<p class="empty">Tick “Show in Featured Projects” on up to three projects to fill this strip.</p>';
   }
 
   var lastResumeSig = null, lastBlobUrl = null;
@@ -623,8 +642,8 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
         '<p class="prose">Hosted as a linked document.</p></div></div>' +
         '<div class="resume-actions"><a class="btn" href="' + esc(safeUrl(r.link)) + '" target="_blank" rel="noopener">Open résumé</a></div>';
     } else {
-      html += '<div class="paperframe"><div class="paper-empty"><span class="eyebrow">No résumé yet</span>' +
-        '<p class="prose">' + esc(r.note || "A PDF can be added from the editor.") + "</p></div></div>";
+      html += '<div class="paperframe"><div class="paper-empty"><span class="eyebrow">Résumé</span>' +
+        '<p class="prose">' + esc(r.note || "Coming soon.") + "</p></div></div>";
     }
     body.innerHTML = html;
 
@@ -661,25 +680,28 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
       return '<button class="card" data-open="' + esc(p.id) + '" type="button">' +
         '<span class="thumb">' + art((p.images || [])[0], p.title) + "</span>" +
         '<span class="metaline">' + meta + "</span>" +
-        "<h4>" + esc(p.title) + (p.sample ? ' <span class="samplechip">sample</span>' : "") + "</h4>" +
-        "<p>" + esc(p.blurb) + "</p></button>";
-    }).join("") : '<p class="empty">No projects in this category yet.</p>';
+        '<span class="ttl">' + esc(p.title) + (p.sample ? ' <span class="samplechip">sample</span>' : "") + "</span>" +
+        '<span class="blurb">' + esc(p.blurb) + "</span></button>";
+    }).join("") : '<p class="empty">Nothing in this category yet.</p>';
   }
 
   function renderLife() {
     $("life-intro").innerHTML = paras(data.life.intro);
     $("life-outro").innerHTML = paras(data.life.outro);
-    var photos = data.life.photos || [];
-    $("life-photos").innerHTML = (photos.length ? photos : ["", ""]).slice(0, 6).map(function (src) {
+    var photos = (data.life.photos || []).slice(0, 6);
+    if (!photos.length && editMode) photos = ["", ""]; /* placeholders only while editing */
+    $("life-photos").hidden = !photos.length;
+    $("life-photos").innerHTML = photos.map(function (src) {
       return '<span class="thumb">' + art(src, "", "person") + "</span>";
     }).join("");
     var links = (data.life.links || []).filter(function (l) { return safeUrl(l.url); });
+    $("life-aside").hidden = !links.length && !editMode;
     $("life-links").innerHTML = links.length ? links.map(function (l) {
       var u = safeUrl(l.url);
       var ext = /^https?:/i.test(u);
       return '<a href="' + esc(u) + '"' + (ext ? ' target="_blank" rel="noopener"' : "") + ">" +
         esc(l.label) + '<span class="arrow">' + (ext ? "↗" : "→") + "</span></a>";
-    }).join("") : '<p class="empty">Add links from the editor.</p>';
+    }).join("") : '<p class="empty">Links with an address filled in appear here.</p>';
   }
 
   function renderSite() {
@@ -691,7 +713,7 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
     if (TABS.indexOf(tab) < 0) tab = "about";
     currentTab = tab;
     TABS.forEach(function (t) {
-      var el = $(t);
+      var el = $("page-" + t);
       var on = t === tab;
       el.hidden = !on;
       if (on) {
@@ -703,7 +725,7 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
     renderNav();
     window.scrollTo(0, 0);
     if (focusPanel) {
-      var panel = $(tab);
+      var panel = $("page-" + tab);
       panel.setAttribute("tabindex", "-1");
       panel.focus({ preventScroll: true });
     }
@@ -1298,6 +1320,12 @@ dialog#ask .askrow{display:flex;gap:8px;justify-content:flex-end}
   }
 
   $("open-editor").addEventListener("click", openEditor);
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape" || !editMode) return;
+    if ($("proj").open || $("ask").open) return;
+    if (/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    closeEditor();
+  });
   $("proj").addEventListener("click", function (e) { if (e.target === e.currentTarget) e.currentTarget.close(); });
 
   window.addEventListener("beforeunload", function (e) {
