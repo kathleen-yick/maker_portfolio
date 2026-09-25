@@ -1,87 +1,120 @@
 # Kathleen Yick — portfolio
 
-A one-file portfolio site: About, Résumé, Projects, Life. `index.html` is the
-entire thing — markup, styles, content and photos all live in that single file,
-so there is nothing to build and nothing to install.
+A one-file portfolio site: **About Me · Resume · Projects · Life**.
+`index.html` is the whole site. There is nothing to install and nothing to build:
+edit the file, commit, push, and GitHub Pages serves it.
 
-## Navigation
-
-The four sections are tabs, not one long scroll — the top bar switches between
-them. The open tab lives in the URL hash, so any page is linkable:
-`#about`, `#resume`, `#projects`, `#life`. Add `/edit` to open the editor on
-that page (`#projects/edit`); plain `#edit` works too.
-
-## How the content is stored
-
-All of the content sits in one JSON block inside `index.html`:
-
-```html
-<script type="application/json" id="portfolio-data"> … </script>
+```
+portfolio_website/
+├── index.html      the site (content + styles + script, in four labelled parts)
+├── images/         put photos here, e.g. images/gripper-1.jpg
+├── resume.pdf      (add this yourself) shown on the Resume tab
+├── .nojekyll       tells GitHub to serve the file as-is
+└── README.md       this file
 ```
 
-The page reads that block on load and renders itself from it. Photos and the
-résumé PDF are stored inside it as data URIs, which is why the site needs no
-asset folder — and why the file grows as you add images.
+## Editing the site
 
-## Editing
+Open `index.html` in any text editor. It is split into four parts, each with a
+banner comment:
 
-**The editor is built into the page.** Open the site and click **Editor** in the
-footer, or add `#edit` to the URL. A panel opens with every field: header, bio,
-additional info rows, résumé PDF, projects (add / delete / reorder / categorise /
-feature), and the Life section.
-
-There are two ways to save what you change, depending on where you opened it:
-
-| Where you opened the page | Save button | What it does |
+| Part | What it is | Touch it? |
 | --- | --- | --- |
-| The Claude-hosted copy | **Publish changes** | Saves a new version at the same URL, live immediately |
-| A copy served from GitHub Pages (or opened locally) | **Export index.html** | Downloads the updated file — commit it and push |
+| **1 · Your content** | Title, bio, info rows, resume file, projects, life page | **Yes, this is the whole job** |
+| 2 · Styles | The `THEME` block at the top holds colours and font | Colours and font only |
+| 3 · Page skeleton | Empty containers the script fills | No |
+| 4 · Script | Builds the page from Part 1 | No |
 
-The Claude-hosted copy is the comfortable place to edit, because Publish is one
-click. The GitHub copy is the one employers see.
+Part 1 is plain JavaScript data. The rules that matter:
 
-**The round trip:** edit on the Claude copy → Publish → **Export index.html** →
-replace this repo's `index.html` with the downloaded file → commit and push.
+- Text sits inside `"quotes"` or `` `backticks` ``. Backticks can span many lines,
+  and a blank line inside them becomes a new paragraph.
+- **Every line inside `{ }` or `[ ]` ends with a comma.** A missing comma is the
+  usual reason the page goes blank. If that happens, a red box at the top of the
+  page reports the browser's error message.
+- Leave a value as `""` to hide it.
 
-Edits are also autosaved to your browser as you type, so a stray reload will not
-lose work. Only Publish or Export makes them permanent.
+### Adding a project
 
-## Publishing to GitHub Pages
+Inside `const PROJECTS = [ ... ]` there is a boxed template in a comment. Copy
+it, paste it into the list, and fill in the fields:
 
-Once this repo is on GitHub:
+```js
+{
+  title: "Project name",
+  category: "engineering",      // engineering | design | personal
+  year: "2026",
+  blurb: "One or two sentences shown under the thumbnail.",
+  description: `
+The full write-up, shown when the project is opened.
 
-1. Repo **Settings → Pages**
-2. **Source: Deploy from a branch**
-3. **Branch: `main`**, folder **`/ (root)`**, then Save
+Blank line = new paragraph.
+  `,
+  images: ["images/name-1.jpg", "images/name-2.jpg"],
+  role: "What you did",
+  tools: "Software, materials, languages",
+  link: "",                     // optional URL
+  featured: false,              // true = also on the About page (first three shown)
+},
+```
 
-The site goes live at `https://<username>.github.io/<repo>/` within a minute or
-two. If you name the repo exactly `<username>.github.io`, it is served from
-`https://<username>.github.io/` instead, with no path.
+Only `title`, `category` and `blurb` are required. Several images make a
+slideshow with arrows; the first image is the thumbnail. Projects are sorted
+newest year first unless you set `projectsNewestFirst: false` in `SITE`.
 
-`.nojekyll` is here so GitHub serves the file as-is rather than running it
-through Jekyll.
+### Photos
+
+- Save them in `images/`, lower-case names, no spaces: `images/gripper-1.jpg`.
+- Resize before adding. Around 1600 px on the long side and under 400 KB each
+  keeps the site fast. Preview or any image editor can export at that size.
+- Reference them by path: `"images/gripper-1.jpg"`.
+
+### Resume
+
+Save the PDF next to `index.html` as `resume.pdf`, then set
+`file: "resume.pdf"` in `RESUME`. Until then the tab shows the `note` text.
+
+### Colours and font
+
+In the `THEME` block near the top of Part 2 every colour is a named variable
+with a comment saying where it is used. The font is loaded from Google Fonts
+in the `<head>`; to change it, swap the family name there and in `--font`.
+
+## Checking your changes
+
+Double-click `index.html` to open it in a browser. Everything works from a
+local file. If the resume PDF refuses to show that way, serve the folder
+instead:
+
+```
+python3 -m http.server 8000
+```
+
+and open <http://localhost:8000>.
+
+Every tab has its own address, so pages are linkable: `#about`, `#resume`,
+`#projects`, `#projects/design`, `#life`.
+
+## Publishing
+
+```
+git add index.html images resume.pdf
+git commit -m "Add <project name>"
+git push
+```
+
+GitHub Pages redeploys within a minute or two.
+
+First-time setup, once the repo is on GitHub: **Settings → Pages → Source:
+Deploy from a branch → Branch `main`, folder `/ (root)` → Save.** The site
+appears at `https://<username>.github.io/<repo>/`. Naming the repo exactly
+`<username>.github.io` serves it from `https://<username>.github.io/` instead.
 
 ### Custom domain
 
-Add a file named `CNAME` containing just your domain:
+Add a file named `CNAME` containing just the domain (`kathleenyick.com`), point
+the domain's DNS at GitHub Pages, and set the domain under Settings → Pages.
 
-```
-kathleenyick.com
-```
+## Dependencies
 
-Then point the domain's DNS at GitHub Pages (four `A` records for the apex, or a
-`CNAME` record for `www`), and set the domain under Settings → Pages.
-
-## Keeping the file small
-
-Photos are resized to 1500 px and JPEG-compressed automatically when you add
-them, and the editor footer shows the running page size. If it starts climbing
-past a few megabytes, use **Add by URL** in the editor instead: upload the images
-somewhere (including this repo, next to `index.html`) and reference them by
-address, so they load separately rather than riding inside the page.
-
-## External dependencies
-
-One: the Google Fonts stylesheet for Archivo, Karla and DM Mono. Everything else
-— the layout, the editor, the placeholder artwork — is in the file. If you ever
-want the site to work with no external requests at all, the fonts can be inlined.
+One: the Google Fonts stylesheet for Exo 2. Everything else is in the file.
