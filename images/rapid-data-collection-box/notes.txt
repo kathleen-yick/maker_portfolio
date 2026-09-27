@@ -25,17 +25,19 @@ simultaneously with various sensors
 description (as many lines as you like; blank line = new paragraph):
 
 To increase copper regeneration rates from scrap yards back to manufacturers,
-this project aimed to collect large amounts of data to train an ML to automate \
+this project aimed to collect large amounts of data to train an ML to automate
 copper idenfication.
 
 Therefore, we needed a portable data collection box that could take data efficiently
-and accurately at an actual scrapyard.
-In preparation: I conducted 15+ interviews with scrapyard operators and metal recyclers to identify
-challenges in scrap identification and purchasing; tested and optimized MIS coil geometry; and
-fabricated a robust, controlled testing environment.
-
-During site testing, we were able to scan at a rate of 5 per minute (including manual
+and accurately at an actual scrapyard. My role consisted of researching and testing:
+I conducted 15+ interviews with scrapyard operators and metal recyclers to inform
+rig design; tested and optimized MIS coil geometry; and fabricated a robust, controlled
+testing environment. On site, we were able to scan at a rate of 5 per minute (including manual
 feeding) and added ~600 unique scraps to our ML.
+
+For future steps, I would want to automate the feeding process and have scrapyards collect and use the data they procure.
+
+
 
 ----------------------------------------------------------------------
 STATUS (2026-09-26): on the site as project [P7], now featured on

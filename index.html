@@ -89,6 +89,7 @@
        [P11] My Sister's Prom Dress               design       2022
        [P12] Simmons REX 2026 T-Shirt Design      design       2026
        [P13] Technique Yearbook Cover for CO'26   design       2025
+       [P14] The Rollator: For Rishi              engineering  2026
 
      After you save: open index.html in a browser to check it, then
        git add index.html images
@@ -458,10 +459,9 @@ What you would do differently next time.
     description: `
 To increase copper regeneration rates from scrap yards back to manufacturers, this project aimed to collect large amounts of data to train an ML to automate copper identification.
 
-Therefore, we needed a portable data collection box that could take data efficiently and accurately at an actual scrapyard.
-In preparation: I conducted 15+ interviews with scrapyard operators and metal recyclers to identify challenges in scrap identification and purchasing; tested and optimized MIS coil geometry; and fabricated a robust, controlled testing environment.
+Therefore, we needed a portable data collection box that could take data efficiently and accurately at an actual scrapyard. My role consisted of researching and testing: I conducted 15+ interviews with scrapyard operators and metal recyclers to inform rig design; tested and optimized MIS coil geometry; and fabricated a robust, controlled testing environment. On site, we were able to scan at a rate of 5 per minute (including manual feeding) and added ~600 unique scraps to our ML.
 
-During site testing, we were able to scan at a rate of 5 per minute (including manual feeding) and added ~600 unique scraps to our ML.
+For future steps, I would want to automate the feeding process and have scrapyards collect and use the data they procure.
     `,
 
     // 1 = the box in the lab (thumbnail), 2 = on-site testing at the
@@ -637,14 +637,46 @@ Fun note: there are 20 x 26 windows.
 Designed around the theme of "whimsical," with a sketchy look to match.
     `,
 
-    // 1 = the final cover (thumbnail), 2 = earlier variations.
+    // 1 = the final cover (thumbnail), 2 = earlier variations,
+    // 3 = early concepts and the colour palette.
     images: [
       "images/tnq-cover-26/1.jpg",
       "images/tnq-cover-26/2.jpg",
+      "images/tnq-cover-26/3.jpg",
     ],
 
     role: "Graphic design",
     tools: "Procreate, Illustrator",
+    link: "",
+    featured: false,
+  },
+
+  /* [P14] The Rollator: For Rishi · engineering · 2026 */
+  {
+    // ✏️ DRAFT: notes.txt was still blank, so everything in this
+    // project comes from the poster. Check the year and your role.
+    title: "The Rollator: For Rishi",
+    category: "engineering",
+    year: "2026",
+
+    blurb: "Co-designing a modified rollator with Rishi: extendable front bars, a metal back support, and a firmer, non-slip seat that still folds.",
+
+    description: `
+Rishi, a graduate student at BU, relies on a rollator to get around, but at 6 ft his off-the-shelf one does not work for him. He has trouble getting up, wants a real support bar instead of a back rest, and needs a seat that holds his things. The rollator also still has to fold.
+
+Building on last semester's hinged back design, our team of four revised the telescoping pole design and its FEA so that it locks at two points, simplified the locking mechanism so it is easier for Rishi to use, and designed a firmer foldable seat with non-slip fabric. We built it from 6061 aluminum rectangular tube, which meant getting MIG training to weld aluminum.
+
+Next steps: attach the modifications to Rishi's rollator, and test how durable the design is for someone as active as Rishi.
+    `,
+
+    // 1 = the project poster (thumbnail), 2 = annotated concept sketch.
+    images: [
+      "images/rollator/1.jpg",
+      "images/rollator/2.jpg",
+    ],
+
+    role: "Co-designer: design, FEA, fabrication",
+    tools: "CAD, FEA, MIG welding, 6061 aluminum",
     link: "",
     featured: false,
   },
