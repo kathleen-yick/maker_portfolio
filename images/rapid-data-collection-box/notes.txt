@@ -13,7 +13,7 @@ from the photos, and you can refine it later in index.html.
 title:        Rapid Scrap Data Collection Box
 category:     engineering        (engineering | design | personal)
 year:         2026
-role:         Mechanical Engineering Student Researcher
+role:         Mechanical, rig design, testing
 tools:        Metal fabrication, sensor fusion, CAD (Fusion360)
 link:         https://linktr.ee/scrappy_pipe_dream?utm_source=qr_code
 featured:     yes                 (yes = also shown on the About Me page)

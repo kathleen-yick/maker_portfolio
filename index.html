@@ -85,8 +85,8 @@
        [P7]  Rapid Scrap Data Collection Box      engineering  2026
        [P8]  4-Sided Metal Folder                 design       2025
        [P9]  Metal Creatures                      fun          2025
-       [P10] Black Pearl Dress                    design, fun  2023
-       [P11] My Sister's Prom Dress               design, fun  2022
+       [P10] Black Pearl Dress                    design       2023
+       [P11] My Sister's Prom Dress               design       2022
        [P12] Simmons REX 2026 T-Shirt Design      design       2026
        [P13] Technique Yearbook Cover for CO'26   design       2025
 
@@ -142,6 +142,7 @@
 /* ── 1a. SITE HEADER ──────────────────────────────────────────────────────── */
 /* ON THE WEBSITE:
      • the big title at the top-left of every page
+     • the smaller sub header just under that title
      • the small copyright line at the very bottom of every page
      • the order projects are listed in                                       */
 
@@ -155,6 +156,11 @@ const SITE = {
   // Second line of the big title.
   // Leave as "" to show only one line.
   titleLine2: "",
+
+  // ✏️ EDITABLE
+  // Sub header: the smaller line just under the big title.
+  // Leave as "" to hide it.
+  subtitle: "MechE + Design + CS",
 
   // ✏️ EDITABLE
   // Small grey text at the very bottom of every page.
@@ -466,7 +472,7 @@ During site testing, we were able to scan at a rate of 5 per minute (including m
       "images/rapid-data-collection-box/3.pdf",
     ],
 
-    role: "Mechanical Engineering Student Researcher",
+    role: "Mechanical, rig design, testing",
     tools: "Metal fabrication, sensor fusion, CAD (Fusion 360)",
     link: "https://linktr.ee/scrappy_pipe_dream",
     featured: true,
@@ -534,11 +540,11 @@ I had to adjust the scale and space out the cuts more whenever a fold was too di
     featured: false,
   },
 
-  /* [P10] Black Pearl Dress · design, fun · 2023 */
+  /* [P10] Black Pearl Dress · design · 2023 */
   {
     // ✏️ DRAFT: notes.txt only had "B", so this comes from the folder name.
     title: "Black Pearl Dress",
-    category: ["design", "fun"],
+    category: "design",
     year: "2023",
 
     // Your wording from notes.txt; only tidied.
@@ -564,10 +570,10 @@ The process went through multiple iterations, including a corset alternative to 
     featured: false,
   },
 
-  /* [P11] My Sister's Prom Dress · design, fun · 2022 */
+  /* [P11] My Sister's Prom Dress · design · 2022 */
   {
     title: "My Sister's Prom Dress",
-    category: ["design", "fun"],
+    category: "design",
     year: "2022",
 
     // Your wording from notes.txt; only tidied.
@@ -907,7 +913,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 /* 🚫 NOT EDITABLE.  ON THE WEBSITE: the big title and the  | About Me | Resume |  tab bar. */
 
 .masthead { padding: 36px 0 6px; }
-.masthead h1 { font-size: clamp(24px, 4vw, 34px); font-weight: 700; line-height: 1.22; letter-spacing: .01em; }
+.masthead h1 { font-size: clamp(29px, 4.8vw, 41px); font-weight: 700; line-height: 1.22; letter-spacing: .01em; }
+.masthead .sub { margin-top: 4px; font-size: clamp(15px, 2vw, 18px); font-weight: 500; letter-spacing: .04em; color: var(--ink-soft); }
 .nav { display: flex; flex-wrap: wrap; align-items: center; padding: 10px 0 28px; font-size: 17px; font-weight: 500; }
 .bar { color: var(--ink-faint); font-weight: 300; }
 .nav button { padding: 6px 10px; color: var(--ink-soft); border-bottom: 2px solid transparent; transition: color .15s, border-color .15s; }
@@ -1139,7 +1146,7 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
 <!-- ── 3a. MASTHEAD + TAB BAR ──────────────────────────────────────────── -->
 
 <div class="wrap">
-  <header class="masthead"><h1 id="site-title"></h1></header>
+  <header class="masthead"><h1 id="site-title"></h1><p class="sub" id="site-sub"></p></header>
   <nav class="nav" id="nav" aria-label="Sections"></nav>
 </div>
 
@@ -1387,6 +1394,8 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
   // 4d-i. masthead + footer
   function renderHeader() {
     $("site-title").innerHTML = esc(SITE.titleLine1) + (SITE.titleLine2 ? "<br>" + esc(SITE.titleLine2) : "");
+    $("site-sub").textContent = SITE.subtitle || "";
+    $("site-sub").hidden = !SITE.subtitle;
     $("foot").textContent = SITE.footer || "";
   }
 

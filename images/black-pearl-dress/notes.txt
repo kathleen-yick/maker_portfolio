@@ -11,10 +11,10 @@ Fill in what you know below. Anything you leave blank, Claude drafts
 from the photos, and you can refine it later in index.html.
 
 title:        B
-category:     design, fun       (engineering | design | fun; for two columns write: engineering, design)
+category:     design       (engineering | design | fun; for two columns write: engineering, design)
 year:         2023
 role:         Design, fabrication, photography
-tools:        Sowing machine, design, prototyping
+tools:        Sewing machine, design, prototyping
 link:         (a GitHub / Behance / other URL, or leave blank)
 featured:     no                 (yes = also shown on the About Me page)
 

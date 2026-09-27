@@ -11,7 +11,7 @@ Fill in what you know below. Anything you leave blank, Claude drafts
 from the photos, and you can refine it later in index.html.
 
 title:        My Sister's Prom Dress
-category:     design, fun        (engineering | design | fun; for two columns write: engineering, design)
+category:     design        (engineering | design | fun; for two columns write: engineering, design)
 year:         2022
 role:         Design, fabrication
 tools:        Sowing machine, design, prototyping
@@ -23,7 +23,7 @@ blurb (one or two sentences for under the thumbnail):
 
 description (as many lines as you like; blank line = new paragraph):
   Gathered layers and layers of chiffon fabric to produce this ruffled skirt bottom,
-  trouble shooted the sowing machine in the dark, and had to make this possible to dance in.
+  troubleshot the sowing machine in the dark, and had to make this possible to dance in.
 
 ----------------------------------------------------------------------
 STATUS (2026-09-26): added to index.html as project [P11].
