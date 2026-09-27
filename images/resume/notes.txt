@@ -1,0 +1,20 @@
+RESUME PAGE
+===========
+This folder feeds the "Resume" tab.
+
+THE FILE
+  Save your resume as a PDF in this folder, named exactly:
+      resume.pdf
+  Then ask Claude to "add the resume", or in index.html block 1c set
+      file: "images/resume/resume.pdf",
+
+  While no PDF is present the page shows the note below instead.
+
+NOTE SHOWN UNTIL THE PDF EXISTS
+  Resume coming soon.
+
+WHAT THE PAGE DOES WITH IT
+  The PDF is displayed on the page inside a frame, with two buttons
+  under it: "Download PDF" and "Open in new tab".
+  Replacing resume.pdf with a newer file updates the site; nothing
+  else needs to change.

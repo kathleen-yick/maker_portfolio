@@ -1,0 +1,38 @@
+EXAMPLE PROJECT NOTES
+=====================
+Copy this folder for each new project. Rename the folder to the project
+(lower-case, no spaces, e.g.  bridge  or  solar-tracker).
+
+Photos in this folder are shown in number order. 1 is the thumbnail.
+Use 1 to 6 files: 1.jpg 2.jpg 3.png 4.pdf ...
+(.jpg / .jpeg, .png and .pdf all work, in any mix.)
+
+Fill in what you know below. Anything you leave blank, Claude drafts
+from the photos, and you can refine it later in index.html.
+
+title:        4-Sided Metal Folder
+category:     design        (engineering | design | fun)
+year:         2025
+role:         Design, fabrication,
+tools:        Metal laser cutter, Rhino, rapid prototyping
+link:         (a GitHub / Behance / other URL, or leave blank)
+featured:     no                 (yes = also shown on the About Me page)
+
+blurb (one or two sentences for under the thumbnail):
+  A desk organizer made of one piece of aluminum sheet metal that is able
+  to function on four of its sides (essentially metal origami)
+
+description (as many lines as you like; blank line = new paragraph):
+  4.021 (intro to design) solo project on designing functional objects with
+  design constraints: 2ft x 2ft sheet of aluminum and using only one piece.
+
+  Prototyped initially with paper, cardboard and then aluminum. Manipulated
+  the metal using a laser cutter and sheet bending tools, then finished it off
+  with power coating.
+
+----------------------------------------------------------------------
+STATUS (2026-09-26): added to index.html as project [P8].
+  Web-sized copies were made: 1.jpg, 2.jpg (from your 2.png), 3.jpg, 4.jpg.
+  Your full-size originals are in originals/ (kept off GitHub).
+  To change text, search index.html for [P8]. To change photos,
+  replace the numbered files here and keep the same names.

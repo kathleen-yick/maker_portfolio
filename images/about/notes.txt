@@ -1,0 +1,40 @@
+ABOUT ME PAGE
+=============
+This folder feeds the "About Me" tab.
+Fill in what you know, drop the two photos in, and ask Claude to
+"update the About Me page from images/about". You can also edit the
+same things by hand in index.html, block 1b.
+
+PHOTOS (put them in this folder with exactly these names)
+  portrait.jpg     tall photo shown to the left of your introduction
+                   (any shape works; it is cropped to a 3:4 box)
+  side.jpg         square photo shown beside the Additional Info table
+                   (cropped to a square)
+  Leave one out and the site shows a grey placeholder figure instead.
+
+INTRODUCTION (shown under the "About Me" heading; blank line = new paragraph)
+  I like problems that sit where hardware meets the people using it ...
+
+  This site collects the engineering, design, and personal work ...
+
+ADDITIONAL INFO TABLE
+  One row per line:   label | value | link (optional)
+  Links can be  mailto:you@mit.edu   #resume   https://...   or a file name.
+  Delete a row to hide it. Add rows freely. Order here = order on the page.
+
+  Contact          | yickk987@mit.edu                        | mailto:yickk987@mit.edu
+  Resume           | View my resume                          | #resume
+  School and Year  | Massachusetts Institute of Technology, Class of 2029       |
+  Major            | Mechanical Engineering, Design and CS minor    |
+  Awards           | Scholastic Art Awards                   |
+
+FEATURED PROJECTS
+  Not set here. Any project with  featured: true  in index.html
+  (or  featured: yes  in its notes.txt) appears in this row, up to three.
+
+----------------------------------------------------------------------
+STATUS (2026-09-26): photos and Additional Info rows added to
+  index.html, block 1b. The introduction was left as it was, because
+  the text above still ends in "..." (write it out in full to change it).
+  Web-sized copies of portrait.jpg and side.jpg were made.
+  Your full-size originals are in originals/ (kept off GitHub).

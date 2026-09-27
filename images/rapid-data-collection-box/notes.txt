@@ -1,0 +1,45 @@
+EXAMPLE PROJECT NOTES
+=====================
+Copy this folder for each new project. Rename the folder to the project
+(lower-case, no spaces, e.g.  bridge  or  solar-tracker).
+
+Photos in this folder are shown in number order. 1 is the thumbnail.
+Add or remove photos freely: 1.jpg 2.jpg 3.jpg 4.jpg ...
+(.jpg, .png and .webp all work.)
+
+Fill in what you know below. Anything you leave blank, Claude drafts
+from the photos, and you can refine it later in index.html.
+
+title:        Rapid Scrap Data Collection Box
+category:     engineering        (engineering | design | fun; for two columns write: engineering, design)
+year:         2026
+role:         Mechanical Engineering Student Researcher
+tools:        Metal fabrication, sensor fusion, CAD (Fusion360)
+link:         https://linktr.ee/scrappy_pipe_dream?utm_source=qr_code
+featured:     no                 (yes = also shown on the About Me page)
+
+blurb (one or two sentences for under the thumbnail):
+Portable data collection box that can take < 5 second scans of scrap metal
+simultaneously with various sensors
+
+description (as many lines as you like; blank line = new paragraph):
+
+To increase copper regeneration rates from scrap yards back to manufacturers,
+this project aimed to collect large amounts of data to train an ML to automate \
+copper idenfication.
+
+Therefore, we needed a portable data collection box that could take data efficiently
+and accurately at an actual scrapyard.
+In preparation: I conducted 15+ interviews with scrapyard operators and metal recyclers to identify
+challenges in scrap identification and purchasing; tested and optimized MIS coil geometry; and
+fabricated a robust, controlled testing environment.
+
+During site testing, we were able to scan at a rate of 5 per minute (including manual
+feeding) and added ~600 unique scraps to our ML.
+
+----------------------------------------------------------------------
+STATUS (2026-09-26): added to index.html as project [P7].
+  Files on the site, in order: 1.jpg (lab, thumbnail), 2.jpg (scrapyard), 3.pdf (poster).
+  Your full-size originals are in originals/ (kept off GitHub).
+  To change text, search index.html for [P7]. To change photos,
+  replace the numbered files here and keep the same names.

@@ -1,0 +1,32 @@
+LIFE PAGE
+=========
+This folder feeds the "Life" tab: a paragraph, a row of photos,
+another paragraph, and an "Elsewhere" list of links on the right.
+Fill it in and ask Claude to "update the Life page from images/life",
+or edit block 1e in index.html by hand.
+
+PHOTOS
+  Number them in the order you want them shown:  1.jpg  2.jpg  3.jpg ...
+  Up to 6 is a good number. Odd-numbered photos are shown big,
+  even-numbered ones small. No photos = the row is hidden.
+  (.jpg / .jpeg / .png)
+
+TEXT ABOVE THE PHOTOS (blank line = new paragraph)
+  Outside of coursework I'm usually in the ceramics studio, on a trail
+  somewhere with a film camera, or feeding a sourdough starter that has
+  outlasted three apartments.
+
+TEXT BELOW THE PHOTOS
+  I'm always up for a conversation about manufacturing constraints,
+  well-designed signage, or where to find good bread. The fastest way
+  to reach me is email.
+
+ELSEWHERE LINKS (one per line:  label | url ; leave the url blank to hide)
+  Email      | mailto:yickk987@mit.edu
+  LinkedIn   | www.linkedin.com/in/kathleen-yick-16b4682b1
+  GitHub     |
+  Instagram  |
+
+----------------------------------------------------------------------
+STATUS (2026-09-26): LinkedIn link added to index.html, block 1e.
+  No photos in this folder yet, so the photo row stays hidden.

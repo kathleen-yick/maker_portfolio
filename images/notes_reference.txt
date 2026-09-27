@@ -1,0 +1,29 @@
+EXAMPLE PROJECT NOTES
+=====================
+Copy this folder for each new project. Rename the folder to the project
+(lower-case, no spaces, e.g.  bridge  or  solar-tracker).
+
+Photos in this folder are shown in number order. 1 is the thumbnail.
+Use 1 to 6 files: 1.jpg 2.jpg 3.png 4.pdf ...
+(.jpg / .jpeg, .png and .pdf all work, in any mix.)
+
+Fill in what you know below. Anything you leave blank, Claude drafts
+from the photos, and you can refine it later in index.html.
+
+title:        Your project title
+category:     engineering        (engineering | design | fun; for two columns write: engineering, design)
+year:         2026
+role:         What you did
+tools:        Software, materials, languages
+link:         (a GitHub / Behance / other URL, or leave blank)
+featured:     no                 (yes = also shown on the About Me page)
+
+blurb (one or two sentences for under the thumbnail):
+  ...
+
+description (as many lines as you like; blank line = new paragraph):
+  What the project had to do.
+
+  What you actually built, and how it went.
+
+  What you would do differently next time.

@@ -5,12 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#F5F5F5">
 
-<!-- ✏️ EDIT: the browser-tab title and the one-line description search engines show. -->
+<!-- ✏️ EDITABLE
+     ON THE WEBSITE: the text on the browser tab / bookmark. -->
 <title>Kathleen Yick — Portfolio</title>
-<meta name="description" content="Kathleen Yick's portfolio: engineering, design, and personal projects.">
 
-<!-- Font (loaded from Google Fonts). To change it, swap the family name here AND in
-     the --font line of the THEME block in Part 2. -->
+<!-- ✏️ EDITABLE
+     ON THE WEBSITE: not visible on the page.
+     It is the one-line description search engines show under the link. -->
+<meta name="description" content="Kathleen Yick's portfolio: engineering, design, and fun projects.">
+
+<!-- 🚫 NOT EDITABLE (unless you are changing the font)
+     Loads the typeface from Google Fonts.
+     To change it, swap the family name here AND in the --font line of 2a. THEME. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap">
@@ -22,12 +28,63 @@
      ═══════════════════════════════════════════════════════════════════════════
 
        PART 1 · YOUR CONTENT        ✏️  edit freely — this is where projects live
-       PART 2 · STYLES              🎨  the THEME block at the top is safe to tweak;
-                                        the layout rules below it, leave alone
-       PART 3 · PAGE SKELETON       🚫  do not edit
-       PART 4 · SCRIPT              🚫  do not edit
+           1a. Site header      1b. About Me page     1c. Resume page
+           1d. Projects         1e. Life page
 
-     Day to day you only ever touch PART 1. Each block there has its own notes.
+       PART 2 · STYLES              🎨  2a THEME is safe to tweak; the rest, leave alone
+           2a. Theme            2b. Base + reset      2c. Masthead + tab bar
+           2d. Panels           2e. Image boxes       2f. About page
+           2g. Resume page      2h. Projects page     2i. Slideshow
+           2j. Project view     2k. Life page         2l. Footer + error box
+
+       PART 3 · PAGE SKELETON       🚫  do not edit
+           3a. Masthead + nav   3b. About Me          3c. Resume
+           3d. Projects         3e. Life              3f. Footer
+           3g. Project view
+
+       PART 4 · SCRIPT              🚫  do not edit
+           4a. Settings         4b. Helpers           4c. Slideshow
+           4d. Render pages     4e. Project view      4f. Tabs + address bar
+           4g. Clicks + keys    4h. Start
+
+     Every block is marked with a banner like  ── 1a. SITE HEADER ──  so you can
+     search for its number. Day to day you only ever touch PART 1.
+
+     LABELS USED THROUGHOUT THIS FILE
+       ✏️ EDITABLE       change it. The note above it says what it changes.
+       🚫 NOT EDITABLE   the script depends on it. Leave it exactly as is.
+       ON THE WEBSITE:   where that block shows up on the finished page.
+
+     ADDING A PROJECT
+       Go to 1d. PROJECTS. It starts with a step-by-step guide and a
+       PLACEHOLDER PROJECT (3 photos) that you copy for each new project.
+
+     THE images/ FOLDER
+       Every photo and file the site uses lives in images/. It has one
+       guided folder per page, each with a notes.txt to fill in:
+         images/about/     portrait.jpg, side.jpg, your introduction, info rows
+         images/resume/    resume.pdf
+         images/life/      1.jpg 2.jpg ..., two paragraphs, Elsewhere links
+         images/<project>/ one folder per project (copy example-project)
+       Fill a folder in, then either edit the matching block below (1b, 1c,
+       1e, 1d) or ask Claude to do it from the notes.
+
+     PROJECT INDEX
+       Every project has a tag like [P3] in the comment just above it.
+       Press Cmd+F (Ctrl+F on Windows) and type the tag to jump straight to it.
+       This list is updated whenever a project is added with Claude's help.
+       If you add one by hand, give it the next number and add a line here.
+
+       [P0]  Example project                      engineering  2026   ← placeholder, copy me
+       [P1]  Compliant gripper for fragile parts  engineering  2025
+       [P2]  Solar tracker control loop           engineering  2024
+       [P3]  Heat exchanger test rig              engineering  2024
+       [P4]  Ceramics studio identity             design       2025
+       [P5]  Transit wayfinding kit               design       2024
+       [P6]  Sourdough log                        fun          2023–2025
+       [P7]  Rapid Scrap Data Collection Box      engineering  2026
+       [P8]  4-Sided Metal Folder                 design       2025
+       [P9]  Metal Creatures                      fun          2025
 
      After you save: open index.html in a browser to check it, then
        git add index.html images
@@ -43,120 +100,439 @@
    PART 1 · YOUR CONTENT                                       ✏️ EDIT THIS PART
    ═══════════════════════════════════════════════════════════════════════════
 
-   Ground rules (they are the same for every block below):
+   HOW THIS PART WORKS
 
-   • Text goes inside quotes.  "Short text like this"  or, for anything longer,
-     `backticks like this` — backticks let you write across several lines, and
-     a blank line inside them starts a new paragraph on the page.
+     Each block below is a list of  name: value,  lines.
 
-   • Every line inside { } or [ ] ends with a comma. A MISSING COMMA IS THE #1
-     CAUSE OF A BLANK PAGE. If the page comes up empty or shows a red error
-     box, look at the last thing you edited.
+       ✏️ EDITABLE      the VALUE, to the right of the colon.
+                        The comment above it says what it changes.
+       🚫 NOT EDITABLE  the NAME, to the left of the colon
+                        (titleLine1, bio, images, ...).
+                        The script looks these up by name.
 
-   • Image paths are relative to this file. Put photos in the images/ folder
-     and write them as  "images/my-photo.jpg". Lower-case names, no spaces.
+   GROUND RULES (the same for every block)
 
-   • To hide something, leave its value as ""  (two quotes, nothing inside).
+     • Short text goes inside "double quotes".
 
-   • Apostrophes inside "double quotes" are fine: "Dean's List".
+     • Longer text goes inside `backticks`.
+       Backticks let you write across several lines.
+       A blank line inside them starts a new paragraph on the page.
+
+     • Every line inside { } or [ ] ends with a comma.
+       A MISSING COMMA IS THE #1 CAUSE OF A BLANK PAGE.
+       If the page comes up empty or shows a red error box,
+       look at the last thing you edited.
+
+     • Image paths are relative to this file.
+       Put photos in the  images/  folder next to index.html
+       and write them as  "images/my-photo.jpg".
+       Lower-case names, no spaces.
+
+     • To hide something, leave its value as  ""  (two quotes, nothing inside).
+
+     • Apostrophes inside "double quotes" are fine:  "Dean's List".
    ═══════════════════════════════════════════════════════════════════════════ */
 
 
+
 /* ── 1a. SITE HEADER ──────────────────────────────────────────────────────── */
+/* ON THE WEBSITE:
+     • the big title at the top-left of every page
+     • the small copyright line at the very bottom of every page
+     • the order projects are listed in                                       */
 
 const SITE = {
-  titleLine1: "Kathleen's Website +",     // first line of the big title, top-left
-  titleLine2: "About Me Portfolio",       // second line
-  footer: "© 2026 Kathleen Yick",         // small text at the very bottom
 
-  // true  = projects are listed newest year first (a range like "2023–2025" counts as 2025)
-  // false = projects appear in exactly the order you write them in PROJECTS below
+  // ✏️ EDITABLE
+  // First line of the big title, top-left of every page.
+  titleLine1: "Kathleen Yick",
+
+  // ✏️ EDITABLE
+  // Second line of the big title.
+  // Leave as "" to show only one line.
+  titleLine2: "",
+
+  // ✏️ EDITABLE
+  // Small grey text at the very bottom of every page.
+  footer: "© 2026 Kathleen Yick",
+
+  // ✏️ EDITABLE
+  // How projects are ordered on the Projects page.
+  //   true  = newest year first. A range like "2023–2025" counts as 2025.
+  //   false = exactly the order you write them in 1d. PROJECTS.
   projectsNewestFirst: true,
+
 };
 
 
+
 /* ── 1b. ABOUT ME PAGE ────────────────────────────────────────────────────── */
+/* FOLDER: images/about/  (notes.txt there mirrors every field below)
+   ON THE WEBSITE: the "About Me" tab.
+     • the tall portrait photo, left of your introduction
+     • the introduction text
+     • the "Additional Info" table, and the square photo beside it
+   The "Featured Projects" row lower on this page is NOT set here.
+   It shows any project in 1d. PROJECTS marked  featured: true.               */
 
 const ABOUT = {
-  portrait:  "",   // tall photo beside the bio, e.g. "images/portrait.jpg"   ("" = placeholder)
-  sidePhoto: "",   // square photo beside Additional Info, e.g. "images/studio.jpg"
 
-  // Your introduction. A blank line = a new paragraph.
+  // ✏️ EDITABLE
+  // Tall photo to the left of your introduction.
+  // Drop it in images/about/ as portrait.jpg, then write the path here:
+  //   portrait: "images/about/portrait.jpg",
+  // "" = grey placeholder figure.
+  portrait: "images/about/portrait.jpg",
+
+  // ✏️ EDITABLE
+  // Square photo to the right of the "Additional Info" table.
+  // Drop it in images/about/ as side.jpg, then:
+  //   sidePhoto: "images/about/side.jpg",
+  // "" = grey placeholder figure.
+  sidePhoto: "images/about/side.jpg",
+
+  // ✏️ EDITABLE
+  // Your introduction, shown under the "About Me" heading.
+  // A blank line = a new paragraph.
   bio: `
 I like problems that sit where hardware meets the people using it: a mechanism that has to survive a drop test, an interface that has to be read in one glance, a process that has to be repeatable by someone who wasn't in the room when it was designed.
 
 This site collects the engineering, design, and personal work I keep coming back to. Each project has the same three parts — what it had to do, what I actually built, and what I'd do differently.
   `,
 
-  // "Additional Info" rows. Add, remove, or reorder rows freely.
-  // Optional  href:  turns the value into a link. "#resume" jumps to the Resume tab.
+  // ✏️ EDITABLE
+  // The rows of the "Additional Info" table.
+  // Each row is:   { label: "left column", value: "right column" },
+  // Add, remove, or reorder rows freely.
+  // A row whose value is "" is hidden.
+  //
+  // Optional  href:  turns the value into a link.
+  //   "#resume"            jumps to the Resume tab
+  //   "mailto:me@x.com"    opens a new email
+  //   "https://..."        opens another website in a new tab
+  //   "cv.pdf"             opens a file kept next to index.html
   info: [
-    { label: "Contact",         value: "kathleen@example.com",              href: "mailto:kathleen@example.com" },
-    { label: "Resume",          value: "View my resume",                    href: "#resume" },
-    { label: "School and Year", value: "Example University, Class of 2027" },
-    { label: "Major",           value: "Mechanical Engineering, Design minor" },
-    { label: "CV",              value: "Available on request" },              // e.g. value: "Download CV", href: "cv.pdf"
-    { label: "Awards",          value: "Dean's List, 2024–2025" },
+    { label: "Contact",         value: "yickk987@mit.edu",                   href: "mailto:yickk987@mit.edu" },
+    { label: "Resume",          value: "View my resume",                     href: "#resume" },
+    { label: "School and Year", value: "Massachusetts Institute of Technology, Class of 2029" },
+    { label: "Major",           value: "Mechanical Engineering, Design and CS minor" },
+    { label: "Awards",          value: "Scholastic Art Awards" },
   ],
+
 };
+
 
 
 /* ── 1c. RESUME PAGE ──────────────────────────────────────────────────────── */
+/* FOLDER: images/resume/  (put resume.pdf there)
+   ON THE WEBSITE: the "Resume" tab.
+     With a file:     the PDF shown on the page,
+                      plus "Download PDF" and "Open in new tab" buttons.
+     Without a file:  a blank white sheet showing the note below.             */
 
 const RESUME = {
-  // Put your PDF next to this file and name it here, e.g. "resume.pdf".
-  // Leave as "" until the file exists, and the page shows the note instead.
+
+  // ✏️ EDITABLE
+  // Your resume as a PDF.
+  // Save it as images/resume/resume.pdf, then write that path here:
+  //   file: "images/resume/resume.pdf",
+  // Leave as "" until the file exists.
   file: "",
+
+  // ✏️ EDITABLE
+  // Text shown on the Resume page while  file  is "".
   note: "Resume coming soon.",
+
 };
 
 
-/* ── 1d. PROJECTS ─────────────────────────────────────────────────────────── */
 
-// The three columns on the Projects page. You can rename a label ("Engineering"
-// → "Hardware") without touching anything else. If you change an id, every
-// project using that id must be updated too.
+/* ── 1d. PROJECTS ─────────────────────────────────────────────────────────── */
+/* FOLDER: images/<project-name>/  one per project; copy images/example-project/
+   ON THE WEBSITE: the "Projects" tab.
+     • filter buttons across the top:  All | Engineering | Design | Fun
+     • three columns, one per category, each holding project cards
+     • clicking a card opens the full-screen view: one big photo + thumbnails
+   Projects marked  featured: true  also appear on the About Me page.        */
+
+
+/* 1d-i. CATEGORIES ─────────────────────────────────────────────────────────*/
+// ✏️ EDITABLE
+// The column headings on the Projects page, and the filter buttons.
+//   label = the words shown on the page. Rename freely.
+//   id    = the short name each project uses in its  category:  line.
+//           A project may list more than one id and appears in each column.
+//           If you change an id, update every project that uses it.
+// Add a fourth category by copying a line.
+// Delete a line to remove that column.
 const CATEGORIES = [
   { id: "engineering", label: "Engineering" },
   { id: "design",      label: "Design" },
-  { id: "personal",    label: "Personal" },
+  { id: "fun",         label: "Fun" },
 ];
 
-/* HOW TO ADD A PROJECT
-   1. Copy the template below (from the opening  {  to the closing  },  ).
-   2. Paste it anywhere inside the PROJECTS list — order doesn't matter when
-      projectsNewestFirst is true.
-   3. Fill in the fields. Only title, category and blurb are required; the rest
-      can be "" or [] and the page simply leaves them out.
-   4. Drop the photos into images/ and list them in  images:  in the order you
-      want them to appear. The first one is the thumbnail. Several = a slideshow.
-   5. featured: true  puts it in "Featured Projects" on the About page.
-      Only the first three featured projects (after sorting) are shown there.
 
-   ┌──────────────────────────────────────────────────────────────────────┐
-   │  {                                                                   │
-   │    title: "Project name",                                            │
-   │    category: "engineering",         // engineering | design | personal │
-   │    year: "2026",                                                     │
-   │    blurb: "One or two sentences shown under the thumbnail.",         │
-   │    description: `                                                    │
-   │  The full write-up, shown when the project is opened.                │
-   │                                                                      │
-   │  Blank line = new paragraph.                                         │
-   │    `,                                                                │
-   │    images: ["images/name-1.jpg", "images/name-2.jpg"],               │
-   │    role: "What you did",                                             │
-   │    tools: "Software, materials, languages",                          │
-   │    link: "",                        // e.g. a GitHub or Behance URL  │
-   │    featured: false,                                                  │
-   │  },                                                                  │
-   └──────────────────────────────────────────────────────────────────────┘
-*/
+/* 1d-ii. HOW TO ADD A PROJECT WITH YOUR OWN PHOTOS AND TEXT ─────────────────
+
+   STEP 1 · PREPARE THE PHOTOS
+     • Copy the folder  images/example-project/  and rename the copy
+       after the project, e.g.  images/bridge/
+     • Each project takes 1 to 6 files.
+       Any mix of  .jpg / .jpeg,  .png,  or  .pdf  (a drawing, poster, report).
+     • Aim for about 1600 px on the long side and under 1 MB each.
+       Bigger files make the page slow to load on phones.
+     • Name them by number, in the order you want them shown:
+           images/bridge/1.jpg   images/bridge/2.jpg   images/bridge/3.jpg
+     • Fill in  notes.txt  in that folder if you want to write the
+       text there first. Otherwise write it straight into this file.
+
+   STEP 2 · COPY THE PLACEHOLDER
+     • Just below, inside PROJECTS, is the block marked
+           ▼▼ PLACEHOLDER PROJECT ▼▼
+     • Select it from its opening  {  to its closing  },  and copy.
+     • Paste the copy anywhere between the  [  and  ]  of PROJECTS.
+       Order does not matter while  projectsNewestFirst  is true (see 1a).
+
+   STEP 3 · FILL IN THE TEXT
+     Each field, and where it appears on the website:
+
+       title        the name under the thumbnail,
+                    and the big heading in the full-screen view
+       category     which column the card sits in
+                    (must match an  id  from CATEGORIES above)
+                    for two columns:  category: ["engineering", "design"],
+       year         small grey text after the title;
+                    also used for newest-first sorting. "2023–2025" is fine.
+       blurb        one or two sentences under the thumbnail
+       description  the full write-up in the full-screen view;
+                    blank line = new paragraph
+       images       the photos — see STEP 4
+       role         the "Role:" line in the full-screen view
+       tools        the "Tools:" line in the full-screen view
+       link         a web address; adds a "Visit project ↗" button
+       featured     true = also shown in "Featured Projects" on About Me
+                    (only the first three featured projects appear there)
+
+     Only title, category and blurb are required.
+     Anything else can be  ""  or  []  and the page simply leaves it out.
+
+   STEP 4 · LIST THE PHOTOS
+     images:  is a list of paths, in the order they should appear.
+     Each project can have a different number: 1 to 6 files.
+     Files can be .jpg / .jpeg, .png or .pdf, in any mix.
+
+       images: [],                          → one grey placeholder box
+
+       images: [                            → one photo, no arrows
+         "images/bridge/1.jpg",
+       ],
+
+       images: [                            → slideshow with arrows and dots
+         "images/bridge/1.jpg",               (2 to 6 files)
+         "images/bridge/2.jpg",
+         "images/bridge/drawing.pdf",
+       ],
+
+     • The FIRST photo is the thumbnail on the Projects page.
+     • On the card the files are a slideshow, cropped to a 4:3 box.
+       The arrows appear only while the cursor is over that card.
+     • Clicking the card opens the full-screen view: one large
+       highlight photo, uncropped, with every file as a small
+       thumbnail underneath. Click a thumbnail to make it the big one.
+       The slide that was clicked on the card starts as the highlight.
+     • A .pdf shows as a "PDF" tile on the card and in the thumbnails.
+       When it is the highlight, the document itself is shown,
+       scrollable, with an "Open PDF" link if the browser cannot
+       display it inline.
+     • More than 6 files? Only the first 6 are shown.
+     • A path that does not match a real file shows the grey
+       placeholder box instead, so a typo will not break the page.
+       (Check the spelling and the folder if you see a grey box.)
+
+   STEP 5 · CHECK, THEN PUBLISH
+     • Save this file, then open index.html in a browser.
+     • Click the Projects tab, then click the new card.
+     • Blank page or red box?  Look for a missing comma or quote
+       in what you just typed.
+     • Then, in Terminal, from this folder:
+           git add index.html images
+           git commit -m "Add <project name>"
+           git push
+       GitHub Pages republishes the site within a minute or two.
+
+   TO EDIT AN EXISTING PROJECT
+     Look it up in the PROJECT INDEX at the top of the file and search for
+     its tag, e.g. [P3]. Then change any field the same way.
+     To swap a photo, change the path or drop a new file in images/.
+     To remove a project, delete from its  {  to its  },  inclusive.
+   ─────────────────────────────────────────────────────────────────────────── */
 
 const PROJECTS = [
 
-  /* ▼▼ EXAMPLE PROJECTS — replace these with your own. ▼▼ */
 
+  /* ▼▼ PLACEHOLDER PROJECT (3 photos) — copy this block for each new project ▼▼
+     Fill it in, or delete it, before you publish.
+     Give each copy the next free tag ([P7], [P8] ...) in the comment above
+     its opening  {  and add it to the PROJECT INDEX at the top of the file.
+
+     Its photos live in  images/example-project/  — copy that folder too.
+     It holds  notes.txt  (a fill-in form for the text),  1.png 2.png 3.png
+     (flat-colour stand-ins) and  4.pdf, so you can see the slideshow working
+     with both pictures and a document. */
+  /* [P0] Example project · engineering · 2026 */
+  {
+    // ✏️ Name under the thumbnail, and the heading in the full-screen view.
+    title: "Example project",
+
+    // ✏️ Which column:  "engineering"  "design"  or  "fun"
+    //    In two columns?  category: ["engineering", "design"],
+    category: "engineering",
+
+    // ✏️ Grey text after the title. Also used for sorting.
+    year: "2026",
+
+    // ✏️ One or two sentences under the thumbnail.
+    blurb: "One or two sentences that appear under the thumbnail.",
+
+    // ✏️ The full write-up in the full-screen view.
+    //    A blank line = a new paragraph.
+    description: `
+What the project had to do.
+
+What you actually built, and how it went.
+
+What you would do differently next time.
+    `,
+
+    // ✏️ Files, in order. The first one is the thumbnail.
+    //    1 to 6 lines. Each can be .jpg / .jpeg, .png or .pdf. Keep the commas.
+    images: [
+      "images/example-project/1.png",
+      "images/example-project/2.png",
+      "images/example-project/3.png",
+      "images/example-project/4.pdf",
+    ],
+
+    // ✏️ The "Role:" line in the full-screen view.
+    role: "What you did",
+
+    // ✏️ The "Tools:" line in the full-screen view.
+    tools: "Software, materials, languages",
+
+    // ✏️ A web address, e.g. GitHub or Behance. Adds a "Visit project ↗" button.
+    //    "" = no button.
+    link: "",
+
+    // ✏️ true = also shown under "Featured Projects" on the About Me page.
+    featured: false,
+  },
+  /* ▲▲ END OF PLACEHOLDER ▲▲ */
+
+
+
+  /* ▼▼ YOUR PROJECTS ▼▼ */
+
+  /* [P7] Rapid Scrap Data Collection Box · engineering · 2026 */
+  {
+    title: "Rapid Scrap Data Collection Box",
+    category: "engineering",
+    year: "2026",
+
+    // Your wording from notes.txt; only spelling fixed.
+    blurb: "Portable data collection box that can take < 5 second scans of scrap metal simultaneously with various sensors.",
+
+    description: `
+To increase copper regeneration rates from scrap yards back to manufacturers, this project aimed to collect large amounts of data to train an ML to automate copper identification.
+
+Therefore, we needed a portable data collection box that could take data efficiently and accurately at an actual scrapyard.
+In preparation: I conducted 15+ interviews with scrapyard operators and metal recyclers to identify challenges in scrap identification and purchasing; tested and optimized MIS coil geometry; and fabricated a robust, controlled testing environment.
+
+During site testing, we were able to scan at a rate of 5 per minute (including manual feeding) and added ~600 unique scraps to our ML.
+    `,
+
+    // 1 = the box in the lab (thumbnail), 2 = on-site testing at the
+    // scrapyard, 3 = the poster as a readable PDF.
+    images: [
+      "images/rapid-data-collection-box/1.jpg",
+      "images/rapid-data-collection-box/2.jpg",
+      "images/rapid-data-collection-box/3.pdf",
+    ],
+
+    role: "Mechanical Engineering Student Researcher",
+    tools: "Metal fabrication, sensor fusion, CAD (Fusion 360)",
+    link: "https://linktr.ee/scrappy_pipe_dream",
+    featured: false,
+  },
+
+  /* [P8] 4-Sided Metal Folder · design · 2025 */
+  {
+    title: "4-Sided Metal Folder",
+    category: "design",
+    year: "2025",
+
+    // Your wording from notes.txt; only spelling fixed.
+    blurb: "A desk organizer made of one piece of aluminum sheet metal that is able to function on four of its sides (essentially metal origami).",
+
+    description: `
+4.021 (intro to design) solo project on designing functional objects with design constraints: 2ft x 2ft sheet of aluminum and using only one piece.
+
+Prototyped initially with paper, cardboard and then aluminum. Manipulated the metal using a laser cutter and sheet bending tools, then finished it off with powder coating.
+    `,
+
+    // 1 = finished folder, flat (thumbnail), 2 = concept sketches,
+    // 3 = the laser-cut sheet before bending, 4 = finished folder, upright.
+    images: [
+      "images/metal-folder/1.jpg",
+      "images/metal-folder/2.jpg",
+      "images/metal-folder/3.jpg",
+      "images/metal-folder/4.jpg",
+    ],
+
+    role: "Design, fabrication",
+    tools: "Metal laser cutter, Rhino, rapid prototyping",
+    link: "",
+    featured: false,
+  },
+
+  /* [P9] Metal Creatures · fun · 2025 */
+  {
+    title: "Metal Creatures",
+    category: "fun",
+    year: "2025",
+
+    // Your wording from notes.txt; only tidied.
+    blurb: "A metal fish and a variation of metal dinosaurs.",
+
+    // ✏️ DRAFT: your notes, lightly reworded. Refine freely.
+    description: `
+Prototyped with paper first, moved the sketches into Illustrator, then cut and folded a few prototypes.
+
+I had to adjust the scale and space out the cuts more whenever a fold was too difficult to make by hand or the metal snapped.
+    `,
+
+    // 1 = folded fish (thumbnail), 2 = the fish cut flat, before folding,
+    // 3 = folded dinosaur with its paper prototype,
+    // 4 = dinosaurs hanging after powder coating.
+    images: [
+      "images/metal-animals/1.jpg",
+      "images/metal-animals/2.jpg",
+      "images/metal-animals/3.jpg",
+      "images/metal-animals/4.jpg",
+    ],
+
+    role: "Fabrication, creator",
+    tools: "Metal manipulation, Illustrator, prototyping",
+    link: "",
+    featured: false,
+  },
+
+  /* ▲▲ END OF YOUR PROJECTS ▲▲ */
+
+
+
+  /* ▼▼ EXAMPLE PROJECTS — replace these with your own ▼▼ */
+
+  /* [P1] Compliant gripper for fragile parts · engineering · 2025 */
   {
     title: "Compliant gripper for fragile parts",
     category: "engineering",
@@ -176,6 +552,7 @@ What I'd change: the first version was tuned for dry slides. Wet ones slipped un
     featured: true,
   },
 
+  /* [P2] Solar tracker control loop · engineering · 2024 */
   {
     title: "Solar tracker control loop",
     category: "engineering",
@@ -193,6 +570,7 @@ Measured against a fixed panel on the same roof over six weeks: +22% average dai
     featured: true,
   },
 
+  /* [P3] Heat exchanger test rig · engineering · 2024 */
   {
     title: "Heat exchanger test rig",
     category: "engineering",
@@ -210,6 +588,7 @@ The useful part turned out to be the fixture, not the electronics: a quick-relea
     featured: false,
   },
 
+  /* [P4] Ceramics studio identity · design · 2025 */
   {
     title: "Ceramics studio identity",
     category: "design",
@@ -227,6 +606,7 @@ Delivered as a two-page guide, a set of pre-sized templates, and a folder of sho
     featured: true,
   },
 
+  /* [P5] Transit wayfinding kit · design · 2024 */
   {
     title: "Transit wayfinding kit",
     category: "design",
@@ -244,9 +624,10 @@ I mapped every decision point a passenger passes through, counted how many carri
     featured: false,
   },
 
+  /* [P6] Sourdough log · fun · 2023–2025 */
   {
     title: "Sourdough log",
-    category: "personal",
+    category: "fun",
     year: "2023–2025",
     blurb: "Two years of bakes, logged well enough to actually learn something.",
     description: `
@@ -263,32 +644,55 @@ The scatter plot answered a question I'd been arguing about for a year: bulk tem
 
   /* ▲▲ END OF EXAMPLES ▲▲ */
 
+
 ];
 
 
+
 /* ── 1e. LIFE PAGE ────────────────────────────────────────────────────────── */
+/* FOLDER: images/life/  (notes.txt there mirrors every field below)
+   ON THE WEBSITE: the "Life" tab.
+     • a paragraph of text
+     • a row of photos
+     • another paragraph of text
+     • an "Elsewhere" list of links on the right                              */
 
 const LIFE = {
-  // Text above the photos. Blank line = new paragraph.
+
+  // ✏️ EDITABLE
+  // Text above the photos. A blank line = a new paragraph.
   intro: `
 Outside of coursework I'm usually in the ceramics studio, on a trail somewhere with a film camera, or feeding a sourdough starter that has outlasted three apartments.
   `,
 
-  // Photos shown between the two blocks of text. Odd ones are big, even ones small.
-  photos: [],          // e.g. ["images/life-trail.jpg", "images/life-studio.jpg"]
+  // ✏️ EDITABLE
+  // Photos shown between the two blocks of text.
+  // Odd-numbered photos are shown big, even-numbered ones small.
+  // Number them in images/life/ and list them here.  []  hides the row.
+  // e.g.
+  //   photos: [
+  //     "images/life/1.jpg",
+  //     "images/life/2.jpg",
+  //   ],
+  photos: [],
 
-  // Text below the photos.
+  // ✏️ EDITABLE
+  // Text below the photos. A blank line = a new paragraph.
   outro: `
 I'm always up for a conversation about manufacturing constraints, well-designed signage, or where to find good bread. The fastest way to reach me is email.
   `,
 
-  // "Find me elsewhere" links. Rows with an empty url are hidden.
+  // ✏️ EDITABLE
+  // The "Elsewhere" links on the right of the Life page.
+  // A row whose url is "" is hidden.
+  // If every row is empty, the whole list is hidden.
   links: [
-    { label: "Email",     url: "mailto:kathleen@example.com" },
-    { label: "LinkedIn",  url: "" },
+    { label: "Email",     url: "mailto:yickk987@mit.edu" },
+    { label: "LinkedIn",  url: "https://www.linkedin.com/in/kathleen-yick-16b4682b1" },
     { label: "GitHub",    url: "" },
     { label: "Instagram", url: "" },
   ],
+
 };
 
 /* ═══════════════════════════════ END OF PART 1 ═══════════════════════════════
@@ -303,30 +707,61 @@ I'm always up for a conversation about manufacturing constraints, well-designed 
    PART 2 · STYLES
    ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ── THEME ────────────────────────────────────────────────  🎨 safe to tweak ─
-   Colours and font for the whole site. Change a value here and it changes
-   everywhere. Colours are hex codes; pick them with any colour picker.     */
+/* ── 2a. THEME ───────────────────────────────────────── 🎨 safe to tweak ── */
+/* ✏️ EDITABLE — the values to the right of each colon.
+   ON THE WEBSITE: colours and font for the whole site.
+   Change a value here and it changes everywhere it is used.
+   Colours are hex codes like #A65E61. Pick them with any colour picker.
+   🚫 NOT EDITABLE — the names on the left (--page, --ink, ...).             */
+
 :root {
+
+  /* The typeface for all text.
+     Must match the Google Fonts link at the top of the file. */
   --font: "Exo 2", "Segoe UI", Helvetica, Arial, sans-serif;
 
-  --page:       #FFFFFF;   /* page background                                  */
-  --panel:      #F5F5F5;   /* the light grey cards each section sits in        */
-  --ink:        #5A5250;   /* headings and main text                           */
-  --ink-soft:   #7D7573;   /* paragraphs, descriptions                         */
-  --ink-faint:  #A8A19F;   /* the "|" bars, footer, carousel arrows            */
-  --rule:       #E4DFDD;   /* thin divider lines                               */
-  --blush:      #CFC3C1;   /* empty image placeholder                          */
-  --blush-deep: #C6B8B5;   /* frame around the resume                          */
-  --oval:       #5B4C4B;   /* the dark oval drawn on empty placeholders        */
-  --accent:     #A65E61;   /* links, active tab underline, placeholder figure  */
+  /* Page background, behind everything. */
+  --page: #FFFFFF;
 
-  --page-width: 1120px;    /* max width of the content column                  */
+  /* The light grey card each tab's content sits in. */
+  --panel: #F5F5F5;
+
+  /* Headings and main text. */
+  --ink: #5A5250;
+
+  /* Paragraphs and project descriptions. */
+  --ink-soft: #7D7573;
+
+  /* The "|" bars, the footer, and the slideshow dots. */
+  --ink-faint: #A8A19F;
+
+  /* Thin divider lines in the Additional Info and Elsewhere lists. */
+  --rule: #E4DFDD;
+
+  /* Background of an empty photo box. */
+  --blush: #CFC3C1;
+
+  /* Frame drawn around the resume. */
+  --blush-deep: #C6B8B5;
+
+  /* The dark oval drawn inside an empty photo box. */
+  --oval: #5B4C4B;
+
+  /* Links, the underline on the active tab, and the placeholder figure. */
+  --accent: #A65E61;
+
+  /* Maximum width of the content column, in pixels. */
+  --page-width: 1120px;
+
 }
 
-/* ── LAYOUT ──────────────────────────────────────  🚫 leave alone unless you
-   know CSS. Nothing here is content; it only positions and sizes things.  */
 
-/* reset */
+
+/* ── 2b. BASE + RESET ─────────────────────────────────── 🚫 not editable ── */
+/* 🚫 NOT EDITABLE from here to the end of Part 2.
+   These rules only position and size things. Nothing here is content.
+   ON THE WEBSITE: default text size, link colour behaviour, page column. */
+
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
@@ -350,7 +785,10 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .wrap { max-width: var(--page-width); margin: 0 auto; padding: 0 24px; }
 @media (max-width: 640px) { .wrap { padding: 0 16px; } }
 
-/* masthead + tab bar */
+
+/* ── 2c. MASTHEAD + TAB BAR ───────────────────────────── 🚫 not editable ── */
+/* 🚫 NOT EDITABLE.  ON THE WEBSITE: the big title and the  | About Me | Resume |  tab bar. */
+
 .masthead { padding: 36px 0 6px; }
 .masthead h1 { font-size: clamp(24px, 4vw, 34px); font-weight: 700; line-height: 1.22; letter-spacing: .01em; }
 .nav { display: flex; flex-wrap: wrap; align-items: center; padding: 10px 0 28px; font-size: 17px; font-weight: 500; }
@@ -364,26 +802,40 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
   .nav button { padding: 6px 8px; white-space: nowrap; }
 }
 
-/* section panels */
+
+/* ── 2d. PANELS + HEADINGS + TEXT ─────────────────────── 🚫 not editable ── */
+/* 🚫 NOT EDITABLE.  ON THE WEBSITE: the grey card behind each tab, and heading / paragraph sizes. */
+
 main { padding-bottom: 40px; }
 .panel { background: var(--panel); padding: 44px 48px 52px; animation: panel-in .25s ease; }
 @keyframes panel-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (max-width: 640px) { .panel { padding: 28px 20px 36px; } }
 
-/* headings: the "|" before each one is drawn here, not typed in the content */
+/* the "|" before each heading is drawn here, not typed in the content */
 .h2 { font-size: 27px; font-weight: 500; line-height: 1.2; letter-spacing: .005em; }
 .h3 { font-size: 21px; font-weight: 500; line-height: 1.2; }
 .h2::before, .h3::before { content: "| "; color: var(--ink-faint); font-weight: 300; }
 .prose { max-width: 62ch; color: var(--ink-soft); }
 .prose p + p { margin-top: .85em; }
 
-/* image boxes — one class used everywhere a photo can appear */
+
+/* ── 2e. IMAGE BOXES + THUMBNAIL TEXT ─────────────────── 🚫 not editable ── */
+/* 🚫 NOT EDITABLE.  ON THE WEBSITE: every photo box, its grey placeholder, and card titles. */
+/* .pic is used everywhere a photo can appear; .ttl/.blurb sit under thumbnails */
+
 .pic { position: relative; display: block; overflow: hidden; background: var(--blush); width: 100%; }
 .pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .pic.empty::after {                       /* dark oval on an empty box */
   content: ""; position: absolute; left: 50%; top: 50%; width: 46%; height: 36%;
   transform: translate(-50%, -50%); background: var(--oval); border-radius: 50%;
 }
+.pic.doc::after {                         /* "PDF" label on a document tile */
+  content: "PDF"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  padding: 8px 14px; background: #fff; color: var(--ink); border: 1px solid var(--rule);
+  font-size: 12px; font-weight: 600; letter-spacing: .12em;
+}
+.pic .pdf { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #fff; }
+.pdf-link { display: grid; place-items: center; height: 100%; font-size: 14px; }
 .pic.empty.person::after {                /* pawn figure for people photos */
   width: 100%; height: 100%; border-radius: 0; background: transparent no-repeat center / auto 62%;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 100'%3E%3Ccircle cx='30' cy='22' r='16' fill='%23A65E61'/%3E%3Cpath d='M30 30 8 98h44z' fill='%23A65E61'/%3E%3C/svg%3E");
@@ -395,7 +847,10 @@ main { padding-bottom: 40px; }
 .blurb { font-size: 13px; line-height: 1.5; color: var(--ink-soft); }
 button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
 
-/* ABOUT */
+
+/* ── 2f. ABOUT PAGE ───────────────────────────────────── 🚫 not editable ── */
+/* 🚫 NOT EDITABLE.  ON THE WEBSITE: layout of the About Me tab. */
+
 .about-hero { display: grid; grid-template-columns: 120px 1fr; gap: 30px; align-items: start; }
 .about-hero .h2 { margin-bottom: 8px; }
 .portrait { aspect-ratio: 3 / 4; }
@@ -425,7 +880,10 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
   .featured { grid-template-columns: 1fr; }
 }
 
-/* RESUME */
+
+/* ── 2g. RESUME PAGE ──────────────────────────────────── 🚫 not editable ── */
+/* 🚫 NOT EDITABLE.  ON THE WEBSITE: the resume frame and its two buttons. */
+
 .paper-frame { background: var(--blush-deep); padding: 18px; margin-top: 28px; max-width: 720px; }
 .paper { display: block; width: 100%; aspect-ratio: 8.5 / 11; background: #fff; border: 0; }
 .paper-empty { width: 100%; aspect-ratio: 8.5 / 11; background: #fff; display: grid; place-content: center; text-align: center; padding: 30px; color: var(--ink-faint); font-size: 14px; }
@@ -435,7 +893,10 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
 .btn.ghost { background: transparent; color: var(--ink); }
 .btn.ghost:hover { background: transparent; color: var(--accent); }
 
-/* PROJECTS */
+
+/* ── 2h. PROJECTS PAGE ────────────────────────────────── 🚫 not editable ── */
+/* 🚫 NOT EDITABLE.  ON THE WEBSITE: the filter buttons and the three project columns. */
+
 .cat-nav { display: flex; flex-wrap: wrap; align-items: center; margin-top: 10px; font-size: 19px; font-weight: 500; }
 .cat-nav button { padding: 4px 10px; color: var(--ink-soft); border-bottom: 2px solid transparent; }
 .cat-nav button:hover { color: var(--ink); }
@@ -455,7 +916,11 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
   .col-list, .cols.filtered .col-list { grid-template-columns: 1fr; }
 }
 
-/* image slideshow (used on project cards and inside the project view) */
+
+/* ── 2i. SLIDESHOW ────────────────────────────────────── 🚫 not editable ── */
+/* 🚫 NOT EDITABLE.  ON THE WEBSITE: the photo slideshow on each project card. */
+/* The arrows only appear while the cursor is over that project's card. */
+
 .car { position: relative; }
 .car-track {
   display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
@@ -467,26 +932,37 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
   position: absolute; top: 50%; transform: translateY(-50%); width: 30px; height: 30px;
   display: grid; place-items: center; font-size: 26px; line-height: 1; font-weight: 300;
   color: #fff; background: rgba(60, 48, 46, .38); border-radius: 50%; padding-bottom: 3px;
-  transition: background .15s;
+  opacity: 0;                              /* hidden until the cursor is over the card */
+  transition: background .15s, opacity .15s;
 }
+.card:hover .car-btn, .car:focus-within .car-btn { opacity: 1; }
 .car-btn:hover { background: rgba(60, 48, 46, .7); }
+@media (hover: none) { .car-btn { opacity: 1; } }   /* touchscreens: always show */
 .car-btn.prev { left: 8px; }
 .car-btn.next { right: 8px; }
 .car-dots { display: flex; gap: 5px; justify-content: center; margin-top: 7px; }
 .car-dots i { width: 5px; height: 5px; border-radius: 50%; background: var(--blush-deep); }
 .car-dots i.on { background: var(--accent); }
 
-/* full-screen project view */
+
+/* ── 2j. FULL-SCREEN PROJECT VIEW ─────────────────────── 🚫 not editable ── */
+/* 🚫 NOT EDITABLE.  ON THE WEBSITE: the page that opens when a project is clicked. */
+/* One large highlight photo, with every file as a small thumbnail under it. */
+
 .modal { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; border: 0; padding: 0; margin: 0; background: var(--page); color: var(--ink); overflow: auto; }
 .modal::backdrop { background: rgba(255, 255, 255, .92); }
 .modal-inner { max-width: 940px; margin: 0 auto; padding: 60px 40px 70px; }
 .modal-close { position: fixed; top: 14px; right: 18px; z-index: 2; font-size: 13px; font-weight: 600; padding: 8px 14px; background: var(--page); border: 1px solid var(--rule); }
 .modal-close:hover { color: var(--accent); border-color: var(--accent); }
-.modal .car-track { aspect-ratio: 16 / 10; background: var(--panel); }
-.modal .car-slide { background: var(--panel); }
-.modal .car-slide img { object-fit: contain; }
-.modal .car-btn { width: 36px; height: 36px; font-size: 32px; }
-.modal .car-btn.prev { left: 10px; } .modal .car-btn.next { right: 10px; }
+.gal-main .pic { aspect-ratio: 16 / 10; background: var(--panel); }
+.gal-main .pic img { object-fit: contain; }
+.gal-main.is-pdf .pic { aspect-ratio: auto; height: 72vh; }   /* room to read a PDF */
+.gal-thumbs { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-top: 10px; }
+.gal-thumbs .pic { aspect-ratio: 4 / 3; opacity: .55; transition: opacity .15s; }
+.gal-thumbs .pic:hover, .gal-thumbs .pic.on { opacity: 1; }
+.gal-thumbs .pic.on { outline: 2px solid var(--accent); outline-offset: 2px; }
+.gal-thumbs .pic.doc::after { padding: 4px 8px; font-size: 10px; }
+@media (max-width: 560px) { .gal-thumbs { grid-template-columns: repeat(3, 1fr); } }
 .modal h3 { font-size: 28px; font-weight: 600; line-height: 1.2; margin-top: 28px; }
 .meta { display: flex; flex-wrap: wrap; gap: 6px 24px; margin-top: 10px; font-size: 13px; color: var(--ink-soft); }
 .meta b { color: var(--ink); font-weight: 600; margin-right: 4px; }
@@ -495,7 +971,10 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
   .modal-inner { padding: 56px 16px 50px; }
 }
 
-/* LIFE */
+
+/* ── 2k. LIFE PAGE ────────────────────────────────────── 🚫 not editable ── */
+/* 🚫 NOT EDITABLE.  ON THE WEBSITE: layout of the Life tab and the Elsewhere links. */
+
 .life-grid { display: grid; grid-template-columns: 1fr 260px; gap: 44px; align-items: start; margin-top: 10px; }
 .life-photos { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; margin: 30px 0; }
 .life-outro { margin-top: 14px; }
@@ -507,10 +986,15 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
 .links a span { color: var(--ink-faint); }
 @media (max-width: 760px) { .life-grid { grid-template-columns: 1fr; } }
 
-/* footer + error box */
+
+/* ── 2l. FOOTER + ERROR BOX ───────────────────────────── 🚫 not editable ── */
+/* 🚫 NOT EDITABLE.  ON THE WEBSITE: the copyright line, and the red box shown on a typo. */
+
 .foot { padding: 6px 0 44px; font-size: 12px; color: var(--ink-faint); }
 .oops { background: #FCEBEB; color: #7A2E2E; border: 1px solid #E9B8B8; padding: 14px 18px; margin: 16px; font-size: 14px; line-height: 1.5; }
 .oops code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; }
+
+/* ═══════════════════════════════ END OF PART 2 ═══════════════════════════════ */
 </style>
 </head>
 
@@ -519,18 +1003,30 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
      PART 3 · PAGE SKELETON                                       🚫 DO NOT EDIT
      ═══════════════════════════════════════════════════════════════════════════
      Empty containers that the script in Part 4 fills from your content in
-     Part 1. The id="" names are what the script looks for. Renaming or
-     removing one breaks the page.
+     Part 1.
+
+     ✏️ EDITABLE:      only the heading words typed between > and <,
+                       for example  >About Me<  >Additional Info<  >Elsewhere<
+                       ON THE WEBSITE: those exact words are the headings.
+     🚫 NOT EDITABLE:  everything else — every  id="..."  class="..."  and tag.
+                       The script looks these up by name.
+                       Renaming or removing one breaks the page.
      ═══════════════════════════════════════════════════════════════════════════ -->
 
 <noscript><div class="oops">This site needs JavaScript turned on to display its content.</div></noscript>
+
+
+<!-- ── 3a. MASTHEAD + TAB BAR ──────────────────────────────────────────── -->
 
 <div class="wrap">
   <header class="masthead"><h1 id="site-title"></h1></header>
   <nav class="nav" id="nav" aria-label="Sections"></nav>
 </div>
 
+
 <main class="wrap">
+
+  <!-- ── 3b. ABOUT ME ────────────────────────────────────────────────────── -->
 
   <section class="panel" id="page-about" aria-labelledby="h-about">
     <div class="about-hero">
@@ -554,16 +1050,25 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
     </div>
   </section>
 
+
+  <!-- ── 3c. RESUME ──────────────────────────────────────────────────────── -->
+
   <section class="panel" id="page-resume" aria-labelledby="h-resume" hidden>
     <h2 class="h2" id="h-resume">Resume</h2>
     <div id="resume-body"></div>
   </section>
+
+
+  <!-- ── 3d. PROJECTS ────────────────────────────────────────────────────── -->
 
   <section class="panel" id="page-projects" aria-labelledby="h-projects" hidden>
     <h2 class="h2" id="h-projects">Projects</h2>
     <div class="cat-nav" id="cat-nav"></div>
     <div class="cols" id="cols"></div>
   </section>
+
+
+  <!-- ── 3e. LIFE ────────────────────────────────────────────────────────── -->
 
   <section class="panel" id="page-life" aria-labelledby="h-life" hidden>
     <h2 class="h2" id="h-life">Life</h2>
@@ -582,13 +1087,21 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
 
 </main>
 
+
+<!-- ── 3f. FOOTER ──────────────────────────────────────────────────────── -->
+
 <div class="wrap"><footer class="foot" id="foot"></footer></div>
 
-<!-- Full-screen project view. Opened by the script; closed with the button or Esc. -->
+
+<!-- ── 3g. FULL-SCREEN PROJECT VIEW ────────────────────────────────────── -->
+<!-- Opened by the script when a project is clicked; closed with the button or Esc. -->
+
 <dialog class="modal" id="modal" aria-label="Project">
   <button class="modal-close" type="button" data-close>Close ✕</button>
   <div class="modal-inner" id="modal-body"></div>
 </dialog>
+
+<!-- ═══════════════════════════════ END OF PART 3 ═══════════════════════════════ -->
 
 
 
@@ -597,11 +1110,21 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
    PART 4 · SCRIPT                                                🚫 DO NOT EDIT
    ═══════════════════════════════════════════════════════════════════════════
    Reads SITE / ABOUT / RESUME / CATEGORIES / PROJECTS / LIFE from Part 1 and
-   builds the page. Handles the tabs, the category filter, the image
-   slideshows and the full-screen project view. No content lives here.
+   builds the page. Handles the tabs, the category filter, the card
+   slideshows (1–6 files each) and the full-screen view with its gallery.
+   No content lives here.
    ═══════════════════════════════════════════════════════════════════════════ */
 (function () {
   "use strict";
+
+
+  /* ── 4a. SETTINGS ───────────────────────────────────────────────────────── */
+  /* The tab names, and which tab / category filter is open right now.
+
+     ✏️ EDITABLE:      the SECOND word in each pair below.
+                       ON THE WEBSITE: the name shown on that tab.
+     🚫 NOT EDITABLE:  the FIRST word. It is the address-bar name
+                       (#projects) and must match the ids in Part 3. */
 
   var TABS = [
     ["about",    "About Me"],
@@ -611,10 +1134,14 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
   ];
   var currentTab = "about";
   var currentCat = "all";
+  var MAX_IMAGES = 6;          // a project shows at most this many files
+
+
+
+  /* ── 4b. HELPERS ────────────────────────────────────────────────────────── */
+  /* Small utilities used by every render function below. */
 
   function $(id) { return document.getElementById(id); }
-
-  /* ---- small helpers ---------------------------------------------------- */
 
   // Make text safe to drop into HTML.
   function esc(s) {
@@ -633,21 +1160,43 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
   function isExternal(url) { return /^https?:\/\//i.test(url || ""); }
   function linkAttrs(url) { return isExternal(url) ? ' target="_blank" rel="noopener"' : ""; }
 
+  function isPdf(src) { return /\.pdf$/i.test(src || ""); }
+
   // An image box. Shows the photo if a path is given, otherwise a placeholder.
-  // opts: { tag, cls, attrs, person }
+  // If the path points at a file that does not exist (typo, or a photo not
+  // added yet), the broken image is removed and the placeholder shows instead.
+  // A .pdf shows as a "PDF" tile on cards; with opts.embedPdf (the full-screen
+  // view) the document itself is shown, with an "Open PDF" link as fallback.
+  // opts: { tag, cls, attrs, person, embedPdf }
   function pic(src, alt, opts) {
     opts = opts || {};
     src = String(src || "").trim();
     var tag = opts.tag || "span";
-    var cls = "pic" + (src ? "" : " empty") + (opts.person ? " person" : "") + (opts.cls ? " " + opts.cls : "");
-    return "<" + tag + ' class="' + cls + '"' + (opts.attrs || "") + ">" +
-      (src ? '<img src="' + esc(src) + '" alt="' + esc(alt) + '" loading="lazy">' : "") +
-      "</" + tag + ">";
+    var pdf = isPdf(src);
+    var cls = "pic" + (src ? "" : " empty") + (pdf && !opts.embedPdf ? " doc" : "") +
+      (opts.person ? " person" : "") + (opts.cls ? " " + opts.cls : "");
+    var onerr = ' onerror="this.parentNode.classList.add(\'empty\');this.remove()"';
+    var inner = "";
+    if (src && pdf && opts.embedPdf) {
+      inner = '<object class="pdf" data="' + esc(src) + '" type="application/pdf" aria-label="' + esc(alt) + '">' +
+        '<a class="pdf-link" href="' + esc(src) + '" target="_blank" rel="noopener">Open PDF ↗</a></object>';
+    } else if (src && !pdf) {
+      inner = '<img src="' + esc(src) + '" alt="' + esc(alt) + '" loading="lazy"' + onerr + ">";
+    }
+    return "<" + tag + ' class="' + cls + '"' + (opts.attrs || "") + ">" + inner + "</" + tag + ">";
   }
 
   function categoryLabel(id) {
     var c = CATEGORIES.filter(function (x) { return x.id === id; })[0];
     return c ? c.label : id;
+  }
+
+  // A project's categories as a list. Accepts  "design",
+  // ["engineering", "design"]  or  "engineering, design".
+  function catsOf(p) {
+    var c = p.category;
+    var list = Array.isArray(c) ? c : String(c || "").split(",");
+    return list.map(function (x) { return String(x).trim(); }).filter(Boolean);
   }
 
   // "2023–2025" → 2025; no year → -1 (sorts to the end).
@@ -660,17 +1209,24 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
     return list.slice().sort(function (a, b) { return yearOf(b) - yearOf(a); });
   }
 
-  /* ---- slideshow -------------------------------------------------------- */
 
-  // inModal = true renders plain slides (clicking them does nothing extra).
-  function carousel(p, inModal) {
-    var imgs = (p.images && p.images.length) ? p.images : [""];
+  /* ── 4c. SLIDESHOW ──────────────────────────────────────────────────────── */
+
+  // A project's files: 1–6 of them, or a single "" for the placeholder box.
+  function files(p) {
+    var f = (p.images || []).filter(Boolean).slice(0, MAX_IMAGES);
+    return f.length ? f : [""];
+  }
+
+  // The slideshow on a project card. Clicking a slide opens the project
+  // with that same file highlighted in the gallery.
+  function carousel(p) {
+    var imgs = files(p);
     var multi = imgs.length > 1;
     var slides = imgs.map(function (src, i) {
       var alt = p.title + (multi ? " — image " + (i + 1) + " of " + imgs.length : "");
-      return inModal
-        ? pic(src, alt, { cls: "car-slide" })
-        : pic(src, alt, { tag: "button", cls: "car-slide", attrs: ' type="button" data-open="' + p._id + '" aria-label="Open ' + esc(p.title) + '"' });
+      return pic(src, alt, { tag: "button", cls: "car-slide",
+        attrs: ' type="button" data-open="' + p._id + '" data-at="' + i + '" aria-label="Open ' + esc(p.title) + '"' });
     }).join("");
     return '<div class="car">' +
       '<div class="car-track">' + slides + "</div>" +
@@ -703,13 +1259,18 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
     dots.forEach(function (d, k) { d.classList.toggle("on", k === i); });
   }, true);
 
-  /* ---- render each page ------------------------------------------------- */
 
+  /* ── 4d. RENDER EACH PAGE ───────────────────────────────────────────────── */
+  /* One function per page. Each reads a Part 1 block and fills the matching
+     Part 3 container. */
+
+  // 4d-i. masthead + footer
   function renderHeader() {
     $("site-title").innerHTML = esc(SITE.titleLine1) + (SITE.titleLine2 ? "<br>" + esc(SITE.titleLine2) : "");
     $("foot").textContent = SITE.footer || "";
   }
 
+  // 4d-ii. tab bar
   function renderNav() {
     $("nav").innerHTML = '<span class="bar">|</span>' + TABS.map(function (t) {
       return '<button type="button" data-tab="' + t[0] + '"' + (t[0] === currentTab ? ' aria-current="page"' : "") + ">" +
@@ -717,6 +1278,7 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
     }).join("");
   }
 
+  // 4d-iii. About Me page
   function renderAbout() {
     $("portrait").innerHTML = pic(ABOUT.portrait, "Portrait", { cls: "portrait", person: true });
     $("bio").innerHTML = paras(ABOUT.bio);
@@ -741,6 +1303,7 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
     }).join("");
   }
 
+  // 4d-iv. Resume page
   function renderResume() {
     var f = String(RESUME.file || "").trim();
     if (!f) {
@@ -761,8 +1324,9 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
       "</div>";
   }
 
+  // 4d-v. Projects page
   function projectCard(p) {
-    return '<article class="card">' + carousel(p, false) +
+    return '<article class="card">' + carousel(p) +
       '<button class="ttl" type="button" data-open="' + p._id + '">' + esc(p.title) +
         (p.year ? '<span class="yr">' + esc(p.year) + "</span>" : "") + "</button>" +
       '<p class="blurb">' + esc(p.blurb) + "</p></article>";
@@ -780,13 +1344,14 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
     cols.innerHTML = CATEGORIES.filter(function (c) {
       return currentCat === "all" || c.id === currentCat;
     }).map(function (c) {
-      var list = sorted(PROJECTS.filter(function (p) { return p.category === c.id; }));
+      var list = sorted(PROJECTS.filter(function (p) { return catsOf(p).indexOf(c.id) !== -1; }));
       return '<section class="col"><h3 class="h3">' + esc(c.label) + '</h3><div class="col-list">' +
         (list.length ? list.map(projectCard).join("") : '<p class="blurb">Nothing here yet.</p>') +
         "</div></section>";
     }).join("");
   }
 
+  // 4d-vi. Life page
   function renderLife() {
     $("life-intro").innerHTML = paras(LIFE.intro);
     var photos = (LIFE.photos || []).filter(Boolean);
@@ -804,35 +1369,74 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
     }).join("");
   }
 
-  /* ---- full-screen project view ---------------------------------------- */
 
-  function openProject(id) {
+  /* ── 4e. FULL-SCREEN PROJECT VIEW ───────────────────────────────────────── */
+
+  var modalProject = null;   // the project currently open
+  var galIndex = 0;          // which of its files is highlighted
+
+  // One big highlight box plus a row of thumbnails (only if there is more
+  // than one file). The highlight is filled in by highlight() below.
+  function gallery(p) {
+    var imgs = files(p);
+    return '<div class="gal">' +
+      '<div class="gal-main" id="gal-main"></div>' +
+      (imgs.length > 1
+        ? '<div class="gal-thumbs" id="gal-thumbs">' + imgs.map(function (src, i) {
+            return pic(src, p.title + " — image " + (i + 1) + " of " + imgs.length,
+              { tag: "button", attrs: ' type="button" data-gal="' + i + '" aria-label="Show image ' + (i + 1) + '"' });
+          }).join("") + "</div>"
+        : "") +
+      "</div>";
+  }
+
+  // Make file number i the big one. Wraps around at both ends.
+  function highlight(i) {
+    if (!modalProject) return;
+    var imgs = files(modalProject);
+    galIndex = (i + imgs.length) % imgs.length;
+    var src = imgs[galIndex];
+    var main = $("gal-main");
+    main.className = "gal-main" + (isPdf(src) ? " is-pdf" : "");
+    main.innerHTML = pic(src, modalProject.title, { embedPdf: true });
+    var thumbs = $("gal-thumbs");
+    if (thumbs) {
+      Array.prototype.forEach.call(thumbs.children, function (t, k) {
+        t.classList.toggle("on", k === galIndex);
+      });
+    }
+  }
+
+  function openProject(id, at) {
     var p = PROJECTS[id];
     if (!p) return;
+    modalProject = p;
     var meta = [
-      ["Category", categoryLabel(p.category)],
+      ["Category", catsOf(p).map(categoryLabel).join(" · ")],
       ["Year", p.year],
       ["Role", p.role],
       ["Tools", p.tools]
     ].filter(function (m) { return m[1]; });
 
     $("modal-body").innerHTML =
-      carousel(p, true) +
+      gallery(p) +
       "<h3>" + esc(p.title) + "</h3>" +
       '<div class="meta">' + meta.map(function (m) {
         return "<span><b>" + m[0] + "</b>" + esc(m[1]) + "</span>";
       }).join("") + "</div>" +
       '<div class="prose">' + (paras(p.description) || paras(p.blurb)) + "</div>" +
       (p.link ? '<p class="actions"><a class="btn" href="' + esc(p.link) + '" target="_blank" rel="noopener">Visit project ↗</a></p>' : "");
+    highlight(at || 0);
 
     var m = $("modal");
     if (!m.open) m.showModal();
     m.scrollTop = 0;
   }
 
-  /* ---- tabs + address bar ----------------------------------------------- */
-  // The open tab lives in the URL: #about  #resume  #projects  #life
-  // A category filter adds a second part: #projects/design
+
+  /* ── 4f. TABS + ADDRESS BAR ─────────────────────────────────────────────── */
+  /* The open tab lives in the URL:  #about  #resume  #projects  #life
+     A category filter adds a second part:  #projects/design */
 
   function showTab(tab) {
     if (!TABS.some(function (t) { return t[0] === tab; })) tab = "about";
@@ -851,35 +1455,44 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
     showTab(tab);
   }
 
-  /* ---- clicks ----------------------------------------------------------- */
+
+  /* ── 4g. CLICKS + KEYS ──────────────────────────────────────────────────── */
 
   document.addEventListener("click", function (e) {
-    var t = e.target.closest("[data-tab],[data-cat],[data-open],[data-car],[data-close]");
+    var t = e.target.closest("[data-tab],[data-cat],[data-open],[data-car],[data-gal],[data-close]");
     if (!t) return;
     var d = t.dataset;
     if ("tab" in d)        location.hash = d.tab;
     else if ("cat" in d)   location.hash = "projects" + (d.cat === "all" ? "" : "/" + d.cat);
-    else if ("open" in d)  openProject(Number(d.open));
+    else if ("open" in d)  openProject(Number(d.open), Number(d.at || 0));
     else if ("car" in d)   slide(t.closest(".car"), Number(d.car));
+    else if ("gal" in d)   highlight(Number(d.gal));
     else if ("close" in d) $("modal").close();
   });
 
-  // Arrow keys move the slideshow while a project is open.
+  // Arrow keys move the gallery highlight while a project is open.
   $("modal").addEventListener("keydown", function (e) {
     if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-    var car = $("modal").querySelector(".car");
-    if (car) { slide(car, e.key === "ArrowRight" ? 1 : -1); e.preventDefault(); }
+    highlight(galIndex + (e.key === "ArrowRight" ? 1 : -1));
+    e.preventDefault();
   });
 
-  /* ---- start ------------------------------------------------------------ */
+
+  /* ── 4h. START ──────────────────────────────────────────────────────────── */
 
   function init() {
     PROJECTS.forEach(function (p, i) {
       p._id = i;
-      if (!CATEGORIES.some(function (c) { return c.id === p.category; })) {
-        console.warn('Project "' + p.title + '" has category "' + p.category +
-          '", which is not in CATEGORIES, so it will not be shown.');
+      if ((p.images || []).length > MAX_IMAGES) {
+        console.warn('Project "' + p.title + '" lists ' + p.images.length +
+          " files; only the first " + MAX_IMAGES + " are shown.");
       }
+      catsOf(p).forEach(function (id) {
+        if (!CATEGORIES.some(function (c) { return c.id === id; })) {
+          console.warn('Project "' + p.title + '" has category "' + id +
+            '", which is not in CATEGORIES, so it will not be shown there.');
+        }
+      });
     });
     renderHeader();
     renderAbout();
@@ -900,6 +1513,8 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
     throw err;
   }
 })();
+
+/* ═══════════════════════════════ END OF PART 4 ═══════════════════════════════ */
 </script>
 </body>
 </html>
