@@ -13,9 +13,12 @@ PHOTOS (put them in this folder with exactly these names)
   Leave one out and the site shows a grey placeholder figure instead.
 
 INTRODUCTION (shown under the "About Me" heading; blank line = new paragraph)
-  I like problems that sit where hardware meets the people using it ...
+  Hi! I’m currently a sophomore at MIT who’s interested in the intersections between Mechanical Engineering,
+  Computer Science, and Design. I’ve worked on projects involving robot arms, sensors, wood, satin, sheet metal, etc.
+  I also serve as the Mechanical Lead for the Assistive Technology Club, and design for the Technique Yearbook Club.
 
-  This site collects the engineering, design, and personal work ...
+  I’m drawn to human-centered design projects, small and big. You can check out my design and build process on this website here
+  and you'll see physical prototypes of
 
 ADDITIONAL INFO TABLE
   One row per line:   label | value | link (optional)
@@ -44,3 +47,9 @@ STATUS (2026-09-26, later): side photo removed from the page at your
   request (sidePhoto: "" in index.html, block 1b). side.jpg is still in
   this folder in case you want it back. The portrait is now as tall as
   the heading + introduction beside it, and keeps its 3:4 shape.
+
+----------------------------------------------------------------------
+STATUS (2026-09-27): introduction added to index.html, block 1b.
+  The second paragraph above ends mid-sentence ("...prototypes of"),
+  so on the site it stops after "...on this website." Finish it here
+  or in index.html.

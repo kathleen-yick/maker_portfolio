@@ -89,7 +89,7 @@
        [P11] My Sister's Prom Dress               design       2022
        [P12] Simmons REX 2026 T-Shirt Design      design       2026
        [P13] Technique Yearbook Cover for CO'26   design       2025
-       [P14] The Rollator: For Rishi              engineering  2026
+       [P14] Rollator Modifications               engineering  2025
 
      After you save: open index.html in a browser to check it, then
        git add index.html images
@@ -209,10 +209,12 @@ const ABOUT = {
   // ✏️ EDITABLE
   // Your introduction, shown under the "About Me" heading.
   // A blank line = a new paragraph.
+  // ✏️ DRAFT: from images/about/notes.txt. The second paragraph there
+  // ends mid-sentence ("...physical prototypes of"), so it stops early here.
   bio: `
-I like problems that sit where hardware meets the people using it: a mechanism that has to survive a drop test, an interface that has to be read in one glance, a process that has to be repeatable by someone who wasn't in the room when it was designed.
+Hi! I'm currently a sophomore at MIT who's interested in the intersections between Mechanical Engineering, Computer Science, and Design. I've worked on projects involving robot arms, sensors, wood, satin, sheet metal, etc. I also serve as the Mechanical Lead for the Assistive Technology Club, and design for the Technique Yearbook Club.
 
-This site collects the engineering, design, and personal work I keep coming back to. Each project has the same three parts — what it had to do, what I actually built, and what I'd do differently.
+I'm drawn to human-centered design projects, small and big. You can check out my design and build process on this website.
   `,
 
   // ✏️ EDITABLE
@@ -651,16 +653,17 @@ Designed around the theme of "whimsical," with a sketchy look to match.
     featured: false,
   },
 
-  /* [P14] The Rollator: For Rishi · engineering · 2026 */
+  /* [P14] Rollator Modifications · engineering · 2025 */
   {
-    // ✏️ DRAFT: notes.txt was still blank, so everything in this
-    // project comes from the poster. Check the year and your role.
-    title: "The Rollator: For Rishi",
+    title: "Rollator Modifications",
     category: "engineering",
-    year: "2026",
+    year: "2025",
 
-    blurb: "Co-designing a modified rollator with Rishi: extendable front bars, a metal back support, and a firmer, non-slip seat that still folds.",
+    // Your wording from notes.txt; only tidied.
+    blurb: "Rollator modifications for a codesigner who wanted extra support for his tall stature: foldable back handles and extendable support bars.",
 
+    // ✏️ DRAFT: notes.txt left the description blank, so this is
+    // drafted from the poster (photo 1). Refine freely.
     description: `
 Rishi, a graduate student at BU, relies on a rollator to get around, but at 6 ft his off-the-shelf one does not work for him. He has trouble getting up, wants a real support bar instead of a back rest, and needs a seat that holds his things. The rollator also still has to fold.
 
@@ -675,8 +678,8 @@ Next steps: attach the modifications to Rishi's rollator, and test how durable t
       "images/rollator/2.jpg",
     ],
 
-    role: "Co-designer: design, FEA, fabrication",
-    tools: "CAD, FEA, MIG welding, 6061 aluminum",
+    role: "Research, design, fabrication",
+    tools: "Welding, CAD, FEA (Fusion 360)",
     link: "",
     featured: false,
   },

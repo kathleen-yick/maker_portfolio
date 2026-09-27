@@ -10,16 +10,17 @@ Use 1 to 6 files: 1.jpg 2.jpg 3.png 4.pdf ...
 Fill in what you know below. Anything you leave blank, Claude drafts
 from the photos, and you can refine it later in index.html.
 
-title:        Your project title
+title:        Rollator Modifications
 category:     engineering        (engineering | design | fun; for two columns write: engineering, design)
-year:         2026
-role:         What you did
-tools:        Software, materials, languages
+year:         2025
+role:         Research, design, fabrication
+tools:        Welding, CAD, FEA (Fusion360)
 link:         (a GitHub / Behance / other URL, or leave blank)
 featured:     no                 (yes = also shown on the About Me page)
 
 blurb (one or two sentences for under the thumbnail):
-  ...
+  Rollator modifications for a codesigner that wanted extra support for his tall stature:
+  foldable back handles and extendable support bars
 
 description (as many lines as you like; blank line = new paragraph):
   What the project had to do.
@@ -29,7 +30,7 @@ description (as many lines as you like; blank line = new paragraph):
   What you would do differently next time.
 
 ----------------------------------------------------------------------
-STATUS (2026-09-27): added to index.html as project [P14].
-  This form was still blank, so the title, text, role and tools were
-  drafted from the poster (1.jpg). The year is a guess (2026).
+STATUS (2026-09-27): on the site as project [P14], using the title,
+  year, role, tools and blurb above. The description was still the
+  template, so the site keeps a draft written from the poster (1.jpg).
   To change text, search index.html for [P14].
