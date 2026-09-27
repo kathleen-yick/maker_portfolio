@@ -85,6 +85,10 @@
        [P7]  Rapid Scrap Data Collection Box      engineering  2026
        [P8]  4-Sided Metal Folder                 design       2025
        [P9]  Metal Creatures                      fun          2025
+       [P10] Black Pearl Dress                    design, fun  2023
+       [P11] My Sister's Prom Dress               design, fun  2022
+       [P12] Simmons REX 2026 T-Shirt Design      design       2026
+       [P13] Technique Yearbook Cover for CO'26   design       2025
 
      After you save: open index.html in a browser to check it, then
        git add index.html images
@@ -169,16 +173,20 @@ const SITE = {
 /* ── 1b. ABOUT ME PAGE ────────────────────────────────────────────────────── */
 /* FOLDER: images/about/  (notes.txt there mirrors every field below)
    ON THE WEBSITE: the "About Me" tab.
-     • the tall portrait photo, left of your introduction
+     • the portrait photo, left of your introduction
      • the introduction text
-     • the "Additional Info" table, and the square photo beside it
+     • the "Additional Info" table
+     • (optional) a square photo beside that table
    The "Featured Projects" row lower on this page is NOT set here.
    It shows any project in 1d. PROJECTS marked  featured: true.               */
 
 const ABOUT = {
 
   // ✏️ EDITABLE
-  // Tall photo to the left of your introduction.
+  // Photo to the left of your introduction.
+  // It is always as tall as the heading + introduction beside it,
+  // so it grows when you write more.
+  // It keeps a 3:4 shape (3 wide, 4 tall); the sides are cropped to fit.
   // Drop it in images/about/ as portrait.jpg, then write the path here:
   //   portrait: "images/about/portrait.jpg",
   // "" = grey placeholder figure.
@@ -186,10 +194,10 @@ const ABOUT = {
 
   // ✏️ EDITABLE
   // Square photo to the right of the "Additional Info" table.
-  // Drop it in images/about/ as side.jpg, then:
+  // "" = no photo; the table uses the full width.
+  // To show one, drop it in images/about/ as side.jpg, then:
   //   sidePhoto: "images/about/side.jpg",
-  // "" = grey placeholder figure.
-  sidePhoto: "images/about/side.jpg",
+  sidePhoto: "",
 
   // ✏️ EDITABLE
   // Your introduction, shown under the "About Me" heading.
@@ -461,7 +469,7 @@ During site testing, we were able to scan at a rate of 5 per minute (including m
     role: "Mechanical Engineering Student Researcher",
     tools: "Metal fabrication, sensor fusion, CAD (Fusion 360)",
     link: "https://linktr.ee/scrappy_pipe_dream",
-    featured: false,
+    featured: true,
   },
 
   /* [P8] 4-Sided Metal Folder · design · 2025 */
@@ -522,6 +530,115 @@ I had to adjust the scale and space out the cuts more whenever a fold was too di
 
     role: "Fabrication, creator",
     tools: "Metal manipulation, Illustrator, prototyping",
+    link: "",
+    featured: false,
+  },
+
+  /* [P10] Black Pearl Dress · design, fun · 2023 */
+  {
+    // ✏️ DRAFT: notes.txt only had "B", so this comes from the folder name.
+    title: "Black Pearl Dress",
+    category: ["design", "fun"],
+    year: "2023",
+
+    // Your wording from notes.txt; only tidied.
+    blurb: "A birthday dress for my sister that she asked me to design and photograph.",
+
+    // Your wording from notes.txt; only spelling fixed.
+    description: `
+This custom dress was inspired by fashion icons like Rihanna and uses black satin, imitation pearls, and string.
+
+The process went through multiple iterations, including a corset alternative to the top, and was tested with the client (aka sister) throughout the entire fabrication. Definitely learned a lot with this project!
+    `,
+
+    // 1 = the finished dress, worn (thumbnail),
+    // 2 = cut fabric panels on the cutting mat.
+    images: [
+      "images/black-pearl-dress/1.jpg",
+      "images/black-pearl-dress/2.jpg",
+    ],
+
+    role: "Design, fabrication, photography",
+    tools: "Sewing machine, design, prototyping",
+    link: "",
+    featured: false,
+  },
+
+  /* [P11] My Sister's Prom Dress · design, fun · 2022 */
+  {
+    title: "My Sister's Prom Dress",
+    category: ["design", "fun"],
+    year: "2022",
+
+    // Your wording from notes.txt; only tidied.
+    blurb: "A Met Gala-inspired prom dress for my sister.",
+
+    // ✏️ DRAFT: your notes, lightly reworded. Refine freely.
+    description: `
+Gathered layers and layers of chiffon fabric to produce this ruffled skirt, troubleshot the sewing machine in the dark, and had to make it possible to dance in.
+    `,
+
+    // 1 = the finished dress on the stairs.
+    images: [
+      "images/poofy-dress/1.jpg",
+    ],
+
+    role: "Design, fabrication",
+    tools: "Sewing machine, design, prototyping",
+    link: "",
+    featured: false,
+  },
+
+  /* [P12] Simmons REX 2026 T-Shirt Design · design · 2026 */
+  {
+    title: "Simmons REX 2026 T-Shirt Design",
+    category: "design",
+    year: "2026",
+
+    // Your wording from notes.txt; only tidied.
+    blurb: "T-shirt design for my dorm to welcome the incoming freshmen and celebrate Simmons Hall.",
+
+    // Your wording from notes.txt; only tidied.
+    description: `
+I wanted the shirt to be as interesting as our dorm, so I highlighted the infamous number of windows and its reputation as "The Sponge."
+
+Fun note: there are 20 x 26 windows.
+    `,
+
+    // 1 = the sponge design (thumbnail), 2 = the windows design.
+    images: [
+      "images/simmons-rex-2026/1.jpg",
+      "images/simmons-rex-2026/2.jpg",
+    ],
+
+    role: "Graphic design",
+    tools: "Procreate, Illustrator",
+    link: "",
+    featured: false,
+  },
+
+  /* [P13] Technique Yearbook Cover for CO'26 · design · 2025 */
+  {
+    title: "Technique Yearbook Cover for CO'26",
+    category: "design",
+    year: "2025",
+
+    // Your wording from notes.txt; only tidied.
+    blurb: "Yearbook cover design for the graduating MIT class of 2026.",
+
+    // ✏️ DRAFT: your notes, lightly reworded. Refine freely.
+    description: `
+Designed around the theme of "whimsical," with a sketchy look to match.
+    `,
+
+    // 1 = the final cover (thumbnail), 2 = earlier variations.
+    images: [
+      "images/tnq-cover-26/1.jpg",
+      "images/tnq-cover-26/2.jpg",
+    ],
+
+    role: "Graphic design",
+    tools: "Procreate, Illustrator",
     link: "",
     featured: false,
   },
@@ -851,10 +968,13 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
 /* ── 2f. ABOUT PAGE ───────────────────────────────────── 🚫 not editable ── */
 /* 🚫 NOT EDITABLE.  ON THE WEBSITE: layout of the About Me tab. */
 
-.about-hero { display: grid; grid-template-columns: 120px 1fr; gap: 30px; align-items: start; }
+/* --portrait-w is set by fitPortrait() in 4d so the 3:4 portrait
+   comes out exactly as tall as the text beside it. */
+.about-hero { display: grid; grid-template-columns: var(--portrait-w, 120px) 1fr; gap: 30px; align-items: start; }
 .about-hero .h2 { margin-bottom: 8px; }
 .portrait { aspect-ratio: 3 / 4; }
 .about-info { display: grid; grid-template-columns: 1fr 200px; gap: 36px; align-items: start; margin-top: 46px; }
+.about-info.no-photo { grid-template-columns: 1fr; }
 .info-list { margin-top: 12px; display: grid; gap: 2px; }
 .info-row { display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--rule); font-size: 14px; }
 .info-row dt { font-weight: 600; }
@@ -868,7 +988,7 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
 .feat:nth-child(3) .pic { aspect-ratio: 1; }
 .seeall { display: inline-block; margin-top: 26px; font-size: 13px; font-weight: 500; }
 @media (max-width: 760px) {
-  .about-hero { grid-template-columns: 100px 1fr; gap: 20px; }
+  .about-hero { grid-template-columns: var(--portrait-w, 100px) 1fr; gap: 20px; }
   .about-info { grid-template-columns: 1fr; gap: 24px; }
   .side-photo { max-width: 200px; }
   .info-row { grid-template-columns: 120px 1fr; }
@@ -876,7 +996,7 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
 }
 @media (max-width: 480px) {
   .about-hero { grid-template-columns: 1fr; }
-  .portrait { max-width: 120px; }
+  .portrait { max-width: 120px; }         /* stacked above the text */
   .featured { grid-template-columns: 1fr; }
 }
 
@@ -1279,6 +1399,27 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
   }
 
   // 4d-iii. About Me page
+
+  // Make the portrait as tall as the heading + introduction beside it,
+  // keeping its 3:4 shape: width = 3/4 of the text's height.
+  // A wider portrait can squeeze the text onto more lines, so repeat
+  // until the two agree.
+  function fitPortrait() {
+    var hero = document.querySelector(".about-hero");
+    var text = $("bio").parentNode;
+    if (!hero || !text.offsetHeight) return;          // About tab is not showing
+    if (window.matchMedia("(max-width: 480px)").matches) {
+      hero.style.removeProperty("--portrait-w");      // phones: photo sits above the text
+      return;
+    }
+    for (var i = 0; i < 8; i++) {
+      var w = Math.round(text.offsetHeight * 3 / 4);
+      w = Math.min(w, Math.round(hero.clientWidth * 0.4));   // never crowd out the text
+      if (w + "px" === hero.style.getPropertyValue("--portrait-w")) break;
+      hero.style.setProperty("--portrait-w", w + "px");
+    }
+  }
+
   function renderAbout() {
     $("portrait").innerHTML = pic(ABOUT.portrait, "Portrait", { cls: "portrait", person: true });
     $("bio").innerHTML = paras(ABOUT.bio);
@@ -1291,7 +1432,11 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
       return '<div class="info-row"><dt>' + esc(r.label) + ":</dt><dd>" + v + "</dd></div>";
     }).join("");
 
-    $("side-photo").innerHTML = pic(ABOUT.sidePhoto, "", { cls: "side-photo", person: true });
+    // No side photo = hide its box and let the table use the full width.
+    var side = $("side-photo");
+    side.hidden = !ABOUT.sidePhoto;
+    side.parentNode.classList.toggle("no-photo", !ABOUT.sidePhoto);
+    side.innerHTML = ABOUT.sidePhoto ? pic(ABOUT.sidePhoto, "", { cls: "side-photo", person: true }) : "";
 
     var feat = sorted(PROJECTS.filter(function (p) { return p.featured; })).slice(0, 3);
     $("featured-wrap").hidden = !feat.length;
@@ -1443,6 +1588,7 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
     currentTab = tab;
     TABS.forEach(function (t) { $("page-" + t[0]).hidden = t[0] !== tab; });
     renderNav();
+    fitPortrait();
     window.scrollTo(0, 0);
   }
 
@@ -1500,6 +1646,8 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
     renderLife();
     readHash();                                   // renders projects + picks the tab
     window.addEventListener("hashchange", readHash);
+    window.addEventListener("resize", fitPortrait);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitPortrait);
   }
 
   try {

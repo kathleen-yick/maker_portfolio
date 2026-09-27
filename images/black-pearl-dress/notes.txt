@@ -1,0 +1,38 @@
+EXAMPLE PROJECT NOTES
+=====================
+Copy this folder for each new project. Rename the folder to the project
+(lower-case, no spaces, e.g.  bridge  or  solar-tracker).
+
+Photos in this folder are shown in number order. 1 is the thumbnail.
+Use 1 to 6 files: 1.jpg 2.jpg 3.png 4.pdf ...
+(.jpg / .jpeg, .png and .pdf all work, in any mix.)
+
+Fill in what you know below. Anything you leave blank, Claude drafts
+from the photos, and you can refine it later in index.html.
+
+title:        B
+category:     design, fun       (engineering | design | fun; for two columns write: engineering, design)
+year:         2023
+role:         Design, fabrication, photography
+tools:        Sowing machine, design, prototyping
+link:         (a GitHub / Behance / other URL, or leave blank)
+featured:     no                 (yes = also shown on the About Me page)
+
+blurb (one or two sentences for under the thumbnail):
+  A birthday dress for my sister she asked me to design and photograph
+
+description (as many lines as you like; blank line = new paragraph):
+  This custom dress was inspired by fashions icons like Rhinanna and uses
+  black satin, imitation pearls, and string. The process went through multiple
+  iterations, including a corset alternative to the top, and was tested with
+  client (aka sister) throughout the entire fabrication. Definitely learned a
+  lot with this prooject!
+
+----------------------------------------------------------------------
+STATUS (2026-09-26): added to index.html as project [P10].
+  The title above was only "B", so the site uses "Black Pearl Dress"
+  for now. Change it in index.html if that is not the name you want.
+  Web-sized copies were made: 1.jpg (from your 1.JPG), 2.jpg.
+  Your full-size originals are in originals/ (kept off GitHub).
+  To change text, search index.html for [P10]. To change photos,
+  replace the numbered files here and keep the same names.

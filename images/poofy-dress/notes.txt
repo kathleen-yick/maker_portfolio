@@ -1,0 +1,33 @@
+EXAMPLE PROJECT NOTES
+=====================
+Copy this folder for each new project. Rename the folder to the project
+(lower-case, no spaces, e.g.  bridge  or  solar-tracker).
+
+Photos in this folder are shown in number order. 1 is the thumbnail.
+Use 1 to 6 files: 1.jpg 2.jpg 3.png 4.pdf ...
+(.jpg / .jpeg, .png and .pdf all work, in any mix.)
+
+Fill in what you know below. Anything you leave blank, Claude drafts
+from the photos, and you can refine it later in index.html.
+
+title:        My Sister's Prom Dress
+category:     design, fun        (engineering | design | fun; for two columns write: engineering, design)
+year:         2022
+role:         Design, fabrication
+tools:        Sowing machine, design, prototyping
+link:         (a GitHub / Behance / other URL, or leave blank)
+featured:     no                 (yes = also shown on the About Me page)
+
+blurb (one or two sentences for under the thumbnail):
+  A prom dress for my sister that was Met Gala-inspired
+
+description (as many lines as you like; blank line = new paragraph):
+  Gathered layers and layers of chiffon fabric to produce this ruffled skirt bottom,
+  trouble shooted the sowing machine in the dark, and had to make this possible to dance in.
+
+----------------------------------------------------------------------
+STATUS (2026-09-26): added to index.html as project [P11].
+  Web-sized copy was made: 1.jpg (from your 1.JPG).
+  Your full-size originals are in originals/ (kept off GitHub).
+  To change text, search index.html for [P11]. To change photos,
+  replace the numbered files here and keep the same names.

@@ -11,12 +11,12 @@ Fill in what you know below. Anything you leave blank, Claude drafts
 from the photos, and you can refine it later in index.html.
 
 title:        Rapid Scrap Data Collection Box
-category:     engineering        (engineering | design | fun; for two columns write: engineering, design)
+category:     engineering        (engineering | design | personal)
 year:         2026
 role:         Mechanical Engineering Student Researcher
 tools:        Metal fabrication, sensor fusion, CAD (Fusion360)
 link:         https://linktr.ee/scrappy_pipe_dream?utm_source=qr_code
-featured:     no                 (yes = also shown on the About Me page)
+featured:     yes                 (yes = also shown on the About Me page)
 
 blurb (one or two sentences for under the thumbnail):
 Portable data collection box that can take < 5 second scans of scrap metal
@@ -38,7 +38,8 @@ During site testing, we were able to scan at a rate of 5 per minute (including m
 feeding) and added ~600 unique scraps to our ML.
 
 ----------------------------------------------------------------------
-STATUS (2026-09-26): added to index.html as project [P7].
+STATUS (2026-09-26): on the site as project [P7], now featured on
+  the About Me page.
   Files on the site, in order: 1.jpg (lab, thumbnail), 2.jpg (scrapyard), 3.pdf (poster).
   Your full-size originals are in originals/ (kept off GitHub).
   To change text, search index.html for [P7]. To change photos,

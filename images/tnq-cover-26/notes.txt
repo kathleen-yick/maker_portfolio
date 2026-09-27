@@ -1,0 +1,32 @@
+EXAMPLE PROJECT NOTES
+=====================
+Copy this folder for each new project. Rename the folder to the project
+(lower-case, no spaces, e.g.  bridge  or  solar-tracker).
+
+Photos in this folder are shown in number order. 1 is the thumbnail.
+Use 1 to 6 files: 1.jpg 2.jpg 3.png 4.pdf ...
+(.jpg / .jpeg, .png and .pdf all work, in any mix.)
+
+Fill in what you know below. Anything you leave blank, Claude drafts
+from the photos, and you can refine it later in index.html.
+
+title:        Technique Yearbook Cover for CO'26
+category:     design        (engineering | design | fun; for two columns write: engineering, design)
+year:         2025
+role:         Graphic design
+tools:        Procreate, Illustrator
+link:         (a GitHub / Behance / other URL, or leave blank)
+featured:     no                 (yes = also shown on the About Me page)
+
+blurb (one or two sentences for under the thumbnail):
+  Yearbook cover design for the graduating MIT class of 2026
+
+description (as many lines as you like; blank line = new paragraph):
+  Designed on the theme of whimsical and added a sketchy look to match.
+
+----------------------------------------------------------------------
+STATUS (2026-09-26): added to index.html as project [P13].
+  Web-sized copies were made: 1.jpg (from your 1.png), 2.jpg.
+  Your full-size originals are in originals/ (kept off GitHub).
+  To change text, search index.html for [P13]. To change photos,
+  replace the numbered files here and keep the same names.

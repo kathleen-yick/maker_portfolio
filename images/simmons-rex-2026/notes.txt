@@ -1,0 +1,33 @@
+EXAMPLE PROJECT NOTES
+=====================
+Copy this folder for each new project. Rename the folder to the project
+(lower-case, no spaces, e.g.  bridge  or  solar-tracker).
+
+Photos in this folder are shown in number order. 1 is the thumbnail.
+Use 1 to 6 files: 1.jpg 2.jpg 3.png 4.pdf ...
+(.jpg / .jpeg, .png and .pdf all work, in any mix.)
+
+Fill in what you know below. Anything you leave blank, Claude drafts
+from the photos, and you can refine it later in index.html.
+
+title:        Simmons REX 2026 T-Shirt Design
+category:     design        (engineering | design | fun; for two columns write: engineering, design)
+year:         2026
+role:         graphic design
+tools:        Procreate, Illustrator
+link:         (a GitHub / Behance / other URL, or leave blank)
+featured:     no                 (yes = also shown on the About Me page)
+
+blurb (one or two sentences for under the thumbnail):
+  T-shirt design for my dorm to welcome the incoming freshmen and celebrate Simmons Hall
+
+description (as many lines as you like; blank line = new paragraph):
+  I wanted the shirt to be as interesting as our dorm so I highlighted the infamous amount of windows
+  and its reputation as "The Sponge." Fun note: there's 20 x 26 windows
+
+----------------------------------------------------------------------
+STATUS (2026-09-26): added to index.html as project [P12].
+  Web-sized copies were made: 1.jpg, 2.jpg (from your .png files).
+  Your full-size originals are in originals/ (kept off GitHub).
+  To change text, search index.html for [P12]. To change photos,
+  replace the numbered files here and keep the same names.

@@ -38,3 +38,9 @@ STATUS (2026-09-26): photos and Additional Info rows added to
   the text above still ends in "..." (write it out in full to change it).
   Web-sized copies of portrait.jpg and side.jpg were made.
   Your full-size originals are in originals/ (kept off GitHub).
+
+----------------------------------------------------------------------
+STATUS (2026-09-26, later): side photo removed from the page at your
+  request (sidePhoto: "" in index.html, block 1b). side.jpg is still in
+  this folder in case you want it back. The portrait is now as tall as
+  the heading + introduction beside it, and keeps its 3:4 shape.
