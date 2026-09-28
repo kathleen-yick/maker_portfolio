@@ -18,3 +18,8 @@ WHAT THE PAGE DOES WITH IT
   under it: "Download PDF" and "Open in new tab".
   Replacing resume.pdf with a newer file updates the site; nothing
   else needs to change.
+
+----------------------------------------------------------------------
+STATUS (2026-09-27): resume.pdf added to index.html, block 1c.
+  To update it later, replace resume.pdf here with the new file
+  (same name). Nothing else needs to change.
