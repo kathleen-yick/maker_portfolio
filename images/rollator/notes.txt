@@ -34,3 +34,7 @@ STATUS (2026-09-27): on the site as project [P14], using the title,
   year, role, tools and blurb above. The description was still the
   template, so the site keeps a draft written from the poster (1.jpg).
   To change text, search index.html for [P14].
+
+----------------------------------------------------------------------
+STATUS (2026-09-27): photo order updated: 1.jpg (sketch) is now the
+  thumbnail, 2.jpg is the poster.

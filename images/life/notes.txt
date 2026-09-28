@@ -12,14 +12,12 @@ PHOTOS
   (.jpg / .jpeg / .png)
 
 TEXT ABOVE THE PHOTOS (blank line = new paragraph)
-  Outside of coursework I'm usually in the ceramics studio, on a trail
-  somewhere with a film camera, or feeding a sourdough starter that has
-  outlasted three apartments.
+  I'm from Greater Boston, Massachusetts and own way too many journals and sketchbooks.
+  Will and always be the type to try everything at least once.
 
 TEXT BELOW THE PHOTOS
-  I'm always up for a conversation about manufacturing constraints,
-  well-designed signage, or where to find good bread. The fastest way
-  to reach me is email.
+  Outside of coursework and makerspaces, you can usually find me climbing indoors and playing tennis
+  in terrible weather. More reliably you can contact me via email if you're curious about any of my work.
 
 ELSEWHERE LINKS (one per line:  label | url ; leave the url blank to hide)
   Email      | mailto:yickk987@mit.edu
@@ -30,3 +28,8 @@ ELSEWHERE LINKS (one per line:  label | url ; leave the url blank to hide)
 ----------------------------------------------------------------------
 STATUS (2026-09-26): LinkedIn link added to index.html, block 1e.
   No photos in this folder yet, so the photo row stays hidden.
+
+----------------------------------------------------------------------
+STATUS (2026-09-27): both paragraphs and photo 1.jpg added to
+  index.html, block 1e. Web-sized copy made; your full-size photo is
+  in originals/ (kept off GitHub).

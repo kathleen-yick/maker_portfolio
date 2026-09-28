@@ -10,13 +10,13 @@ Use 1 to 6 files: 1.jpg 2.jpg 3.png 4.pdf ...
 Fill in what you know below. Anything you leave blank, Claude drafts
 from the photos, and you can refine it later in index.html.
 
-title:        B
+title:        Black Pearl Dress
 category:     design       (engineering | design | fun; for two columns write: engineering, design)
 year:         2023
 role:         Design, fabrication, photography
 tools:        Sewing machine, design, prototyping
-link:         (a GitHub / Behance / other URL, or leave blank)
-featured:     no                 (yes = also shown on the About Me page)
+link:         https://www.instagram.com/p/Cwn7QzNgjyl/?stkn=MW5vNG5qdWdjaDNodw%3D%3D
+featured:     yes                 (yes = also shown on the About Me page)
 
 blurb (one or two sentences for under the thumbnail):
   A birthday dress for my sister she asked me to design and photograph
@@ -36,3 +36,8 @@ STATUS (2026-09-26): added to index.html as project [P10].
   Your full-size originals are in originals/ (kept off GitHub).
   To change text, search index.html for [P10]. To change photos,
   replace the numbered files here and keep the same names.
+
+----------------------------------------------------------------------
+STATUS (2026-09-27): title, Instagram link and featured: yes applied
+  to [P10] in index.html. (The link was shortened; the part after "?"
+  was only a share code.)

@@ -75,13 +75,13 @@
        This list is updated whenever a project is added with Claude's help.
        If you add one by hand, give it the next number and add a line here.
 
-       [P0]  Example project                      engineering  2026   ← placeholder, copy me
-       [P1]  Compliant gripper for fragile parts  engineering  2025
-       [P2]  Solar tracker control loop           engineering  2024
-       [P3]  Heat exchanger test rig              engineering  2024
-       [P4]  Ceramics studio identity             design       2025
-       [P5]  Transit wayfinding kit               design       2024
-       [P6]  Sourdough log                        fun          2023–2025
+       [P0]  Example project                      engineering  2026   ← placeholder, copy me (hidden)
+       [P1]  Compliant gripper for fragile parts  engineering  2025   (hidden example)
+       [P2]  Solar tracker control loop           engineering  2024   (hidden example)
+       [P3]  Heat exchanger test rig              engineering  2024   (hidden example)
+       [P4]  Ceramics studio identity             design       2025   (hidden example)
+       [P5]  Transit wayfinding kit               design       2024   (hidden example)
+       [P6]  Sourdough log                        fun          2023–2025   (hidden example)
        [P7]  Rapid Scrap Data Collection Box      engineering  2026
        [P8]  4-Sided Metal Folder                 design       2025
        [P9]  Metal Creatures                      fun          2025
@@ -329,6 +329,8 @@ const CATEGORIES = [
        link         a web address; adds a "Visit project ↗" button
        featured     true = also shown in "Featured Projects" on About Me
                     (only the first three featured projects appear there)
+       hidden       true = kept in this file but not shown on the website
+                    (leave it out, or false, to show the project)
 
      Only title, category and blurb are required.
      Anything else can be  ""  or  []  and the page simply leaves it out.
@@ -388,7 +390,8 @@ const PROJECTS = [
 
 
   /* ▼▼ PLACEHOLDER PROJECT (3 photos) — copy this block for each new project ▼▼
-     Fill it in, or delete it, before you publish.
+     It has  hidden: true  so it never shows on the website.
+     Remove that line from your copy.
      Give each copy the next free tag ([P7], [P8] ...) in the comment above
      its opening  {  and add it to the PROJECT INDEX at the top of the file.
 
@@ -442,6 +445,10 @@ What you would do differently next time.
 
     // ✏️ true = also shown under "Featured Projects" on the About Me page.
     featured: false,
+
+    // ✏️ true = kept in this file but NOT shown on the website.
+    //    DELETE THIS LINE in your copy, or your new project stays hidden.
+    hidden: true,
   },
   /* ▲▲ END OF PLACEHOLDER ▲▲ */
 
@@ -544,7 +551,6 @@ I had to adjust the scale and space out the cuts more whenever a fold was too di
 
   /* [P10] Black Pearl Dress · design · 2023 */
   {
-    // ✏️ DRAFT: notes.txt only had "B", so this comes from the folder name.
     title: "Black Pearl Dress",
     category: "design",
     year: "2023",
@@ -568,8 +574,8 @@ The process went through multiple iterations, including a corset alternative to 
 
     role: "Design, fabrication, photography",
     tools: "Sewing machine, design, prototyping",
-    link: "",
-    featured: false,
+    link: "https://www.instagram.com/p/Cwn7QzNgjyl/",
+    featured: true,
   },
 
   /* [P11] My Sister's Prom Dress · design · 2022 */
@@ -663,7 +669,7 @@ Designed around the theme of "whimsical," with a sketchy look to match.
     blurb: "Rollator modifications for a codesigner who wanted extra support for his tall stature: foldable back handles and extendable support bars.",
 
     // ✏️ DRAFT: notes.txt left the description blank, so this is
-    // drafted from the poster (photo 1). Refine freely.
+    // drafted from the poster (photo 2). Refine freely.
     description: `
 Rishi, a graduate student at BU, relies on a rollator to get around, but at 6 ft his off-the-shelf one does not work for him. He has trouble getting up, wants a real support bar instead of a back rest, and needs a seat that holds his things. The rollator also still has to fold.
 
@@ -672,7 +678,7 @@ Building on last semester's hinged back design, our team of four revised the tel
 Next steps: attach the modifications to Rishi's rollator, and test how durable the design is for someone as active as Rishi.
     `,
 
-    // 1 = the project poster (thumbnail), 2 = annotated concept sketch.
+    // 1 = annotated concept sketch (thumbnail), 2 = the project poster.
     images: [
       "images/rollator/1.jpg",
       "images/rollator/2.jpg",
@@ -688,7 +694,8 @@ Next steps: attach the modifications to Rishi's rollator, and test how durable t
 
 
 
-  /* ▼▼ EXAMPLE PROJECTS — replace these with your own ▼▼ */
+  /* ▼▼ EXAMPLE PROJECTS — hidden from the website (hidden: true) ▼▼
+     Kept only as writing examples. Delete them whenever you like. */
 
   /* [P1] Compliant gripper for fragile parts · engineering · 2025 */
   {
@@ -708,6 +715,7 @@ What I'd change: the first version was tuned for dry slides. Wet ones slipped un
     tools: "SolidWorks, Ansys, SLS nylon",
     link: "",
     featured: true,
+    hidden: true,
   },
 
   /* [P2] Solar tracker control loop · engineering · 2024 */
@@ -726,6 +734,7 @@ Measured against a fixed panel on the same roof over six weeks: +22% average dai
     tools: "STM32, C, aluminium extrusion",
     link: "",
     featured: true,
+    hidden: true,
   },
 
   /* [P3] Heat exchanger test rig · engineering · 2024 */
@@ -744,6 +753,7 @@ The useful part turned out to be the fixture, not the electronics: a quick-relea
     tools: "Python, thermocouples, LabJack",
     link: "",
     featured: false,
+    hidden: true,
   },
 
   /* [P4] Ceramics studio identity · design · 2025 */
@@ -762,6 +772,7 @@ Delivered as a two-page guide, a set of pre-sized templates, and a folder of sho
     tools: "Figma, Risograph",
     link: "",
     featured: true,
+    hidden: true,
   },
 
   /* [P5] Transit wayfinding kit · design · 2024 */
@@ -780,6 +791,7 @@ I mapped every decision point a passenger passes through, counted how many carri
     tools: "Illustrator, field survey",
     link: "",
     featured: false,
+    hidden: true,
   },
 
   /* [P6] Sourdough log · fun · 2023–2025 */
@@ -798,6 +810,7 @@ The scatter plot answered a question I'd been arguing about for a year: bulk tem
     tools: "A notebook, then a spreadsheet",
     link: "",
     featured: false,
+    hidden: true,
   },
 
   /* ▲▲ END OF EXAMPLES ▲▲ */
@@ -820,7 +833,7 @@ const LIFE = {
   // ✏️ EDITABLE
   // Text above the photos. A blank line = a new paragraph.
   intro: `
-Outside of coursework I'm usually in the ceramics studio, on a trail somewhere with a film camera, or feeding a sourdough starter that has outlasted three apartments.
+I'm from Greater Boston, Massachusetts and own way too many journals and sketchbooks. I will always be the type to try everything at least once.
   `,
 
   // ✏️ EDITABLE
@@ -832,12 +845,14 @@ Outside of coursework I'm usually in the ceramics studio, on a trail somewhere w
   //     "images/life/1.jpg",
   //     "images/life/2.jpg",
   //   ],
-  photos: [],
+  photos: [
+    "images/life/1.jpg",
+  ],
 
   // ✏️ EDITABLE
   // Text below the photos. A blank line = a new paragraph.
   outro: `
-I'm always up for a conversation about manufacturing constraints, well-designed signage, or where to find good bread. The fastest way to reach me is email.
+Outside of coursework and makerspaces, you can usually find me climbing indoors and playing tennis in terrible weather. More reliably, you can contact me via email if you're curious about any of my work.
   `,
 
   // ✏️ EDITABLE
@@ -1671,6 +1686,10 @@ button.ttl:hover, .feat:hover .ttl { color: var(--accent); }
   /* ── 4h. START ──────────────────────────────────────────────────────────── */
 
   function init() {
+    // Drop projects marked  hidden: true  before anything is drawn.
+    for (var h = PROJECTS.length - 1; h >= 0; h--) {
+      if (PROJECTS[h].hidden) PROJECTS.splice(h, 1);
+    }
     PROJECTS.forEach(function (p, i) {
       p._id = i;
       if ((p.images || []).length > MAX_IMAGES) {
