@@ -16,7 +16,7 @@ year:         2023
 role:         Design, fabrication, photography
 tools:        Sewing machine, design, prototyping
 link:         https://www.instagram.com/p/Cwn7QzNgjyl/?stkn=MW5vNG5qdWdjaDNodw%3D%3D
-featured:     yes                 (yes = also shown on the About Me page)
+featured:     no                 (yes = also shown on the About Me page)
 
 blurb (one or two sentences for under the thumbnail):
   A birthday dress for my sister she asked me to design and photograph

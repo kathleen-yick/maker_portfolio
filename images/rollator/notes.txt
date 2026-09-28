@@ -16,7 +16,7 @@ year:         2025
 role:         Research, design, fabrication
 tools:        Welding, CAD, FEA (Fusion360)
 link:         (a GitHub / Behance / other URL, or leave blank)
-featured:     no                 (yes = also shown on the About Me page)
+featured:     yes                 (yes = also shown on the About Me page)
 
 blurb (one or two sentences for under the thumbnail):
   Rollator modifications for a codesigner that wanted extra support for his tall stature:
