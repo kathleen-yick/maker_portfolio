@@ -496,19 +496,27 @@ For future steps, I would want to automate the feeding process and have scrapyar
     // Your wording from notes.txt; only spelling fixed.
     blurb: "A desk organizer made of one piece of aluminum sheet metal that is able to function on four of its sides (essentially metal origami).",
 
-    description: `
-4.021 (intro to design) solo project on designing functional objects with design constraints: 2ft x 2ft sheet of aluminum and using only one piece.
 
-Prototyped initially with paper, cardboard and then aluminum. Manipulated the metal using a laser cutter and sheet bending tools, then finished it off with powder coating.
+    // Your wording from notes.txt; only spelling and grammar fixed.
+    description: `
+4.021 (intro to design) solo project on designing functional objects with design constraints: a 2 ft x 2 ft sheet of aluminum, using only one piece.
+
+I wanted to make a desk organizer that I could place anywhere on my desk. Ideally it should work on anyone's desk too and give the user autonomy over its orientation. I started scoping out on paper how many dividers there should be and the bare minimum of area needed to act as a sufficient divider. I also decided to allow for four possible sides that could rest on the desk or ground and still allow for full functionality.
+
+The first prototype was laser cut from cardboard and had rough geometric cutouts. There turned out to be some misalignment between the dividers after they were bent, and a lack of support on the overhanging divider in one of the configurations. I used tape to mimic the rigidity of the aluminum and redid the CAD in Rhino with the adjustments: sizing down the protruding dividers I identified, adding a tab-and-slot joint, and making slotted relief cuts at the bends for ease of manual bending.
+
+The second prototype was cut with the metal laser cutter, but the slotted relief cuts were not toleranced well: they needed less distance between each slot to allow for manual bending. This led to the final prototype, where the bends were much easier to make, and I topped it off with a bright orange powder coat for a clean finish.
     `,
 
     // 1 = finished folder, flat (thumbnail), 2 = concept sketches,
-    // 3 = the laser-cut sheet before bending, 4 = finished folder, upright.
+    // 3 = first cardboard prototype, 4 = the laser-cut sheet before bending,
+    // 5 = finished folder, upright.
     images: [
       "images/metal-folder/1.jpg",
       "images/metal-folder/2.jpg",
       "images/metal-folder/3.jpg",
       "images/metal-folder/4.jpg",
+      "images/metal-folder/5.jpg",
     ],
 
     role: "Design, fabrication",
@@ -526,21 +534,28 @@ Prototyped initially with paper, cardboard and then aluminum. Manipulated the me
     // Your wording from notes.txt; only tidied.
     blurb: "A metal fish and a variation of metal dinosaurs.",
 
-    // ✏️ DRAFT: your notes, lightly reworded. Refine freely.
+    // Your wording from notes.txt; only spelling and grammar fixed.
     description: `
-Prototyped with paper first, moved the sketches into Illustrator, then cut and folded a few prototypes.
+I got really excited by my access to a metal laser cutter and decided to use it. I saw dogs made of sheet metal using very geometric folds, but wanted to see how I could manipulate metal into more organic shapes.
 
-I had to adjust the scale and space out the cuts more whenever a fold was too difficult to make by hand or the metal snapped.
+My first experiment was a scaly fish. This choice was not arbitrary: the scales serve as relief cuts so that a curvature can be bent by hand, and metal scales also look nice. I started in Procreate to get a rough estimate of the shape, cut it out quickly, and tested the sizing of the fins and the thickness it would be. With that information, I made adjustments in Illustrator to make it more symmetrical and consistent. I cut the first prototype and realized the ratio of size to thickness was too small, so the bends were much more difficult to make and required too much force. I sized up by 1.5x, and the fish came alive after that, with the specific method of using hard-edged tools to bend the scales as well.
+
+I later experimented with making three small dinosaurs. The initial sketches were modeled after a Brachiosaurus, a Stegosaurus, and a more cartoon version of a dinosaur sitting down. The sketches were then made into paper prototypes, and I adjusted their shapes in their constructed form. This edited version was refined further in Illustrator and then cut on the metal laser cutter. One issue that came up was a lack of relief cuts on one of the dinosaur tails, which caused the material to break from multiaxial stress at that endpoint.
+
+In a later prototype, I would increase the number of relief cuts and distribute them along the other axis for bending.
     `,
 
     // 1 = folded fish (thumbnail), 2 = the fish cut flat, before folding,
-    // 3 = folded dinosaur with its paper prototype,
-    // 4 = dinosaurs hanging after powder coating.
+    // 3 = the fish's Illustrator cut file, 4 = folded dinosaur with its
+    // paper prototype, 5 = dinosaurs cut flat, before folding,
+    // 6 = dinosaurs hanging after powder coating.
     images: [
       "images/metal-animals/1.jpg",
       "images/metal-animals/2.jpg",
-      "images/metal-animals/3.jpg",
+      "images/metal-animals/3.png",
       "images/metal-animals/4.jpg",
+      "images/metal-animals/5.jpg",
+      "images/metal-animals/6.jpg",
     ],
 
     role: "Fabrication, creator",
@@ -558,11 +573,14 @@ I had to adjust the scale and space out the cuts more whenever a fold was too di
     // Your wording from notes.txt; only tidied.
     blurb: "A birthday dress for my sister that she asked me to design and photograph.",
 
-    // Your wording from notes.txt; only spelling fixed.
+    // Your wording from notes.txt; spelling and grammar fixed, and a repeated
+    // phrase ("sowing patterns used") removed.
     description: `
-This custom dress was inspired by fashion icons like Rihanna and uses black satin, imitation pearls, and string.
+My sister had an idea for a dress heavily inspired by fashion icons like Rihanna, and I was up for the challenge of fabricating it. I started sketching out the components she liked from other dresses she had seen online. Black satin was chosen for a slim and elegant look. At my sister's request, the skirt needed to drape, and it was all made from one piece of fabric to reduce visible stitching. This process was a cycle of constantly testing the fabric with her, taking measurements, and even practicing walking with the predicted train of the skirt.
 
-The process went through multiple iterations, including a corset alternative to the top, and was tested with the client (aka sister) throughout the entire fabrication. Definitely learned a lot with this project!
+The top piece was much more difficult. One issue my sister pointed out was that other dresses lacked support in the chest area, so whether to make it entirely of satin or of two different materials was a creative decision left up to me. For the structure, I experimented with making a corset for the first time. This involved more measurements to test durability and comfort, and to ensure enough seam allowance. In total, I handmade seven sewing patterns. Unfortunately, the fit was slightly off and did not provide the best coverage.
+
+This led to top piece #2, seen in the first picture, which is sewn onto the skirt and also made of satin. More measurements were taken, but this couldn't be the usual top; my sister wanted something bold. She suggested a cape or billowing sleeves, but I convinced her to go with imitation pearls draped across her back. This reduced the fabric needed for the back and made a statement piece in and of itself. With the counterweight of the pearls, which were made detachable from the dress, the top gained the draping effect she wanted and paired well with her accessories.
     `,
 
     // 1 = the finished dress, worn (thumbnail),

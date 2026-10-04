@@ -26,9 +26,23 @@ description (as many lines as you like; blank line = new paragraph):
   4.021 (intro to design) solo project on designing functional objects with
   design constraints: 2ft x 2ft sheet of aluminum and using only one piece.
 
-  Prototyped initially with paper, cardboard and then aluminum. Manipulated
-  the metal using a laser cutter and sheet bending tools, then finished it off
-  with power coating.
+  I wanted to make a desk organizer that I could place anywhere on my desk. Ideally it should
+  work on anyone's desk too and gives the user autonomy about orientation.
+  I started scoping out on paper how many dividers there should be and the bare minimum of
+  area needed to act as a sufficient divider. I also decided to allow for four possible sides
+  that would interface with desk or ground and still allow for full functionality.
+
+  The first prototype was lasercut from cardboard and had rough geometric cut outs. There turned out to
+  be some misalignment with all the dividers after they were bent, there was a lack of support on
+  the overhang divider for one of the configurations. I used tape to mimic the rigidness of the
+  aluminum and redid the CAD in Rhino with the adjustments: this involved sizing down the protruding
+  dividers I identified, adding a tab and slot joint, and making slotted relief cuts at the bends for
+  ease of manual bending.
+
+  The second prototype was cut with the metal laser cutter but the tolerancing of the slotted relief cuts
+  were not large enough and required less distance between each slot to allow for manual bending. This led
+  to the last prototype where the bends were much more easier to make, and then I topped it off with
+  a bright orange powder coat for a clean finish.
 
 ----------------------------------------------------------------------
 STATUS (2026-09-26): added to index.html as project [P8].
@@ -36,3 +50,8 @@ STATUS (2026-09-26): added to index.html as project [P8].
   Your full-size originals are in originals/ (kept off GitHub).
   To change text, search index.html for [P8]. To change photos,
   replace the numbered files here and keep the same names.
+
+----------------------------------------------------------------------
+STATUS (2026-10-03): new description and photo order applied to [P8]:
+  1 flat, 2 sketches, 3 cardboard prototype (web copy of your 39 MB
+  3.png; the original is in originals/), 4 cut sheet, 5 upright.

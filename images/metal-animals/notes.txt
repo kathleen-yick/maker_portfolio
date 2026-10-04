@@ -22,9 +22,24 @@ blurb (one or two sentences for under the thumbnail):
   Metal fish and a variation of metal dinosaurs
 
 description (as many lines as you like; blank line = new paragraph):
-  Prototyped with paper first, moved sketches into illustrator, then cut and folded
-  a few prototypes. Had to adjust the scale and space out the cuts more when I noticed
-  a fold was too difficult to hand fold or whether the metal snapped.
+  I got really excited by my access to a metal laser cutter and decided to use it. I saw dogs made of sheet metal
+  using very geometric folds but wanted to see how I could manipulate metal into more organic shapes.
+
+  My first experiment was to make a scaly fish. This choice was not arbitray: the scales would serve as relief
+  cuts so that a curvature could be manually bent and also the metal scales would look nice. I started out in Procreate
+  to get a rough estimate the shape, cut it out quickly and tested the sizing of the fins, of the thickness it would be.
+  With that information, I made adjustments in Illustrator to make it more symmetrical and consistent. I cut the first prototype
+  and realized that ratio of size versus thickness was too small and so the bends were much more difficult to make and required
+  too much force. I sized up by x1.5 and the fish came alive after that with the specific method of using hard eged tools to
+  bend the scales as well.
+
+  I later experimented with making three small dinosaurs. The initial sketches were modeled after a Brachiosaurus,
+  a Stegosaurus, and a more cartoon version of a dinosaur sitting down. The initial sketches were then made into paper prototypes
+  after cutting them out and I adjusted the shape of them in their constructed form. This new editied version was similarly edited further
+  in Illustrator and then cut by the metal laser cutter. One issue that came up was a lack of relief cuts on one of the dinosaur tails
+  which caused a breakage in the material due to multiaxial stress at that endpoint.
+
+  In a later prototype, I would increase the number of relief cuts and distribute in the other axis for bending.
 
 ----------------------------------------------------------------------
 STATUS (2026-09-26): added to index.html as project [P9].
@@ -33,3 +48,8 @@ STATUS (2026-09-26): added to index.html as project [P9].
   Your full-size originals are in originals/ (kept off GitHub).
   To change text, search index.html for [P9]. To change photos,
   replace the numbered files here and keep the same names.
+
+----------------------------------------------------------------------
+STATUS (2026-10-03): new description and 6 photos applied to [P9].
+  Your file "3,jpg.png" was renamed 3.png. 5.jpg is a web-sized copy;
+  the full-size photo is in originals/.

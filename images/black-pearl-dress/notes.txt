@@ -22,11 +22,27 @@ blurb (one or two sentences for under the thumbnail):
   A birthday dress for my sister she asked me to design and photograph
 
 description (as many lines as you like; blank line = new paragraph):
-  This custom dress was inspired by fashions icons like Rhinanna and uses
-  black satin, imitation pearls, and string. The process went through multiple
-  iterations, including a corset alternative to the top, and was tested with
-  client (aka sister) throughout the entire fabrication. Definitely learned a
-  lot with this prooject!
+  My sister had an idea for a dress that was heavily inspired by fashions icons
+  like Rhinanna. And I was up for the challenge to fabricate it and started sketching out the components
+  she liked from other designs she saw online of the dress. The black satin was chosen for a slim and elegant look.
+  The skirt needed to drape as per request of my sister and this all was done with one piece of
+  fabric to reduce visible stitching. This process was a cycle of constantly testing the fabric
+  with her, making measurements, and even practicing walking with the predicted train of the skirt.
+
+  The top piece was much more difficult. One issue my sister outlined was a lack of support from other
+  dresses in the chest area. Thus, a question of whether this should be made of satin entirely or two
+  different materials was a creative decision up to me. For the structure of the dress, I experimented
+  with making a corset for the first time. This involved more measurements to test durability, comfortability,
+  and ensure for seam allowance. In total there were seven sowing patterns handmade by me.
+  sowing patterns used. Unfortunately, the fit was slightly underfitted and did not provide the best coverage.
+
+  This led to top piece number #2 seen in the first picture that is sown on to the skirt, also made of satin.
+  More measurements were made but this couldn't be the usual top; my sister wanted something bold. She suggested a cape
+  or billowing sleeves but I convinced her to go with imitation pearls draped across her back. This decision reduced fabric
+  needed to create the back, and also made a statement piece in and of itself. With the counterweight of the pearls, that
+  were made to be detachable from the dress, the top added that draping effect she wanted and paired well with her acessories.
+
+
 
 ----------------------------------------------------------------------
 STATUS (2026-09-26): added to index.html as project [P10].
@@ -41,3 +57,7 @@ STATUS (2026-09-26): added to index.html as project [P10].
 STATUS (2026-09-27): title, Instagram link and featured: yes applied
   to [P10] in index.html. (The link was shortened; the part after "?"
   was only a share code.)
+
+----------------------------------------------------------------------
+STATUS (2026-10-03): new description applied to [P10], with spelling
+  fixed and the repeated "sowing patterns used." line removed.

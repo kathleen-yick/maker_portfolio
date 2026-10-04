@@ -29,7 +29,7 @@ ADDITIONAL INFO TABLE
   Resume           | View my resume                          | #resume
   School and Year  | Massachusetts Institute of Technology, Class of 2029       |
   Major            | Mechanical Engineering, Design and CS minor    |
-  Awards           | Scholastic Art Awards                   |
+  Skills and Interests           | Prototyping, Design, Fabrication, Sustainability, Mechanical Systems, Electrical Systems                   |
 
 FEATURED PROJECTS
   Not set here. Any project with  featured: true  in index.html
